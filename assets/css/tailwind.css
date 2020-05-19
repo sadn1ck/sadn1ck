@@ -1,0 +1,14 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+html{
+  background-image: url(/bg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-bottom: 10em;
+}

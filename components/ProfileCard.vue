@@ -1,7 +1,7 @@
 <template>
   <div class="font-sans antialiased text-gray-900 leading-normal bg-cover">
     <div
-      class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto lg:my-0"
+      class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap my-16 mx-auto lg:my-0"
     >
       <!--Main Col-->
       <div
@@ -15,7 +15,7 @@
             :style="imgstyle"
           />
 
-          <h1 class="text-3xl font-bold pt-8 lg:pt-0">
+          <h1 class="text-4xl font-bold pt-8 lg:pt-0">
             {{ name }}
           </h1>
           <div
@@ -36,17 +36,24 @@
           <div
             v-for="(like, index) in likes"
             :key="index"
-            class="text-base font-bold"
+            class="text-xl font-bold"
           >
             {{ like }}
           </div>
-          <p class="pt-8 text-sm">
+          <p class="pt-8 text-lg">
             {{ description }}
           </p>
-          <!--  -->
-          <div
-            class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between"
-          />
+        </div>
+        <div class="flex my-4 justify-around">
+          <div class="">
+            <a href="#">link1</a>
+          </div>
+          <div class="">
+            <a href="#">link2</a>
+          </div>
+          <div class="">
+            <a href="#">link3</a>
+          </div>
         </div>
       </div>
       <!--Img Col-->
@@ -71,8 +78,7 @@ export default {
     },
     college: {
       type: String,
-      default:
-        'Indian Institute Of Engineering, Science and Technology, Shibpur'
+      default: 'Indian Institute Of Engineering, Science and Technology, Shibpur'
     },
     likes: {
       type: Array,
@@ -82,8 +88,7 @@ export default {
     },
     description: {
       type: String,
-      default:
-        'Passionate developer with a hunger for learning and creating new things. Highly interested in Computer Security, Web Development and Operating Systems. Regularly take part in Capture The Flags (CTFs) and always looking to collaborate on Open Source projects. '
+      default: 'Passionate developer with a hunger for learning and creating new things. Highly interested in Computer Security, Web Development and Operating Systems. Regularly take part in Capture The Flags (CTFs) and always looking to collaborate on Open Source projects. '
     },
     imgsrc: {
       type: String,

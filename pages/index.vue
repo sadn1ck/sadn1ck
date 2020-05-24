@@ -2,7 +2,11 @@
   <div>
     <ProfileCard />
     <TitleCard
-      :title="'Experience'"
+      :title="' Work Experience'"
+    />
+    <ExpCard />
+    <TitleCard
+      :title="' Projects '"
     />
     <ExpCard />
   </div>

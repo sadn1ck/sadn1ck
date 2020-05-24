@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto">
-    <div class="font-sans text-center content-center text-4xl font-extrabold py-10 md:w-1/2 max-w-md">
+  <div class="container mx-auto my-8">
+    <div class="font-sans text-center content-center text-5xl font-extrabold py-10 md:w-1/2 max-w-md">
       {{ title }}
     </div>
   </div>

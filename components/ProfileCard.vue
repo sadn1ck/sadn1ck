@@ -92,11 +92,11 @@ export default {
     },
     imgsrc: {
       type: String,
-      default: '/me.png'
+      default: 'me.png'
     },
     imgstyle: {
       type: String,
-      default: 'background-image: url(/me.png)'
+      default: 'background-image: url(me.png)'
     }
   }
 }

@@ -3,8 +3,3 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-html{
-  margin-left: 2em;
-  margin-right: 2em;
-  padding-bottom: 10em;
-}

@@ -1,25 +1,44 @@
 <template>
   <div class="bg-white opacity-75 m-auto max-w-6xl p-12 rounded-lg shadow-2xl">
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row pt-8">
       <div class="md:w-1/2 max-w-md flex flex-col justify-center">
-        <div class="text-center md:text-4xl text-3xl uppercase font-black">{{ expTitle }}</div>
-        <div
-          class="text-xl mt-4 sm:text-center"
-        >{{ expDesc }}</div>
-        <div class="my-5 h-16">
+        <div class="text-center md:text-5xl text-4xl font-black">
+          {{ expTitle }}
+        </div><div class="text-center md:text-xl font-grey">
+          {{ expPlace }} | {{ timeRange }}
         </div>
+        <div class="pt-10">
+          <ul
+            v-for="(descitem, key) in expDesc"
+            :key="key"
+            class="text-xl mt-4 sm:text-center md:text-left ml-8 list-disc"
+          >
+            <li>
+              {{ descitem }}
+            </li>
+          </ul>
+        </div>
+        </ul>
+        <div class="my-5 h-16" />
       </div>
       <div class="flex md:justify-end w-full md:w-1/2 -mt-5">
         <div class="bg-dots">
-          <div class="shadow-2xl max-w-md z-10 rounded-full mt-2 ml-4">
+          <div class="shadow-2xl max-w-md z-10 rounded-full mt-10 ml-4">
             <img
               alt="exp image"
               class="rounded-t"
-              :src=expImgSrc
-            />
-            <div class="text-base p-10 bg-white">
-              <a :href=expLink>
-                {{ expLinkName }}
+              :src="expImgSrc"
+            >
+            <div
+              class="text-base p-10 text-xl bg-white text-center flex justify-around"
+            >
+              <a
+                v-for="(link, keyLink) in expLink"
+                :key="keyLink"
+                :href="link"
+                class="bg-transparent flex-col border-black text-blue hover:text-white hover:bg-indigo-600 py-2 px-4 rounded"
+              >
+                {{ expLinkName[keyLink] }}
               </a>
             </div>
           </div>
@@ -37,21 +56,35 @@ export default {
       type: String,
       default: 'Sample exp'
     },
-    expDesc: {
+    expPlace: {
       type: String,
-      default: 'Sample exp Description made to span multiple lines to make it better for development'
+      default: ''
+    },
+    timeRange: {
+      type: String,
+      default: ''
+    },
+    expDesc: {
+      type: Array,
+      default () {
+        return ['Small description 1', 'Small description 2']
+      }
     },
     expImgSrc: {
       type: String,
       default: 'https://i.redd.it/5n9pjusshm051.jpg'
     },
     expLink: {
-      type: String,
-      default: 'https://natter.banbreach.com'
+      type: Array,
+      default () {
+        return ['https://natter.banbreach.com']
+      }
     },
     expLinkName: {
-      type: String,
-      default: ''
+      type: Array,
+      default () {
+        return ['Natter']
+      }
     }
   }
 }

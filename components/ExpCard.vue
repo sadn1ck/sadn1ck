@@ -18,7 +18,6 @@
             </li>
           </ul>
         </div>
-        </ul>
         <div class="my-5 h-16" />
       </div>
       <div class="flex md:justify-end w-full md:w-1/2 -mt-5">

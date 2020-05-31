@@ -1,56 +1,26 @@
 <template>
-  <nav
-    :class="{ 'scrolled': !view.atTopOfPage }"
-    class="fixed flex bg-black text-white bg-black p-5 top-0 sm:w-full p-5"
-  >
-    <div class="flex-col text-white text-xl hover:bg-blue-500">
-      a
+  <div class="nav flex justify-end bg-yellow-500 text-black">
+    <div class="nav-item p-5 flex-col">
+      Link 1
     </div>
-    <div class="flex-col text-white text-xl hover:bg-blue-500">
-      b
+    <div class="md:nav-item p-5 flex-col">
+      Link 2
     </div>
-    <div class="flex-col text-white text-xl hover:bg-blue-500">
-      c
+    <div class="md:nav-item p-5 flex-col">
+      Link 3
     </div>
-    <div class="flex-col text-white text-xl hover:bg-blue-500">
-      d
+    <div class="md:nav-item p-5 flex-col">
+      Link 4
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      view: {
-        atTopOfPage: true
-      }
-    }
-  },
-  beforeMount () {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    handleScroll () {
-      if (window.pageYOffset > 0) {
-        if (this.view.atTopOfPage) {
-          this.view.atTopOfPage = false
-        }
-      } else {
-        this.view.atTopOfPage = true
-      }
-    }
-  }
+
 }
 </script>
 
-<style scoped>
-nav {
-    z-index: 10
-}
+<style>
 
-nav.scrolled {
-    @apply shadow-2xl;
-    border-bottom: 0px;
-}
 </style>

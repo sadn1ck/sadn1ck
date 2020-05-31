@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white opacity-75 m-auto max-w-6xl p-12 rounded-lg shadow-2xl">
+  <div class="bg-white opacity-75 m-auto max-w-6xl p-12 mb-16 rounded-lg shadow-2xl">
     <div class="flex flex-col md:flex-row pt-8">
       <div class="md:w-1/2 max-w-md flex flex-col justify-center">
         <div class="text-center md:text-5xl text-4xl font-black">
@@ -35,6 +35,7 @@
                 v-for="(link, keyLink) in expLink"
                 :key="keyLink"
                 :href="link"
+                target="_blank"
                 class="bg-transparent flex-col border-black text-blue hover:text-white hover:bg-indigo-600 py-2 px-4 rounded"
               >
                 {{ expLinkName[keyLink] }}

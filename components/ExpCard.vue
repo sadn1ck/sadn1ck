@@ -23,11 +23,11 @@
       <div class="flex md:justify-end w-full md:w-1/2 -mt-5">
         <div class="bg-dots">
           <div class="shadow-2xl max-w-md z-10 rounded-full mt-10 ml-4">
-            <img
+            <v-lazy-image
               alt="exp image"
               class="rounded-t"
               :src="expImgSrc"
-            >
+            />
             <div
               class="text-base p-10 text-xl bg-white text-center flex justify-around"
             >
@@ -36,7 +36,7 @@
                 :key="keyLink"
                 :href="link"
                 target="_blank"
-                class="bg-transparent flex-col border-black text-blue hover:text-white hover:bg-indigo-600 py-2 px-4 rounded"
+                class="bg-blue-300 flex-col border-black text-blue hover:text-white hover:bg-blue-600 py-2 px-4 rounded"
               >
                 {{ expLinkName[keyLink] }}
               </a>
@@ -91,4 +91,11 @@ export default {
 </script>
 
 <style>
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
 </style>

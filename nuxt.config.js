@@ -29,11 +29,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/fontawesome.js'
+    '~/plugins/fontawesome.js',
+    '~/plugins/lazyload.js'
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
+
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
@@ -59,9 +58,7 @@ export default {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
+    extractCSS: true,
     extend (config, ctx) {
     }
   }

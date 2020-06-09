@@ -1,19 +1,21 @@
 <template>
   <div>
-    <ProfileCard />
+    <TitleCard
+      :title="'Education'"
+    />
   </div>
 </template>
 
 <script>
-import ProfileCard from '~/components/ProfileCard'
+import TitleCard from '~/components/TitleCard'
 export default {
   layout: 'default',
   components: {
-    ProfileCard
+    TitleCard
   },
   head () {
     return {
-      title: 'Anik Das | My Portfolio'
+      title: 'Education | Anik '
     }
   }
 }

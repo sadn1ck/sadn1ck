@@ -19,7 +19,8 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "v-lazy-image": "^1.4.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",

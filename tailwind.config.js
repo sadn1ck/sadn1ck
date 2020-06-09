@@ -105,5 +105,6 @@ module.exports = {
     wordBreak: ['responsive', 'hover', 'focus'],
     zIndex: ['responsive', 'hover', 'focus']
   },
-  plugins: []
+  plugins: [],
+  purge: false
 }

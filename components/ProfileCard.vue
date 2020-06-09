@@ -46,13 +46,13 @@
         </div>
         <div class="flex my-4 justify-around">
           <div class="">
-            <a href="#">link1</a>
+            <a href="https://www.linkedin.com/in/sadn1ck/" target="_blank"><font-awesome-icon :icon="['fab', 'linkedin']" size="2x" /></a>
           </div>
           <div class="">
-            <a href="#">link2</a>
+            <a href="https://github.com/sadn1ck" target="_blank"><font-awesome-icon :icon="['fab', 'github']" size="2x" /></a>
           </div>
           <div class="">
-            <a href="#">link3</a>
+            <a href="https://ctftime.org/team/89677" target="_blank"><font-awesome-icon :icon="['fa', 'laptop']" size="2x" /></a>
           </div>
         </div>
       </div>

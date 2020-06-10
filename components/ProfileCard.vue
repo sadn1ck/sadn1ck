@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans antialiased text-gray-900 pt-10 leading-normal bg-cover">
+  <div class="font-sans antialiased text-gray-900 pt-16 leading-normal bg-cover">
     <div
       class="max-w-4xl flex items-center p-5 flex-wrap mx-auto lg:my-0"
     >
@@ -21,7 +21,7 @@
           <div
             class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 flex"
           >
-            <font-awesome-icon class="md:mr-2 mt-2 is-medium" :icon="['fa', 'university']" /> {{ college }}
+            {{ college }}
           </div>
           <p
             class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
@@ -37,17 +37,7 @@
             {{ description }}
           </p>
         </div>
-        <div class="flex my-4 justify-around">
-          <div class="">
-            <a href="https://www.linkedin.com/in/sadn1ck/" target="_blank" rel="noreferrer"><font-awesome-icon class="is-medium" :icon="['fab', 'linkedin']" size="2x" /></a>
-          </div>
-          <div class="">
-            <a href="https://github.com/sadn1ck" target="_blank" rel="noreferrer"><font-awesome-icon class="is-medium" :icon="['fab', 'github']" size="2x" /></a>
-          </div>
-          <div class="">
-            <a href="https://ctftime.org/team/89677" target="_blank" rel="noreferrer"><font-awesome-icon class="is-medium" :icon="['fa', 'laptop']" size="2x" /></a>
-          </div>
-        </div>
+        <ContactBar />
       </div>
       <!--Img Col-->
       <div class="w-full lg:w-2/5">
@@ -62,8 +52,12 @@
 </template>
 
 <script>
+import ContactBar from '~/components/ContactBar'
 export default {
   name: 'ProfileCard',
+  components: {
+    ContactBar
+  },
   props: {
     name: {
       type: String,

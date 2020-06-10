@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="text-center">
     <!-- Latest update -->
     <vue-timeline-update
       theme="light"
       :date="new Date('2019-08-24')"
       title="Joined IIEST Shibpur"
-      description="oined IIEST Shibpur"
-      thumbnail=""
-      category="announcement"
+      description="Joined the Department of Information Technology, IIEST Shibpur"
+      thumbnail="https://www.iiests.ac.in/assets/images/bg/05.jpg"
+      category="admission"
       icon="code"
       color="blue"
     />
@@ -17,7 +17,7 @@
       title="Completed 12th standard | Finished School"
       description="ISC Results declared, scored 96.75%"
       thumbnail=""
-      category="graduation"
+      category="12th standard"
       icon="school"
       color="red"
     />
@@ -27,7 +27,7 @@
       title="Completed 10th standard"
       description="ICSE Results declared, scored 97.4%"
       thumbnail=""
-      category="announcement"
+      category="10th standard"
       icon="school"
       color="green"
     />

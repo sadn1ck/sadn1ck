@@ -30,7 +30,8 @@ export default {
   */
   plugins: [
     '~/plugins/fontawesome.js',
-    '~/plugins/lazyload.js'
+    '~/plugins/lazyload.js',
+    { src: '~/plugins/timeline.js' }
   ],
 
   buildModules: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans antialiased text-gray-900 leading-normal bg-cover">
+  <div class="font-sans antialiased text-gray-900 pt-10 leading-normal bg-cover">
     <div
       class="max-w-4xl flex items-center p-5 flex-wrap mx-auto lg:my-0"
     >

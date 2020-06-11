@@ -79,11 +79,11 @@ export default {
     },
     imgsrc: {
       type: String,
-      default: 'me.png'
+      default: 'me.webp'
     },
     imgstyle: {
       type: String,
-      default: 'background-image: url(me.png)'
+      default: 'background-image: url(me.webp)'
     }
   }
 }

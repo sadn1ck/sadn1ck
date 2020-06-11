@@ -8,7 +8,7 @@
       :exp-place="'Project'"
       :exp-desc="covidworkDesc"
       :time-range="'April 2020'"
-      :exp-img-src="'/india-covid-map.jpg'"
+      :exp-img-src="'/india-covid-map.webp'"
       :exp-link="covidLink"
       :exp-link-name="covidLinkName"
     />
@@ -17,7 +17,7 @@
       :exp-place="'Project'"
       :exp-desc="tictacworkDesc"
       :time-range="'March 2020'"
-      :exp-img-src="'/tictactoe.png'"
+      :exp-img-src="'/tictactoe.webp'"
       :exp-link="tictacLink"
       :exp-link-name="tictacLinkName"
     />

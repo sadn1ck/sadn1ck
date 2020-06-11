@@ -8,7 +8,7 @@
       :exp-place="'Intern @ Banbreach'"
       :exp-desc="bbworkDesc"
       :time-range="'April 2020 - Current'"
-      :exp-img-src="'/natter.png'"
+      :exp-img-src="'/natter.webp'"
       :exp-link="expLink"
       :exp-link-name="expLinkName"
     />

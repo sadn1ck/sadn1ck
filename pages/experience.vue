@@ -7,7 +7,7 @@
       :exp-title="'Student Developer'"
       :exp-place="'Intern @ Banbreach'"
       :exp-desc="bbworkDesc"
-      :time-range="'April 2020 - May 2020'"
+      :time-range="'April 2020 - Current'"
       :exp-img-src="'/natter.png'"
       :exp-link="expLink"
       :exp-link-name="expLinkName"

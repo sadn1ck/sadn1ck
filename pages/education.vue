@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-5 py-5">
     <TitleCard
       :title="'Education'"
     />

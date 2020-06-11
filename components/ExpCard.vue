@@ -35,8 +35,9 @@
                 v-for="(link, keyLink) in expLink"
                 :key="keyLink"
                 :href="link"
+                rel="noreferrer"
                 target="_blank"
-                class="bg-blue-300 flex-col border-black text-blue hover:text-white hover:bg-blue-600 py-2 px-4 rounded"
+                class="text-center text-black bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 hover:text-white rounded text-lg mt-10 sm:mt-0"
               >
                 {{ expLinkName[keyLink] }}
               </a>

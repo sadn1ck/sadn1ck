@@ -24,10 +24,6 @@ export default {
     TitleCard,
     ExpCard
   },
-  transition: {
-    name: 'test',
-    mode: 'out-in'
-  },
   data () {
     return {
       bbworkDesc: ['Testing and bug fixing of a video conferencing solution', 'Worked on nuxt.js websites', 'Including but not limited to site creation, bug fixing, internationalisation, localisation and unit testing'],

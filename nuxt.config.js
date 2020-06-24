@@ -45,7 +45,24 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    ['@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyDy5HHXhaPfx5C77UO5tlpnztl2T__F3rw',
+          authDomain: 'my-website-a32fe.firebaseapp.com',
+          databaseURL: 'https://my-website-a32fe.firebaseio.com',
+          projectId: 'my-website-a32fe',
+          storageBucket: 'my-website-a32fe.appspot.com',
+          messagingSenderId: '243829419548',
+          appId: '1:243829419548:web:19d878db371df01128f9d9',
+          measurementId: 'G-HJCVM8P899'
+        },
+        services: {
+          firestore: true
+        }
+      }
+    ]
   ],
   /*
   ** Axios module configuration

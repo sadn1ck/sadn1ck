@@ -19,6 +19,8 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/firebase": "^6.0.1",
+    "firebase": "^7.15.4",
     "nuxt": "^2.0.0",
     "v-lazy-image": "^1.4.0"
   },

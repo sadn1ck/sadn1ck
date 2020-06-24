@@ -26,6 +26,9 @@
             </button>
           </div>
         </div>
+        <div class="py-5">
+          <FormSubmit v-if="showSubmissionMsg" />
+        </div>
       </div>
     </div>
   </section>
@@ -35,9 +38,11 @@
 
 import db from 'firebase'
 import TitleCard from '~/components/TitleCard'
+import FormSubmit from '~/components/FormSubmit'
 export default {
   components: {
-    TitleCard
+    TitleCard,
+    FormSubmit
   },
   data () {
     return {
@@ -45,7 +50,8 @@ export default {
         name: '',
         email: '',
         info: ''
-      }
+      },
+      showSubmissionMsg: false
     }
   },
   methods: {
@@ -55,7 +61,14 @@ export default {
       db.firestore().collection('website').add(this.form)
         .then(function (res) {
         })
+      this.showSubmissionMsg = true
+      console.log(this.showSubmissionMsg)
+      this.wait()
+      console.log('outside wait()' + this.showSubmissionMsg)
       this.onReset(evt)
+    },
+    wait () {
+      setTimeout(() => { this.showSubmissionMsg = false; console.log(this.showSubmissionMsg) }, 3000)
     },
     onReset (evt) {
       evt.preventDefault()

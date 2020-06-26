@@ -1,15 +1,15 @@
 {
   "name": "my-website",
   "version": "1.0.0",
-  "description": "personal website",
-  "author": "Anik Das",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "export": "nuxt export",
+    "serve": "nuxt serve",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "yarn lint:js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
@@ -22,6 +22,7 @@
     "@nuxtjs/firebase": "^6.0.1",
     "firebase": "^7.15.4",
     "nuxt": "^2.0.0",
+    "core-js": "^2.6.5",
     "v-lazy-image": "^1.4.0"
   },
   "devDependencies": {

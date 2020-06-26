@@ -62,13 +62,11 @@ export default {
         .then(function (res) {
         })
       this.showSubmissionMsg = true
-      console.log(this.showSubmissionMsg)
       this.wait()
-      console.log('outside wait()' + this.showSubmissionMsg)
       this.onReset(evt)
     },
     wait () {
-      setTimeout(() => { this.showSubmissionMsg = false; console.log(this.showSubmissionMsg) }, 3000)
+      setTimeout(() => { this.showSubmissionMsg = false }, 3000)
     },
     onReset (evt) {
       evt.preventDefault()

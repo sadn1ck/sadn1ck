@@ -15,7 +15,7 @@ install:
   - yarn run generate:gh-pages
 
 script:
-  - echo "Skipping tests"
+  - echo "Skipping tests etc"
 
 deploy:
   provider: pages

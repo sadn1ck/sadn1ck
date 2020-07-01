@@ -1,12 +1,6 @@
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/portfolio/'
-  }
-} : {}
-
 export default {
-  ...routerBase,
   mode: 'universal',
+  target: 'static',
   /*
   ** Headers of the page
   */

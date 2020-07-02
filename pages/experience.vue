@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-      bbworkDesc: ['Testing and bug fixing of a video conferencing solution', 'Worked on nuxt.js websites', 'Including but not limited to site creation, bug fixing, internationalisation, localisation and unit testing'],
+      bbworkDesc: ['Testing and bug fixing of a video conferencing solution', 'Worked on multiple nuxt.js websites', 'Created websites from scratch', 'Did internationalisation, localisation and unit testing of websites'],
       expLink: ['https://natter.banbreach.com'],
       expLinkName: ['Natter']
     }

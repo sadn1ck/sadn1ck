@@ -29,7 +29,7 @@
               :src="expImgSrc"
             />
             <div
-              class="text-base p-10 text-xl bg-white text-center flex justify-around"
+              class="p-10 text-xl bg-white text-center flex justify-around"
             >
               <a
                 v-for="(link, keyLink) in expLink"

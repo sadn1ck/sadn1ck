@@ -1,6 +1,6 @@
 <template>
-  <section class="text-gray-700 body-font relative">
-    <div class="container px-10 py-24 mx-auto">
+  <section class="body-font relative">
+    <div class="container px-10 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
         <TitleCard
           :title="'Contact Me'"

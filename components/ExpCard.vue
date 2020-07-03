@@ -5,16 +5,16 @@
         <img class="object-cover object-center rounded" alt="hero" :src="expImgSrc">
       </div>
       <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+        <h1 class="title-font sm:text-4xl text-3xl mb-8 font-medium text-gray-900">
           {{ expTitle }}
         </h1>
-        <h1 class="title-font sm:text-2xl text-xl mb-4 font-medium text-gray-900">
+        <h1 class="title-font sm:text-2xl text-xl mb-8 font-medium text-gray-900">
           {{ expPlace }}, {{ timeRange }}
         </h1>
-        <p v-for="(desc, i) in expDesc" :key="i" class="mb-8 leading-relaxed">
+        <p v-for="(desc, i) in expDesc" :key="i" class="py-2 text-black text-lg leading-relaxed">
           {{ desc }}
         </p>
-        <div class="flex justify-center">
+        <div class="flex pt-10 justify-center">
           <a v-for="(link, i) in expLink" :key="i" :href="link" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             {{ expLinkName[i] }}
           </a>

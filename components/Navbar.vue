@@ -15,7 +15,6 @@
     </div>
     <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
       <a href="/experience" class="sm:text-xl block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Experience</a>
-      <a href="/projects" class="sm:text-xl mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Projects</a>
       <a href="/education" class="sm:text-xl mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Education</a>
       <a href="/contact" class="sm:text-xl mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Contact</a>
     </nav>

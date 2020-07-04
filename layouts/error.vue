@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center mt-32" style="height: 50vh">
+  <div class="text-center mt-32 font-sans antialiased" style="height: 50vh">
     <TitleCard
       class="pb-16"
       :title="'The page you requested does not exist!'"

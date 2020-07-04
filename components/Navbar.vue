@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+  <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center font-sans antialiased sm:px-4 sm:py-3">
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <a href="/" class="block px-2 py-1 text-3xl text-white font-semibold rounded hover:bg-gray-800 sm:text-2xl">
         <font-awesome-icon :icon="['fas', 'home']" />  Home

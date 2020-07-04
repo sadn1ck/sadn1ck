@@ -21,7 +21,7 @@
             <textarea v-model="form.info" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" placeholder="Message" />
           </div>
           <div class="p-2 w-full">
-            <button class="flex mx-auto text-black bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 hover:text-white rounded text-lg" @click="onSubmit">
+            <button class="flex mx-auto text-black bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 hover:text-gray-900 rounded text-lg" @click="onSubmit">
               Send
             </button>
           </div>

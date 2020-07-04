@@ -18,7 +18,18 @@
           <h1 class="text-4xl font-bold pt-8 lg:pt-0">
             {{ name }}
           </h1>
-          <font-awesome-icon :icon="['fa', 'location-arrow']" />
+          <div>
+            <font-awesome-icon :icon="['fab', 'vuejs']" />
+            <font-awesome-icon :icon="['fab', 'github']" />
+            <font-awesome-icon :icon="['fab', 'python']" />
+            <font-awesome-icon :icon="['fab', 'js']" />
+            <font-awesome-icon :icon="['fab', 'ubuntu']" />
+            <font-awesome-icon :icon="['fab', 'node']" />
+            <font-awesome-icon :icon="['fab', 'docker']" />
+            <font-awesome-icon :icon="['fab', 'html5']" />
+            <font-awesome-icon :icon="['fab', 'bootstrap']" />
+            <font-awesome-icon :icon="['fab', 'css3-alt']" />
+          </div>
           <div
             class="mx-auto lg:mx-0 w-4/5 py-3 border-b-2 border-teal-500 flex"
           >
@@ -45,6 +56,7 @@
         <!-- Big profile image for side bar (desktop) -->
         <v-lazy-image
           :src="imgsrc"
+          alt="My own picture"
           class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
         />
       </div>

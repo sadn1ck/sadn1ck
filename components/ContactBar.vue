@@ -1,13 +1,13 @@
 <template>
   <div class="flex justify-around px-5 py-5">
-    <a href="https://github.com/sadn1ck" target="_blank" class="text-center bg-gray-500 hover:bg-black hover:text-white text-black font-bold py-2 px-3 rounded">
-      GitHub
+    <a href="https://github.com/sadn1ck">
+      <font-awesome-icon size="2x" :icon="['fab', 'github']" class="hover:bg-white hover:text-black" />
     </a>
-    <a href="https://www.linkedin.com/in/sadn1ck/" target="_blank" class="text-center bg-blue-200 hover:bg-blue-700 hover:text-white text-black font-bold py-2 px-3 rounded">
-      LinkedIn
+    <a href="https://www.linkedin.com/in/sadn1ck/">
+      <font-awesome-icon size="2x" :icon="['fab', 'linkedin']" class="hover:bg-white hover:text-black" />
     </a>
-    <a href="https://ctftime.org/team/89677" target="_blank" class="text-center bg-orange-500 hover:bg-red-700 hover:text-white text-black font-bold py-2 px-3 rounded">
-      CTFTime
+    <a href="https://ctftime.org/team/89677">
+      <font-awesome-icon size="2x" :icon="['fa', 'code-branch']" class="hover:bg-white hover:text-black" />
     </a>
   </div>
 </template>

@@ -6,7 +6,7 @@ export default {
   */
   head: {
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en-IN'
     },
     title: process.env.npm_package_name || '',
     meta: [
@@ -26,6 +26,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -36,8 +37,23 @@ export default {
 
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/fontawesome'
   ],
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
+  },
+  tailwindcss: {
+    configPath: '~/tailwind.config.js',
+    cssPath: '~/assets/css/tailwind.css',
+    purgeCSSInDev: false
+  },
+  purgeCSS: {
+    whitelistPatterns: [/svg.*/, /-fa$/, /^fa-/]
+  },
   /*
   ** Nuxt.js modules
   */

@@ -18,8 +18,9 @@
           <h1 class="text-4xl font-bold pt-8 lg:pt-0">
             {{ name }}
           </h1>
+          <font-awesome-icon :icon="['fa', 'location-arrow']" />
           <div
-            class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 flex"
+            class="mx-auto lg:mx-0 w-4/5 py-3 border-b-2 border-teal-500 flex"
           >
             {{ college }}
           </div>

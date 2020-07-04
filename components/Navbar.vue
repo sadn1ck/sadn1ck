@@ -2,7 +2,7 @@
   <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <a href="/" class="block px-2 py-1 text-3xl text-white font-semibold rounded hover:bg-gray-800 sm:text-2xl">
-        Home
+        <font-awesome-icon :icon="['fas', 'home']" />  Home
       </a>
       <div class="sm:hidden">
         <button type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none" @click="isOpen = !isOpen">
@@ -14,9 +14,9 @@
       </div>
     </div>
     <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-      <a href="/experience" class="sm:text-xl block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Experience</a>
-      <a href="/education" class="sm:text-xl mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Education</a>
-      <a href="/contact" class="sm:text-xl mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Contact</a>
+      <a href="/experience" class="sm:text-2xl sm:pl-4 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800"><font-awesome-icon class="mr-2" :icon="['fas', 'code']" />Experience</a>
+      <a href="/education" class="sm:text-2xl sm:pl-4 mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0"><font-awesome-icon class="mr-2" :icon="['fas', 'university']" />Education</a>
+      <a href="/contact" class="sm:text-2xl sm:pl-4 mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0"><font-awesome-icon class="mr-2" :icon="['fas', 'user']" />Contact</a>
     </nav>
   </header>
 </template>

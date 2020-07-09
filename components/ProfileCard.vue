@@ -33,7 +33,7 @@
           <div
             class="mx-auto lg:mx-0 w-4/5 py-3 border-b-2 border-teal-500 flex"
           >
-            {{ college }}
+            <font-awesome-icon class="md:mt-1 lg:mt-2" :icon="['fa', 'university' ]" />{{ college }}
           </div>
           <p
             class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
@@ -43,7 +43,7 @@
             :key="index"
             class="text-xl font-bold"
           >
-            {{ like }}
+            <font-awesome-icon class="mr-2" :icon="['fa', like.icon ]" />{{ like.name }}
           </div>
           <p class="pt-8 text-lg">
             {{ description }}
@@ -83,12 +83,24 @@ export default {
     likes: {
       type: Array,
       default () {
-        return ['Student Developer', 'Security Enthusiast', 'Tech Geek']
+        return [
+          {
+            name: 'Web Developer',
+            icon: 'globe'
+          },
+          {
+            name: 'Security Enthusiast',
+            icon: 'unlock'
+          },
+          {
+            name: 'Love learning new things',
+            icon: 'book'
+          }]
       }
     },
     description: {
       type: String,
-      default: 'Passionate developer with a hunger for learning and creating new things. Highly interested in Computer Security, Web Development and Operating Systems. Regularly take part in Capture The Flags (CTFs) and always looking to collaborate on Open Source projects. '
+      default: 'Passionate developer with a hunger for learning and creating new things. Highly interested in Web Development, DevOps and Computer Security. Regularly make Open Source projects and take part in Capture The Flags (CTFs). Always open to collaboration on Open Source projects, and working on new and exciting technologies.'
     },
     imgsrc: {
       type: String,

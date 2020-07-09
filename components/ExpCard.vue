@@ -15,7 +15,7 @@
           <font-awesome-icon :icon="['fas', 'arrow-right']" /> {{ desc }}
         </p>
         <div class="flex pt-10 justify-center">
-          <a v-for="(link, i) in expLink" :key="i" :href="link" class="inline-flex text-gray-900 bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <a v-for="(link, i) in expLink" :key="i" :href="link" class="inline-flex text-white bg-gray-900 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg">
             {{ expLinkName[i] }}
           </a>
         </div>

@@ -1,12 +1,10 @@
 <template>
   <div class="font-sans antialiased pt-16">
     <div class="container text-center mx-auto flex justify-around border-t-2 px-5 py-10">
-      <a class="mr-5">
-        <span class="ml-3 text-xl"><font-awesome-icon class="mr-2" :icon="['fa', 'copyright']" />sadn1ck</span>
-      </a>
-      <a class="ml-5 text-center">
-        🎉 Made with Nuxt.js and TailwindCSS 🎉
-      </a>
+      <a href="https://github.com/sadn1ck/portfolio" target="_blank"><font-awesome-icon class="mr-2" :icon="['fab', 'github-alt']" />source</a>
+      <span>
+        Made with <font-awesome-icon class="" :icon="['fab', 'vuejs']" /> Nuxt and Tailwind <font-awesome-icon class="" :icon="['fab', 'css3']" />
+      </span>
     </div>
   </div>
 </template>

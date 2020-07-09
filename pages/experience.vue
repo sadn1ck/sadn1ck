@@ -44,7 +44,7 @@ export default {
   },
   data () {
     return {
-      bbworkDesc: ['Testing and bug fixing of a video conferencing solution', 'Worked on multiple nuxt.js websites', 'Created websites from scratch', 'Did internationalisation, localisation and unit testing of websites'],
+      bbworkDesc: ['Testing and bug fixing of a video conferencing solution', 'Created nuxt.js websites from scratch', 'Worked on multiple existing nuxt.js websites', 'Worked on internationalisation, localisation and unit testing of websites'],
       expLink: ['https://natter.banbreach.com'],
       expLinkName: ['Natter'],
       covidworkDesc: ['Created a map using leaflet.js and it\'s choropleth layer', 'Used various REST API\'s to gather state-wise and district-wise data', 'Gathered various mortality models and generated fatality numbers using population data'],
@@ -57,7 +57,7 @@ export default {
   },
   head () {
     return {
-      title: 'Experience | Anik '
+      title: 'Experience | Anik'
     }
   }
 }

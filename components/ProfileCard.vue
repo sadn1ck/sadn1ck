@@ -33,7 +33,7 @@
           <div
             class="mx-auto lg:mx-0 w-4/5 py-3 border-b-2 border-teal-500 flex"
           >
-            <font-awesome-icon class="md:mt-1 lg:mt-2" :icon="['fa', 'university' ]" />{{ college }}
+            {{ college }}
           </div>
           <p
             class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
@@ -78,7 +78,7 @@ export default {
     },
     college: {
       type: String,
-      default: 'Indian Institute Of Engineering, Science and Technology, Shibpur'
+      default: 'Student @ Indian Institute Of Engineering, Science and Technology, Shibpur'
     },
     likes: {
       type: Array,

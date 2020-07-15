@@ -5,7 +5,7 @@
       :title="'The page you requested does not exist!'"
     />
     <a href="/" class="text-center text-black px-6 py-4 bg-indigo-200 border-0 rounded text-lg">
-      Go Home
+      Go Back Home
     </a>
   </div>
 </template>

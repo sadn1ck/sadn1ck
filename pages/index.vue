@@ -1,7 +1,7 @@
 <template>
   <div id="prof" class="font-sans antialiased">
     <ProfileCard />
-    <div id="exp" class="font-sans antialiased">
+    <div id="exp" class="px-5 py-5 font-sans antialiased">
       <TitleCard
         :title="'Work Experience & Projects'"
       />

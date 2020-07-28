@@ -1,5 +1,5 @@
 <template>
-  <section class="font-sans antialiased text-gray-700 body-font overflow-hidden">
+  <section class="font-sans antialiased hover:shadow-2xl text-gray-700 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="-my-8">
         <div v-for="(info, id) in edu" :key="id" class="py-8 flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">

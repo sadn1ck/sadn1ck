@@ -1,8 +1,8 @@
 <template>
-  <section class="text-gray-900 bg-dark font-sans antialiased body-font">
+  <section class="text-gray-900 hover:shadow-2xl bg-dark font-sans antialiased body-font">
     <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-        <v-lazy-image class="object-cover object-center rounded" alt="Project Related Image" :src="expImgSrc" />
+        <v-lazy-image class="expi object-cover object-center rounded" alt="Project Related Image" :src="expImgSrc" />
       </div>
       <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
         <h1 class="title-font font-black sm:text-4xl text-3xl mb-8 text-gray-900">

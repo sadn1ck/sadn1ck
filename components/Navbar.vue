@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar bg-white shadow-xl sm:flex sm:justify-between sm:items-center font-sans antialiased sm:px-4 sm:py-3 sm:mb-12">
+  <header class="navbar bg-white hover:shadow-xl sm:flex sm:justify-between sm:items-center font-sans antialiased sm:px-4 sm:py-3 sm:mb-12">
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <a :href="getRoute === 'index' ? '#' : '/'" class="block text-2xl text-black font-bold rounded hover:border-gray-700 hover:bg-gray-300">
         <font-awesome-icon :icon="['fas', 'home']" />  Home

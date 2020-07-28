@@ -1,5 +1,5 @@
 <template>
-  <div class="px-5 font-sans antialiased text-center text-5xl font-extrabold py-5">
+  <div class="hover:shadow-2xl px-5 font-sans antialiased text-center text-5xl font-extrabold py-5">
     {{ title }}
   </div>
 </template>

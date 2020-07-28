@@ -25,4 +25,7 @@ export default {
   width: 100%;
   z-index: 99;
 }
+*{
+  transition: 250ms;
+}
 </style>

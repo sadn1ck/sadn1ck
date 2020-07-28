@@ -1,6 +1,8 @@
 <template>
   <div class="font-sans antialiased">
-    <Navbar />
+    <div class="pb-12">
+      <Navbar />
+    </div>
     <nuxt />
     <Footer />
   </div>
@@ -18,5 +20,9 @@ export default {
 </script>
 
 <style>
-
+.navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
 </style>

@@ -32,7 +32,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/lazyload.js'
+    '~/plugins/lazyload.js',
+    '~/plugins/vst.js'
   ],
 
   buildModules: [
@@ -59,6 +60,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    ['vue-scrollto/nuxt', { duration: 500 }],
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/firebase',

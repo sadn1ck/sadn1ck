@@ -21,7 +21,8 @@
     "core-js": "^2.6.5",
     "firebase": "^7.15.4",
     "nuxt": "^2.0.0",
-    "v-lazy-image": "^1.4.0"
+    "v-lazy-image": "^1.4.0",
+    "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.1",

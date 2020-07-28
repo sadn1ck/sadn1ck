@@ -35,7 +35,6 @@
 </template>
 
 <script>
-
 import db from 'firebase'
 import TitleCard from '~/components/TitleCard'
 import FormSubmit from '~/components/FormSubmit'

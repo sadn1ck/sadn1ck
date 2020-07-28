@@ -4,7 +4,7 @@
       <div class="-my-8">
         <div v-for="(info, id) in edu" :key="id" class="py-8 flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-            <span class="tracking-widest font-medium title-font text-gray-900 uppercase">{{ info.cat }}</span>
+            <span class="tracking-widest title-font font-bold text-gray-900 uppercase">{{ info.cat }}</span>
             <span class="mt-1 text-gray-500 text-sm">{{ info.date }}</span>
           </div>
           <div class="md:flex-grow">

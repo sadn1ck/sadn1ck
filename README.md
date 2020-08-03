@@ -1,4 +1,4 @@
-# portfolio
+# Personal Portfolio Built with Nuxt and TailwindCSS :sparkles:
 
 ## Build Setup
 

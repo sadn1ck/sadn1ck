@@ -17,9 +17,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/firebase": "^6.0.1",
     "core-js": "^2.6.5",
-    "firebase": "^7.15.4",
     "nuxt": "^2.0.0",
     "v-lazy-image": "^1.4.0",
     "vue-scrollto": "^2.18.1"

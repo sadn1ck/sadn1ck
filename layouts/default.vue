@@ -1,31 +1,19 @@
 <template>
-  <div class="font-sans antialiased">
-    <div class="pb-12">
-      <Navbar />
-    </div>
+  <div class="app text-white antialiased">
+    <Navbar />
     <nuxt />
-    <Footer />
   </div>
 </template>
-
-<script>
-import Navbar from '~/components/Navbar'
-import Footer from '~/components/Footer'
-export default {
-  components: {
-    Navbar,
-    Footer
-  }
-}
-</script>
-
 <style>
-.navbar{
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-}
-*{
-  transition: 250ms;
+.app {
+  font-family: 'Inter', sans-serif !important;
+  background-color: #232323;
+
 }
 </style>
+<script>
+import Navbar from '~/components/Navbar'
+export default {
+  components: { Navbar }
+}
+</script>

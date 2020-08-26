@@ -1,38 +1,47 @@
 <template>
-  <header class="navbar bg-white hover:shadow-xl sm:flex sm:justify-between sm:items-center font-sans antialiased sm:px-4 sm:py-3 sm:mb-12">
-    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
-      <a :href="getRoute === 'index' ? '#' : '/'" class="block text-2xl text-black font-bold rounded hover:border-gray-700 hover:bg-gray-300">
-        <font-awesome-icon :icon="['fas', 'home']" />  Home
-      </a>
-      <div class="sm:hidden">
-        <button type="button" class="block text-gray-500 hover:text-black focus:text-black focus:outline-none" @click="isOpen = !isOpen">
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-            <path v-if="isOpen" fill-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
-            <path v-if="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-          </svg>
+  <nav class="relative flex flex-wrap items-center justify-between py-3 bg-transparent navbar-expand-lg mb-3">
+    <div class="container mx-auto flex flex-wrap items-center px-5 justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto  lg:static lg:block lg:justify-start">
+        <a class="font-bold leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white text-2xl" href="#">
+          <font-awesome-icon :icon="['fas', 'code']" />
+        </a>
+        <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" @click="toggleNavbar()">
+          <font-awesome-icon :icon="['fas', 'bars']" />
         </button>
       </div>
+      <div :class="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center transition-all duration-500 ease-linear">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="#">
+              <span class="ml-2">Experience</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="#">
+              <span class="ml-2">Projects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="#">
+              <span class="ml-2">Education</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-      <a v-scroll-to="'#exp'" href="#" :style="getRoute !== 'index' ? 'display: none': ''" class="text-xl m-2 px-2 block text-black rounded hover:border-gray-700 hover:bg-gray-300"><font-awesome-icon class="mr-2" :icon="['fas', 'code']" />Experience</a>
-      <a v-scroll-to="'#edu'" href="#" :style="getRoute !== 'index' ? 'display: none': ''" class="text-xl m-2 px-2 block text-black rounded hover:border-gray-700 hover:bg-gray-300"><font-awesome-icon class="mr-2" :icon="['fas', 'university']" />Education</a>
-      <a href="/contact" class="text-xl m-2 px-2 block text-black rounded hover:border-gray-700 hover:bg-gray-300"><font-awesome-icon class="mr-2" :icon="['fas', 'user']" />Contact</a>
-    </nav>
-  </header>
+  </nav>
 </template>
-<style scoped>
 
-</style>
 <script>
 export default {
   data () {
     return {
-      isOpen: false
+      showMenu: false
     }
   },
-  computed: {
-    getRoute () {
-      return this.$nuxt.$route.name
+  methods: {
+    toggleNavbar () {
+      this.showMenu = !this.showMenu
     }
   }
 }

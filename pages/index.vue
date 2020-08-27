@@ -39,7 +39,21 @@ export default {
   components: { Title, Profile, Experience, Projects, Contact },
   head () {
     return {
-      title: 'Anik Das'
+      title: 'Anik Das',
+      meta: [
+        {
+          property: 'og:title',
+          content: 'Anik Das | Portfolio'
+        },
+        {
+          property: 'og:description',
+          content: 'Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.'
+        },
+        {
+          property: 'og:image',
+          content: '/og.png'
+        }
+      ]
     }
   }
 }

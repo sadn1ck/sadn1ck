@@ -1,5 +1,6 @@
 {
   "name": "my-website",
+  "description":"Hi, I'm Anik. Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.",
   "version": "1.0.0",
   "private": true,
   "scripts": {

@@ -2,7 +2,7 @@
   <nav class="flex flex-wrap items-center justify-between py-3 bg-transparent navbar-expand-lg mb-3">
     <div class="container mx-auto flex flex-wrap items-center px-5 justify-between">
       <div class="w-full relative flex justify-between lg:w-auto  lg:static lg:block lg:justify-start">
-        <a v-scroll-to="'#profile'" class="font-bold leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white text-2xl hover:opacity-75" href="#">
+        <a v-scroll-to="'#profile'" aria-label="Profile" class="font-bold leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white text-2xl hover:opacity-75" href="#">
           <font-awesome-icon :icon="['fas', 'code']" />
         </a>
         <button aria-label="Expand Navbar" class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" @click="toggleNavbar()">

@@ -21,11 +21,11 @@
         <Contact />
       </div>
     </div>
-    <back-to-top bottom="50px" right="50px">
+    <!-- <back-to-top bottom="50px" right="50px">
       <button type="button" class="rounded-full px-1 focus:outline-none bg-gray-100 text-gray-900">
         <font-awesome-icon size="2x" :icon="['fa', 'arrow-up']" />
       </button>
-    </back-to-top>
+    </back-to-top> -->
   </div>
 </template>
 

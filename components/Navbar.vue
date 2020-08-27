@@ -22,8 +22,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="#">
-              <span class="ml-2">Education</span>
+            <a v-scroll-to="'#contact'" class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="#">
+              <span class="ml-2">Contact</span>
             </a>
           </li>
         </ul>

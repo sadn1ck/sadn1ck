@@ -11,6 +11,8 @@
           </div>
           <div class="text-lg md:text-xl lg:text-2xl py-5 text-center md:text-left">
             Frontend Web Developer looking to expand my skillset. Interested in Open Source, DevOps and Information Security.
+            <br>
+            Occasionally play video games too :D
           </div>
           <div class="text-center md:text-left">
             <font-awesome-icon :icon="['fab', 'vuejs']" size="2x" />

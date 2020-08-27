@@ -6,7 +6,7 @@
 </template>
 <style>
 .app {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Karla', sans-serif !important;
   background-color: #232323;
 }
 

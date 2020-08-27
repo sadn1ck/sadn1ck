@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '"https://fonts.googleapis.com/css2?family=Inter:wght@200;500;800&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap' }
     ]
   },
   /*
@@ -34,7 +34,8 @@ export default {
   */
   plugins: [
     '~/plugins/lazyload.js',
-    '~/plugins/vst.js'
+    '~/plugins/vst.js',
+    { src: '~/plugins/vue-backtotop', ssr: false }
   ],
 
   buildModules: [

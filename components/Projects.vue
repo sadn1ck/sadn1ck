@@ -6,7 +6,7 @@
       </div>
       <div class="mx-auto md:mx-0 py-10 md:py-0 px-10 md:px-0">
         <div class="">
-          <div class="text-2xl md:text-3xl font-medium title-font pb-5">
+          <div class="text-2xl md:text-3xl font-semibold title-font pb-5">
             {{ project.title }}
           </div>
           <div class="pb-5">

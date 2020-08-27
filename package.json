@@ -21,6 +21,7 @@
     "nuxt": "^2.0.0",
     "nuxt-fullpage.js": "^0.0.3",
     "v-lazy-image": "^1.4.0",
+    "vue-backtotop": "^1.6.1",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {

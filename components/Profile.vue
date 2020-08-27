@@ -1,17 +1,29 @@
 <template>
-  <main class="profile px-2 md:px-16 lg:px-32 py-0 md:py-16 lg:py-32">
-    <div class="grid grid-cols-1 md:grid-cols-2">
-      <div class="border-red-900 py-5">
-        <div class="">
-          <img src="/me.jpg" alt="" class="h-64 w-64 mx-auto rounded-full">
-        </div>
+  <main class="profile force-center px-5 py-16 -my-8 md:-my-0 md:py-32 lg:py-48">
+    <div class="grid grid-cols-1 md:grid-cols-2 container">
+      <div>
+        <img src="/me.jpg" alt="" class="h-64 w-64 mx-auto rounded-full hover:shadow-2xl transition duration-500 ease-linear">
       </div>
-      <div class="text-center md:text-left py-5 px-5">
-        <div class="text-2xl md:text-5xl font-bold">
-          Hey, Anik here 👋
-        </div>
-        <div class="text-lg md:text-xl lg:text-2xl pt-5">
-          Frontend Web Dev looking to expand my skillset. Interested in DevOps and Information Security.
+      <div class="text-left force-center">
+        <div class="">
+          <div class="text-3xl md:text-5xl font-bold text-center md:text-left pt-10 md:pt-0">
+            hi, i'm anik 👋
+          </div>
+          <div class="text-lg md:text-xl lg:text-2xl py-5 text-center md:text-left">
+            Frontend Web Developer looking to expand my skillset. Interested in Open Source, DevOps and Information Security.
+          </div>
+          <div class="text-center md:text-left">
+            <font-awesome-icon :icon="['fab', 'vuejs']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'git']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'python']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'js']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'ubuntu']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'node']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'docker']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'html5']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'bootstrap']" size="2x" />
+            <font-awesome-icon :icon="['fab', 'css3-alt']" size="2x" />
+          </div>
         </div>
       </div>
     </div>
@@ -25,5 +37,8 @@ export default {
 </script>
 
 <style>
-
+.force-center{
+  display: grid;
+  place-items: center;
+}
 </style>

@@ -8,8 +8,8 @@
 .app {
   font-family: 'Inter', sans-serif !important;
   background-color: #232323;
-
 }
+
 </style>
 <script>
 import Navbar from '~/components/Navbar'

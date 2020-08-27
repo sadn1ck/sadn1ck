@@ -41,6 +41,9 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome'
   ],
+  eslint: {
+    fix: true
+  },
   fontawesome: {
     icons: {
       solid: true,

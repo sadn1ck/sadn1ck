@@ -5,7 +5,7 @@
         <a v-scroll-to="'#profile'" class="font-bold leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white text-2xl hover:opacity-75" href="#">
           <font-awesome-icon :icon="['fas', 'code']" />
         </a>
-        <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" @click="toggleNavbar()">
+        <button aria-label="Expand Navbar" class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" @click="toggleNavbar()">
           <font-awesome-icon :icon="['fas', 'bars']" />
         </button>
       </div>

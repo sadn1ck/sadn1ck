@@ -35,7 +35,7 @@ export default {
           title: 'India COVID-19 Map',
           badges: ['JavaScript', 'LeafletJS'],
           desc: 'Project made in vanilla JS to track COVID-19 infections in India, with data aggregated from various APIs, and an expected fatality rate',
-          link: 'https://github.com/sadn1ck/india-covid-19'
+          link: 'https://github.com/sadn1ck/india-covid19-map'
         },
         {
           img: '/tictactoe.webp',

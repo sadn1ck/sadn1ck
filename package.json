@@ -1,16 +1,16 @@
 {
   "name": "my-website",
-  "description":"Hi, I'm Anik. Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.",
+  "description": "Hi, I'm Anik. Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "export": "nuxt export",
+    "generate": "nuxt generate",
     "serve": "nuxt serve",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js",
+    "lint": "yarn lint:js --fix",
     "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
     "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build && nuxt export"
   },

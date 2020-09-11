@@ -15,28 +15,16 @@
         <Projects />
       </div>
     </div>
-    <div id="contact">
-      <div>
-        <Title :title="'contact'" />
-        <Contact />
-      </div>
-    </div>
-    <!-- <back-to-top bottom="50px" right="50px">
-      <button type="button" class="rounded-full px-1 focus:outline-none bg-gray-100 text-gray-900">
-        <font-awesome-icon size="2x" :icon="['fa', 'arrow-up']" />
-      </button>
-    </back-to-top> -->
   </div>
 </template>
 
 <script>
 import Title from '~/components/Title'
-import Contact from '~/components/Contact'
 import Profile from '~/components/Profile'
 import Projects from '~/components/Projects'
 import Experience from '~/components/Experience'
 export default {
-  components: { Title, Profile, Experience, Projects, Contact },
+  components: { Title, Profile, Experience, Projects },
   head () {
     return {
       title: 'Anik Das',

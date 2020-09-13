@@ -22,7 +22,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="/resume.pdf">
+            <a class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75" href="/Resume_Anik_Das.pdf">
               <span class="ml-2">Resume</span>
             </a>
           </li>

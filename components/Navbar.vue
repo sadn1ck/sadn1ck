@@ -46,8 +46,9 @@
           </li>
           <li class="nav-item">
             <a
+              target="_blank"
               class="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75"
-              href="/Resume_Anik_Das.pdf"
+              href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?usp=sharing"
             >
               <span class="ml-2">Resume</span>
             </a>

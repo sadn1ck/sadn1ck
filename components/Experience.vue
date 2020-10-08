@@ -31,7 +31,7 @@
 export default {
   data () {
     return {
-      date: 'April \'20 - August \'20',
+      date: 'April \'20 - September \'20',
       title: 'Banbreach',
       work: 'Software Engineer Intern',
       details: [

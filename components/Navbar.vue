@@ -26,11 +26,14 @@
           {{ showMenu ? '❌' : '➖' }}
         </button>
       </div>
+      <!-- <div class="">🌙</div> -->
       <div
         :class="{ hidden: !showMenu, flex: showMenu }"
-        class="lg:flex lg:flex-grow items-center transition-all duration-500 ease-linear"
+        class="lg:flex lg:flex-grow items-center"
       >
-        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+        <ul
+          class="flex flex-col lg:flex-row list-none ml-auto transition duration-500 ease-linear"
+        >
           <li class="nav-item">
             <a
               v-scroll-to="'#work'"

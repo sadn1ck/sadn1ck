@@ -8,7 +8,7 @@
       <div class="mx-auto">
         <img :src="project.img" alt="Tic tac toe" class="h-64 w-auto mx-auto" />
       </div>
-      <div class="mx-auto px-32 md:mx-0 py-10 md:py-0 md:px-0 force-center">
+      <div class="mx-auto px-5 md:mx-0 py-10 md:py-0 md:px-0 force-center">
         <div class="">
           <div class="text-2xl md:text-3xl font-semibold title-font pb-5">
             {{ project.title }}
@@ -18,6 +18,7 @@
               v-for="(badge, ib) in project.badges"
               :key="ib"
               class="rounded-full uppercase pr-2 py-2 text-md mr-3"
+              style="background-color: var(--bg-secondary)"
               >{{ badge }}</span
             >
           </div>

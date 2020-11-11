@@ -15,6 +15,12 @@
         <Projects />
       </div>
     </div>
+    <button
+      class="bottomright rounded-full p-3 focus:outline-none"
+      @click="toggleTheme"
+    >
+      {{ isDark ? '☀️' : '🌙' }}
+    </button>
   </div>
 </template>
 
@@ -25,6 +31,27 @@ import Projects from '~/components/Projects'
 import Experience from '~/components/Experience'
 export default {
   components: { Title, Profile, Experience, Projects },
+  data() {
+    return {
+      colorModes: ['dark', 'light'],
+      current: 0,
+    }
+  },
+  computed: {
+    currentColorMode() {
+      return this.$nuxt.$colorMode.preference
+    },
+    isDark() {
+      return this.currentColorMode === 'dark'
+    },
+  },
+  methods: {
+    toggleTheme() {
+      this.current++
+      this.current = this.current % 2
+      this.$nuxt.$colorMode.preference = this.colorModes[this.current]
+    },
+  },
   head() {
     return {
       title: 'Anik Das',
@@ -52,5 +79,11 @@ export default {
 .force-center {
   display: grid;
   place-items: center;
+}
+.bottomright {
+  background-color: var(--color-secondary);
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
 }
 </style>

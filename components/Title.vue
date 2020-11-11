@@ -11,11 +11,10 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Default Title'
-    }
-  }
+      default: 'Default Title',
+    },
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

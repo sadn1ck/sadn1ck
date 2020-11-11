@@ -1,39 +1,40 @@
 {
-  "name": "my-website",
-  "description": "Hi, I'm Anik. Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.",
+  "name": "portfolio",
   "version": "1.0.0",
+  "description": "Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "serve": "nuxt serve",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js --fix",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build && nuxt export"
+    "lint": "yarn lint:js",
+    "test": "jest"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0",
-    "core-js": "^2.6.5",
-    "nuxt": "^2.0.0",
-    "nuxt-fullpage.js": "^0.0.3",
-    "v-lazy-image": "^1.4.0",
-    "vue-backtotop": "^1.6.1",
-    "vue-scrollto": "^2.18.1"
+    "@nuxt/content": "^1.9.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/pwa": "^3.0.2",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.6",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.13.1",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1",
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/fontawesome": "^1.1.2",
-    "@nuxtjs/tailwindcss": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "@nuxtjs/color-mode": "^2.0.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^3.1.0",
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.5.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.0",
+    "prettier": "^2.1.2",
+    "vue-jest": "^3.0.4"
   }
 }

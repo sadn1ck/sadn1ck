@@ -25,30 +25,31 @@ import Projects from '~/components/Projects'
 import Experience from '~/components/Experience'
 export default {
   components: { Title, Profile, Experience, Projects },
-  head () {
+  head() {
     return {
       title: 'Anik Das',
       meta: [
         {
           property: 'og:title',
-          content: 'Anik Das | Portfolio'
+          content: 'Anik Das | Portfolio',
         },
         {
           property: 'og:description',
-          content: 'Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.'
+          content:
+            'Frontend Developer w/ Nuxt and Vue. Interested in DevOps and Information Security.',
         },
         {
           property: 'og:image',
-          content: '/og.png'
-        }
-      ]
+          content: '/og.png',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
 <style>
-.force-center{
+.force-center {
   display: grid;
   place-items: center;
 }

@@ -13,5 +13,5 @@ Vue.use(VueScrollTo, {
   onDone: false,
   onCancel: false,
   x: false,
-  y: true
+  y: true,
 })

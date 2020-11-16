@@ -19,7 +19,7 @@
       class="bottomright rounded-full p-3 focus:outline-none"
       @click="toggleTheme"
     >
-      {{ isDark ? '☀️' : '🌙' }}
+      {{ isDark ? '🔆' : '🌙' }}
     </button>
   </div>
 </template>

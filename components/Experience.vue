@@ -2,25 +2,25 @@
   <main class="force-center pt-8 pb-16 px-5">
     <div class="grid grid-cols-1 md:grid-cols-2 container">
       <div class="mx-auto text-left">
-        <div class="text-2xl font-semibold title-font uppercase">
+        <div class="text-3xl font-semibold title-font uppercase">
           <div class="tracking-widest">
             {{ title }}
           </div>
-          <div class="text-sm py-5">
+          <div class="text-lg py-5">
             {{ date }}
           </div>
         </div>
       </div>
       <div class="">
         <div
-          class="text-2xl md:text-3xl text-center md:text-left font-semibold title-font"
+          class="text-3xl md:text-4xl text-center md:text-left font-semibold title-font"
         >
           {{ work }}
         </div>
-        <div class="leading-relaxed py-5 px-8 md:px-0">
+        <div class="leading-relaxed py-5 px-8 md:px-0 text-lg">
           <ul>
             <li v-for="(item, id) in details" :key="id" class="py-2">
-              {{ item }}
+              - {{ item }}
             </li>
           </ul>
         </div>
@@ -37,8 +37,11 @@ export default {
       title: 'Banbreach',
       work: 'Software Engineer Intern',
       details: [
-        'Added multiple usability features to an existing video conferencing system based on ReactJS',
-        'Created multiple NuxtJS websites from scratch for various products',
+        'Engineered multiple usability features to an existing video conferencing system based on ReactJS (BigBlueButton)',
+        'Collaborated with 3 interns to fix bugs in the video conferencing solution',
+        'Helped onboard 50+ students on the video conferencing solution',
+        'Mentored and guided incoming employee on the utilised tech stack',
+        'Created 2 NuxtJS websites from scratch to advertise products',
       ],
     }
   },

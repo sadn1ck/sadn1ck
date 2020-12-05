@@ -3,6 +3,7 @@
     <div
       v-for="(project, id) in projects"
       :key="id"
+      :data-aos="id % 2 === 1 ? 'fade-left' : 'fade-right'"
       class="grid grid-cols-1 md:grid-cols-2 container py-16"
     >
       <div class="mx-auto">
@@ -63,7 +64,7 @@ export default {
           img: 'https://i.imgur.com/Lipf6Z1.png',
           title: 'pgen',
           badges: ['C++', 'Makefile', 'Doxygen', 'GitHub Actions'],
-          desc: 'Simple Password Generator CLI wriitten in C++',
+          desc: 'Simple Password Generator CLI written in C++',
           link: 'https://github.com/sadn1ck/pgen',
         },
         {

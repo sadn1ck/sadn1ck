@@ -1,5 +1,8 @@
 <template>
-  <div class="text-3xl md:text-5xl text-center force-center font-bold">
+  <div
+    class="text-3xl md:text-5xl text-center force-center font-bold"
+    data-aos="zoom-in-down"
+  >
     <div class="container">
       {{ title }}
     </div>

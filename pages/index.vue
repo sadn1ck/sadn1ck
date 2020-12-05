@@ -45,6 +45,9 @@ export default {
       return this.currentColorMode === 'dark'
     },
   },
+  mounted() {
+    this.currentColorMode = 'dark'
+  },
   methods: {
     toggleTheme() {
       this.current++

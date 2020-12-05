@@ -3,15 +3,15 @@
     class="profile force-center px-5 py-16 -my-8 md:-my-0 md:py-16 lg:py-32"
   >
     <div class="grid grid-cols-1 md:grid-cols-2 container">
-      <div>
+      <div data-aos="fade-right">
         <img
           src="/me.jpg"
           alt=""
           class="h-64 w-64 mx-auto rounded-full hover:shadow-2xl transition duration-500 ease-linear"
         />
       </div>
-      <div class="text-left force-center">
-        <div class="">
+      <div class="text-left force-center" data-aos="fade-left">
+        <div>
           <div
             class="text-3xl md:text-5xl font-bold text-center md:text-left pt-10 md:pt-0"
           >
@@ -28,7 +28,7 @@
             class="text-2xl text-center md:text-left force-center pt-8 pb-16"
           >
             <div class="container">
-              <div class="socials py-5">
+              <div class="socials py-5" data-aos="fade-up">
                 <a
                   href="https://www.github.com/sadn1ck/"
                   target="_blank"

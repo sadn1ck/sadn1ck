@@ -1,5 +1,5 @@
 <template>
-  <main class="force-center pt-8 pb-16 px-5">
+  <main class="force-center pt-8 pb-16 px-5" data-aos="fade-up">
     <div class="grid grid-cols-1 md:grid-cols-2 container">
       <div class="mx-auto text-left">
         <div class="text-3xl font-semibold title-font uppercase">

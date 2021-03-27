@@ -1,0 +1,14 @@
+.xp-list {
+  list-style: circle;
+  list-style-position: inside;
+}
+.holders {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+}
+
+.dates {
+  font-size: 80%;
+  font-style: italic;
+}

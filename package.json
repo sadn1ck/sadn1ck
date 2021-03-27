@@ -1,0 +1,39 @@
+{
+	"name": "portfolio",
+	"version": "1.0.0",
+	"description": "Personal website of Anik Das",
+	"author": {
+		"name": "Anik Das"
+	},
+	"scripts": {
+		"test": "npm run test:scripts",
+		"test:scripts": "xo src/_data",
+		"build": "eleventy",
+		"dev": "eleventy --serve"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alex-page/alexpage.com.au"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/alex-page/alexpage.com.au/issues"
+	},
+	"homepage": "https://github.com/alex-page/alexpage.com.au#readme",
+	"dependencies": {
+		"@11ty/eleventy": "^0.12.1",
+		"@11ty/eleventy-cache-assets": "^2.0.2",
+		"@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+		"@harmonograph/svg": "^0.2.0",
+		"clean-css": "^4.2.3",
+		"globby": "^11.0.1",
+		"gray-matter": "^4.0.2",
+		"html-minifier": "^4.0.0",
+		"js-yaml": "^3.14.1",
+		"number-abbreviate": "^2.0.0"
+	},
+	"devDependencies": {
+		"xo": "^0.38.2"
+	}
+}

@@ -1,32 +1,9 @@
-# [alexpage.com.au](http://alexpage.com.au)
+# [anik.live](http://anik.live)
 
-> I lead multidisciplinary teams, build communities and create systems with modern technology and thoughtful design. I am obsessed with user experience and write code that connects people to pixels.
+> Undergrad at IIEST Shibpur
 
-I am a front-end development manager at [Shopify](https://shopify.com) leading the [Polaris Design System](https://polaris.shopify.com), building a foundation and community for our experiences. I was the Lead User Experience Engineer on the [Australian Government Design System](https://designsystem.gov.au). I worked in a team to align 1000+ websites over 200+ organisations.
+I am a developer, based in West Bengal, Kolkata. I love creating things people will use daily and it inspires me to learn more. I am always curious and eager to know more about new technologies and spend my time tinkering and reading about them.
+
+My interests lie in Full Stack Development, DevOps and CyberSec.
 
 ---
-
-# Get started
-
-To install locally run make sure you have `nodejs` and `npm` installed. Then run:
-```
-npm install
-```
-
-
-# Watch for changes
-
-You can build the site locally and watch for changes by running:
-```
-npm run watch
-```
-
-
-# Deployment
-
-GitHub actions automatically builds and deploys the site to GitHub pages.
-
-
-# Contributing
-
-Please feel free to contribute or explore the source code!

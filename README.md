@@ -7,3 +7,5 @@ I am a developer based in Kolkata, West Bengal. I love creating things people wi
 My interests lie in Full Stack Development, DevOps and CyberSec.
 
 ---
+
+Inspired by [Alex Page](alexpage.com.au/) from [Top 11ty sites](https://www.11ty.dev/speedlify/)

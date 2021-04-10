@@ -2,7 +2,7 @@
 layout: page
 permalink: false
 title: Investu
-role: Full Stack Software Engineer
+role: Full Stack Developer Intern
 from: Februrary 2021
 to: Current
 points:

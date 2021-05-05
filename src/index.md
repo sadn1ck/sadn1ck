@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hi, I'm Anik 👋
-summary: Undergrad at IIEST Shibpur
+summary: Student Developer doing his Undergrad at IIEST Shibpur
 img:
   src: images/anik-das.jpg
   alt: Picture of Anik Das

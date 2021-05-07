@@ -8,4 +8,4 @@ My interests lie in Full Stack Development, DevOps and CyberSec.
 
 ---
 
-Inspired by [Alex Page](alexpage.com.au/) from [Top 11ty sites](https://www.11ty.dev/speedlify/)
+Inspired by [Alex Page](https://alexpage.com.au/) from [Top 11ty sites](https://www.11ty.dev/speedlify/)

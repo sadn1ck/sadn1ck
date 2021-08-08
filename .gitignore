@@ -1,3 +1,11 @@
+.DS_Store
+.vite-ssg-dist
+.vite-ssg-temp
+*.local
+dist
+dist-ssr
 node_modules
-_site
-.cache
+# intellij stuff
+.idea/
+# logs
+*.log

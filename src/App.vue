@@ -8,7 +8,7 @@ useHead({
   meta: [
     { property: 'og:title', content: 'Anik Das' },
     { property: 'og:image', content: 'https://anik.live/anik.jpg' },
-    { name: 'description', content: 'Anik Das\'s Portfolio' },
+    { name: 'description', content: 'My Personal Website' },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:creator', content: '@s02n1ck' },
   ],

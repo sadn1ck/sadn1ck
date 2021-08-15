@@ -13,7 +13,7 @@ title: Experience and Projects
 
 # Experience
 
-## Full Stack Developer Intern @ Investu
+## Full Stack Developer Intern @ Shipdeck Advisors Pvt. Ltd.
 
 > Februrary 2021 - April 2021
 

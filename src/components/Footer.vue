@@ -1,8 +1,8 @@
 <template>
   <footer class="font-bold text-left md:text-center space-x-5 md:space-x-24 py-32">
     <a rel="noreferrer" href="https://github.com/sadn1ck" target="_blank" title="GitHub">GitHub</a>
-    <a rel="noreferrer" href="https://twitter.com/s02n1ck" target="_blank" title="Twitter">Twitter</a>
-    <a rel="noreferrer" href="mailto:anikdas0811@gmail.com" target="_blank" title="Twitter">Email</a>
+    <a rel="noreferrer" href="https://linkedin.com/in/sadn1ck" target="_blank" title="LinkedIn">LinkedIn</a>
+    <a rel="noreferrer" href="mailto:anikdas0811@gmail.com" target="_blank" title="Email">Email</a>
   </footer>
 </template>
 <style scoped lang="postcss">

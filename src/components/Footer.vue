@@ -14,7 +14,7 @@ a {
 
   &:hover {
     border-bottom: 1px solid #555;
-    @apply text-teal-600;
+    @apply text-blue-500;
   }
 }
 </style>

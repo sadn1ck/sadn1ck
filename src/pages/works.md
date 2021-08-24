@@ -31,14 +31,14 @@ title: Experience and Projects
 
 # Projects
 
-## [shortnr](https://shortnr.anik.live/)
+## [shortnr <carbon-link height="18" />](https://shortnr.anik.live/)
 
 > URL shortener and customizer written in Nest and Typescript and deployed with Docker
 
-## [Draw and Code Together](https://draw-and-code.vercel.app/)
+## [Draw and Code Together <carbon-link height="18" />](https://draw-and-code.vercel.app/)
 
 > Draw your explanation and write your code without pointlessly switching tabs!
 
-## [pgen](https://github.com/sadn1ck/pgen)
+## [pgen <carbon-link height="18" />](https://github.com/sadn1ck/pgen)
 
 > Simple Password Generator CLI wriitten in C++

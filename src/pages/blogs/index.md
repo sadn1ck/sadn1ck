@@ -2,4 +2,6 @@
 title: Blogs
 ---
 
-# Nothing as of now, will add soon!
+# Blogs
+
+- ## [Intro to Vue3 Composition API <i-carbon-link height="18" />](./blogs/composition-api-intro)

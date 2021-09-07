@@ -22,8 +22,8 @@ import { isDark, toggleDark } from '~/logic/dark'
           title="Toggle Dark"
           @click="toggleDark()"
         >
-          <ri-moon-line height="18" v-if="!isDark" class="text-gray-500 hover:text-gray-800" />
-          <ri-sun-line height="18" v-else class="text-yellow-300 hover:text-yellow-500" />
+          <i-ri-moon-line height="18" v-if="!isDark" class="text-gray-500 hover:text-gray-800" />
+          <i-ri-sun-line height="18" v-else class="text-yellow-300 hover:text-yellow-500" />
         </span>
       </div>
     </nav>

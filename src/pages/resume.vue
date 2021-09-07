@@ -6,10 +6,8 @@
 
 <script setup lang="ts">
 const RESUME_URL = 'https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view'
-onMounted(() => {
-  if (location)
-    location.replace(RESUME_URL)
-})
+if (location)
+  location.replace(RESUME_URL)
 </script>
 
 <route lang="yaml">

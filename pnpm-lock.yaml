@@ -10,7 +10,7 @@ specifiers:
   '@vue/repl': ^0.2.0
   '@vue/server-renderer': ^3.2.9
   '@vueuse/core': ^6.0.0
-  '@vueuse/head': 0.5.1
+  '@vueuse/head': ^0.6.0
   critters: ^0.0.10
   cross-env: ^7.0.3
   eslint: ^7.32.0
@@ -37,7 +37,7 @@ specifiers:
 dependencies:
   '@vue/repl': 0.2.0_c24ef942663e5d4f2886426f87ada5a6
   '@vueuse/core': 6.0.0_vue@3.2.9
-  '@vueuse/head': 0.5.1_vue@3.2.9
+  '@vueuse/head': 0.6.0_vue@3.2.9
   nprogress: 0.2.0
   prism-theme-vars: 0.2.2
   unplugin-auto-import: 0.1.3_vite@2.5.1
@@ -1864,8 +1864,8 @@ packages:
       vue-demi: 0.11.3_vue@3.2.9
     dev: false
 
-  /@vueuse/head/0.5.1_vue@3.2.9:
-    resolution: {integrity: sha512-xt6qgtItb4z/7vp664opQc0c2+ZoU9itMfvpmg4+h0uJcEnhl7LYxO4V+G8H7EVki7SyXDIFMfoCiCFaJrArmg==}
+  /@vueuse/head/0.6.0_vue@3.2.9:
+    resolution: {integrity: sha512-fi7ZjkMpEAUtTT6iR5wgL2HkX1+3zbrmbpcwU//RgJIWEr5b42jk8E9yOheaC2dYAAHzelAllVpX0pDmhcTXuw==}
     peerDependencies:
       vue: '>=3'
     dependencies:

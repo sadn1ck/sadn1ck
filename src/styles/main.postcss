@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;700&family=Inter:wght@300;500;700&display=swap');
 @import './markdown.postcss';
 
 html,
@@ -6,7 +7,17 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Work Sans', sans-serif;
   font-size: 18px;
+}
+
+.prose pre code {
+  font-size: 15px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Inter', serif;
+  font-weight: bolder;
 }
 
 html.dark {

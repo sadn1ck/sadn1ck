@@ -4,7 +4,7 @@ import { isDark, toggleDark } from '~/logic/dark'
 
 <template>
   <header class="header pb-10 font-bold">
-    <nav class="flex flex-auto text-sm md:(text-lg px-16) lg:px-64">
+    <nav class="flex flex-auto text-sm md:(text-lg px-16) lg:px-32 xl:px-64">
       <router-link to="/" focusable="false">
         <img v-if="isDark" class="h-14" src="/dark.png" />
         <img v-else class="h-14" src="/light.png" />
@@ -22,8 +22,8 @@ import { isDark, toggleDark } from '~/logic/dark'
           title="Toggle Dark"
           @click="toggleDark()"
         >
-          <ri-moon-line v-if="!isDark" class="text-gray-500 hover:text-gray-800" />
-          <ri-sun-line v-else class="text-yellow-300 hover:text-yellow-500" />
+          <ri-moon-line height="18" v-if="!isDark" class="text-gray-500 hover:text-gray-800" />
+          <ri-sun-line height="18" v-else class="text-yellow-300 hover:text-yellow-500" />
         </span>
       </div>
     </nav>

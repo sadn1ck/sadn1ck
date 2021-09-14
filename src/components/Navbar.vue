@@ -4,19 +4,18 @@ import { isDark, toggleDark } from '~/logic/dark'
 
 <template>
   <header class="header pb-10 font-bold">
-    <nav class="flex flex-auto text-sm md:(text-lg px-16) lg:px-32 xl:px-64">
+    <nav class="flex flex-auto text-md md:(text-lg) space-x-5 flex-wrap">
       <router-link to="/" focusable="false">
-        <img v-if="isDark" class="h-14" src="/dark.png" />
-        <img v-else class="h-14" src="/light.png" />
+        Home
       </router-link>
-      <div class="flex-grow"></div>
-      <div class="links space-x-2 my-auto">
-        <router-link to="/blogs" title="Blogs">
+      <router-link to="/blogs" title="Blogs">
           Blog
         </router-link>
         <router-link to="/works" title="Projects and Experience">
           Works
         </router-link>
+      <div class="flex-grow"></div>
+      <div class="links my-auto">
         <span
           class="select-none"
           title="Toggle Dark"
@@ -29,17 +28,3 @@ import { isDark, toggleDark } from '~/logic/dark'
     </nav>
   </header>
 </template>
-
-<style scoped lang="postcss">
-.links a {
-  font-weight: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(125,125,125,0.1);
-  transition: border .3s ease-in-out;
-
-  &:hover {
-    border-bottom: 1px solid #555;
-    @apply text-blue-500;
-  }
-}
-</style>

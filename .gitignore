@@ -1,14 +1,18 @@
-.DS_Store
-.vite-ssg-dist
-.vite-ssg-temp
-*.local
+# build output
 dist
-dist-ssr
-node_modules
-# intellij stuff
-.idea/
-# logs
-*.log
 
-components.d.ts
-auto-imports.d.ts
+# dependencies
+node_modules/
+.snowpack/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store

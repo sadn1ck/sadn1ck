@@ -8,8 +8,6 @@
  */
 /* Body */
 
-// @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700');
-
 html {
   font-size: 62.5%;
   font-family: 'Space Grotesk', sans-serif;
@@ -20,8 +18,8 @@ body {
   line-height: 1.618;
   max-width: 42em;
   margin: auto;
-  color: #c9c9c9;
-  background-color: #222222;
+  color: $text-color;
+  background-color: $background;
   padding: 13px;
 }
 
@@ -120,7 +118,7 @@ blockquote {
   padding-right: 0.8em;
   border-left: 5px solid #ffffff;
   margin-bottom: 2.5rem;
-  background-color: #4a4a4a;
+  background-color: $quote-bg;
 }
 
 blockquote p {
@@ -145,13 +143,13 @@ table {
 td,
 th {
   padding: 0.5em;
-  border-bottom: 1px solid #4a4a4a;
+  border-bottom: 1px solid $quote-bg;
 }
 
 /* Buttons, forms and input */
 input,
 textarea {
-  border: 1px solid #c9c9c9;
+  border: 1px solid $text-color;
 }
 input:focus,
 textarea:focus {
@@ -173,7 +171,7 @@ input[type="button"] {
   text-decoration: none;
   white-space: nowrap;
   background-color: #ffffff;
-  color: #222222;
+  color: $background;
   border-radius: 1px;
   border: 1px solid #ffffff;
   cursor: pointer;
@@ -197,21 +195,21 @@ input[type="reset"]:focus:enabled,
 input[type="reset"]:hover:enabled,
 input[type="button"]:focus:enabled,
 input[type="button"]:hover:enabled {
-  background-color: #c9c9c9;
-  border-color: #c9c9c9;
-  color: #222222;
+  background-color: $text-color;
+  border-color: $text-color;
+  color: $background;
   outline: 0;
 }
 
 textarea,
 select,
 input {
-  color: #c9c9c9;
+  color: $text-color;
   padding: 6px 10px;
   /* The 6px vertically centers text on FF, ignored by Webkit */
   margin-bottom: 10px;
-  background-color: #4a4a4a;
-  border: 1px solid #4a4a4a;
+  background-color: $quote-bg;
+  border: 1px solid $quote-bg;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;

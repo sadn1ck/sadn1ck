@@ -16,3 +16,16 @@
     <meta property="twitter:url" content="{{ siteMeta.url }}">
     <meta property="twitter:title" content="{{ title }}">
     <meta property="twitter:description" content="{{ siteMeta.description }}">
+
+    <!-- external css fastener (speedup, lol) shenanigans -->
+    <!-- https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
+    <!-- src: https://dev.to/masakudamatsu/loading-google-fonts-and-any-other-web-fonts-as-fast-as-possible-in-early-2021-4f5o -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Grotesk:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Grotesk:wght@300;400;500;700&display=swap">
+    <noscript>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+    />
+    </noscript>

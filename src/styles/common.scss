@@ -6,6 +6,7 @@
 .navMenu {
   padding-top: 10px;
   padding-bottom: 15px;
+  display: flex;
 }
 .navMenu a {
   text-decoration: none;
@@ -19,4 +20,10 @@
 
 .navMenu a:hover {
   color: $green;
+}
+
+// footer stuff
+.footer-custom{
+  text-align: center;
+  padding-top: 20px;
 }

@@ -5,7 +5,7 @@ title: Anik Das | Developer
 
 # Hi, I'm Anik
 
-I am a developer from Kolkata, West Bengal. I love creating things people will use daily and it inspires me to learn more. I am always curious to know more about technologies and spend my time tinkering and reading about them.
+I am a developer from Kolkata, West Bengal, currently in my pre-final year of college. I love creating things people will use daily and it inspires me to learn more. I am always curious to know more about tech and spend my time tinkering and reading about them.
 
 I work mostly in Typescript, Javascript, Vue 2/3 and some React and do problem solving in Python from time to time.
 

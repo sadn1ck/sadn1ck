@@ -1,0 +1,22 @@
+@import './vars.scss';
+@import './sakura.scss';
+
+
+// navbar stuff
+.navMenu {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+.navMenu a {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: $green;
+}

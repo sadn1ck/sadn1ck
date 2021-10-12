@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include meta %}
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="../../styles/blogpost.css" />
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ siteMeta.author.name }}" />
+</head>
+
+<body>
+  <div class="container post-container">
+    {% include nav %}
+    <h1>{{ title }}</h1>
+    <div class="back-link">
+      <a href="/">← Back</a>
+    </div>
+    <div class="content">{{ content }}</div>
+  </div>
+</body>
+</html>
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="sadn1ck/anik.live"
+  issue-term="title"
+  theme="github-dark"
+  crossorigin="anonymous" 
+  async
+>
+</script>

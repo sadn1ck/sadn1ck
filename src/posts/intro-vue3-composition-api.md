@@ -47,7 +47,7 @@ Here we have the current date/time, and we want the date/time 5 hours later. We 
 
 Now we call `updateCurrDate()` to update `currDate` to the current date/time. This causes the `fiveHoursLater` computed function to run, updating the template.
 
-```ts
+```html
 <script setup>
 import { ref, computed } from 'vue'
 

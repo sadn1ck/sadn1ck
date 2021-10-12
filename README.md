@@ -6,4 +6,4 @@ I am a developer based in Kolkata, West Bengal. I love creating things people wi
 
 My interests lie in Full Stack Development, DevOps and CyberSec.
 
-> Uses @antfu's [vitesse](antfu/vitesse) template
+> Uses 11ty and [this theme](https://github.com/arpitbatra123/eleventy-blog-mnml)

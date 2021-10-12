@@ -1,14 +1,5 @@
-.DS_Store
-.vite-ssg-dist
-.vite-ssg-temp
-*.local
-dist
-dist-ssr
+# node modules
 node_modules
-# intellij stuff
-.idea/
-# logs
-*.log
-
-components.d.ts
-auto-imports.d.ts
+# eleventy output
+_site
+dist

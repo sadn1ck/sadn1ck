@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include meta %}
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ siteMeta.author.name }}" />
+</head>
+
+<body>
+    <div class="container">
+        {% include nav %}
+        {{ content }}
+</body>
+
+</html>

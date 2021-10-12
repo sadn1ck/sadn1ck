@@ -1,6 +1,6 @@
 ---
 layout: homepage.liquid
-title: Hey there 👋
+title: Anik Das | Developer
 ---
 
 # Hi, I'm Anik

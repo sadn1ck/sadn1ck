@@ -1,6 +1,19 @@
 <meta charset="UTF-8" />
-<link rel="icon" href="/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<link rel="stylesheet" href="./styles/common.css" />
-<meta name="description" content="{{ title }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="icon" href="./favicon.png">
+    <meta name="title" content="{{ title }}" />
+    <meta name="description" content="{{ siteMeta.description }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ siteMeta.url }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ siteMeta.description }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ siteMeta.url }}">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ siteMeta.description }}">

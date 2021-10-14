@@ -4,6 +4,7 @@
 <head>
   {% include meta %}
   <title>{{ title }}</title>
+  <meta name="description" content="{{ desc }}" />
   <link rel="stylesheet" href="/styles/blogpost.css" />
   <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ siteMeta.author.name }}" />
 </head>
@@ -11,10 +12,10 @@
 <body>
   <div class="container post-container">
     {% include nav %}
-    <h1>{{ title }}</h1>
     <div class="back-link">
       <a href="/">← Back</a>
     </div>
+    <h1>{{ title }}</h1>
     <div class="content">{{ content }}</div>
   </div>
   {% include footer %}

@@ -3,13 +3,17 @@ const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(syntaxHighlight);
+  /*
   eleventyConfig.addPlugin(syntaxHighlight, {
     init: function ({ Prism }) {
       console.log('Prism')
     },
   });
+  */
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPassthroughCopy("favicon.png");
+  eleventyConfig.addPassthroughCopy("src/favicon.png");
+  eleventyConfig.addPassthroughCopy("src/meta.png");
   const options = {
     html: true,
     breaks: true,
@@ -23,7 +27,7 @@ module.exports = (eleventyConfig) => {
     dir: {
       input: "src",
       includes: "_includes",
-      output: "dist"
-    }
+      output: "dist",
+    },
   };
 };

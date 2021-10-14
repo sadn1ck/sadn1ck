@@ -4,7 +4,6 @@
 
 .post-container {
   header {
-    margin-bottom: 16px;
     .post-date {
       font-size: 14px;
       color: $light-text;
@@ -38,11 +37,6 @@
         margin-left: -1.1em;
       }
     }
-  }
-
-  .back-link {
-    margin: 16px 0 24px 0;
-    padding-top: 16px;
   }
 
   // Select all text wrapped in `` in markdown - generated a `code` tag without a language class

@@ -1,6 +1,7 @@
 ---
 layout: default.liquid
-title: Experience 👋
+title: Experience 🧑‍💻
+desc: My working experience and projects
 ---
 
 ## Volunteering
@@ -18,10 +19,8 @@ title: Experience 👋
 
 > Februrary 2021 - April 2021
 
-- Configured continuous Integration and deployment pipeline to automatically build, test and deploy NestJS Backend in a Docker container on AWS ECS using AWS Codebuild and Codepipeline
-- Set up EC2 application load balancer, monitoring and access and network logging of API
-  Bootstrapped and set up a NestJS based backend, maintained docker images and automatic database migrations to reduce wastage of development time
-- Created pixel perfect views and screens from Figma designs for the core React Native mobile app
+- Configured a CI/CD pipeline with Codepipeline to build, test and deploy NestJS Backend in a Docker container on AWS ECS using AWS Codebuild and Codepipeline
+- Created multi-stage docker images to reduce deployment time by 10%
 
 ### Software Engineer Intern @ Banbreach
 

@@ -1,6 +1,7 @@
 ---
 date: "2021-10-12"
 title: Intro to Vue 3 Composition API
+desc: Speedrunning (some) important parts of Composition API
 ---
 
 ## The Why, a TLDR

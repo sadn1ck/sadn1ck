@@ -12,7 +12,11 @@
     <meta property="twitter:url" content="{{ siteMeta.url }}">
     <meta property="twitter:title" content="{{ title }}">
     <meta property="twitter:description" content="{{ desc }}">
-    <meta property="twitter:image" content="/meta.png">
+    {% if ogimage %}
+        <meta property="twitter:image" content="{{ ogimage }}">
+    {% else %}
+        <meta property="twitter:image" content="{{ siteMeta.image }}">
+    {% endif %}
 
     <!-- external css fastener (speedup, lol) shenanigans -->
     <!-- https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->

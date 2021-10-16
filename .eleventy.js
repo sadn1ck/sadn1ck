@@ -12,8 +12,9 @@ module.exports = (eleventyConfig) => {
   });
   */
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPassthroughCopy("src/favicon.png");
-  eleventyConfig.addPassthroughCopy("src/meta.png");
+  eleventyConfig.addPassthroughCopy("src/*.png");
+  eleventyConfig.addPassthroughCopy("src/**/*.png");
+  eleventyConfig.addPassthroughCopy("src/**/*.mp4");
   const options = {
     html: true,
     breaks: true,

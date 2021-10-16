@@ -11,8 +11,6 @@ As I watched the logs of the 352nd build of this website pass by, I had a questi
 
 > How are the build logs sent to the browser?
 
-![Mind blown? Read on!](https://c.tenor.com/tvFWFDXRrmMAAAAM/blow-mind-mind-blown.gif)
-
 ## Basic architecture
 
 The basic architecture, is pretty straightforward. You read a process' logs via, let's say, `tail`, and send it to the client via websockets (which seemed most intuitive to me, of course, other methods probably exist).

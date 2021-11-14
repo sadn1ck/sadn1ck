@@ -1,8 +1,8 @@
 ---
 date: "2021-10-16"
 title: Experiment - streaming logs 📝
-desc: How do (build, etc) logs get sent to the browser?
-ogimage: ./architecture.png
+desc: How do (build, etc) logs get sent to the browser? A prototype using Websockets and Node.
+ogimage: https://anik.live/posts/experiment-streaming-logs/architecture.png
 ---
 
 > **Disclaimer**: I am a noob, use the things discussed here at your own risk.

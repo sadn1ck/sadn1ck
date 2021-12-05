@@ -13,6 +13,7 @@ module.exports = (eleventyConfig) => {
   */
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPassthroughCopy("src/*.png");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts/");
   eleventyConfig.addPassthroughCopy("src/**/*.png");
   eleventyConfig.addPassthroughCopy("src/**/*.mp4");
   const options = {

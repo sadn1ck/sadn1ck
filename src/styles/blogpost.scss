@@ -1,6 +1,7 @@
 @import './common.scss';
 @import './prism-theme.scss';
 @import './vars.scss';
+@import './fonts.scss';
 
 .post-container {
   header {
@@ -11,7 +12,6 @@
   }
 
   .content {
-    line-height: 22px;
     h2 {
       margin: 24px 0 8px;
       font-weight: normal;
@@ -41,7 +41,7 @@
     padding-top: 1px;
     padding-bottom: 1px;
     background: #333333;
-    font-family: 'Jetbrains Mono', monospace;
+    font-family: monospace;
   }
 }
 

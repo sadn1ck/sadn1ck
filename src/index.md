@@ -14,6 +14,12 @@ I also enjoy DevOps, having set up CI/CD pipelines with Docker, Bash and GitHub 
 
 I'm currently looking for Internship Opportunities for the Summer of 2022. If you have any opportunities, questions or just want to chat regarding tech, feel free to email me!
 
-## [My resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view)
+<!-- ## [My resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view) -->
+
+<h2>
+<a href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view" target="_blank">
+My Resume
+</a>
+</h2>
 
 Find me on [GitHub](https://github.com/sadn1ck), [LinkedIn](https://linkedin.com/in/sadn1ck), or mail me at [anikdas0811@gmail.com](mailto:anikdas0811@gmail.com).

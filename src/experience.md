@@ -4,18 +4,13 @@ title: Experience 🧑‍💻
 desc: My working experience and projects
 ---
 
-## Volunteering
-
-### Web Developer @ [The Unalome Foundation](https://theunalomefoundation.org)
-
-> May 2021 - Current
-
-- Adding and bug fixing features to the Vue based website
-- Collaborated to create an online status for chat server based on WebSockets
-
 ## Experience
 
-### Full Stack Developer Intern @ Shipdeck Advisors Pvt. Ltd.
+### Frontend Intern @ CodeDrills
+
+> November 2021 - Current
+
+### Software Engineer Intern @ Shipdeck Advisors Pvt. Ltd.
 
 > Februrary 2021 - April 2021
 
@@ -42,3 +37,12 @@ desc: My working experience and projects
 #### [pgen](https://github.com/sadn1ck/pgen)
 
 > Simple Password Generator CLI wriitten in C++
+
+## Volunteering
+
+### Web Developer @ [The Unalome Foundation](https://theunalomefoundation.org)
+
+> May 2021 - Current
+
+- Adding and bug fixing features to the Vue based website
+- Collaborated to create an online status for chat server based on WebSockets

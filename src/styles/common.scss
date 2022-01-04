@@ -20,6 +20,10 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   padding-right: 1.5rem;
+  text-transform: lowercase;
+  &::after {
+    content: ".";
+  }
 }
 
 .navMenu a:hover {

@@ -11,7 +11,7 @@
 
 html {
   font-size: 75%;
-  font-family: 'PT Serif', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body {
@@ -43,7 +43,7 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'PT Serif', serif;
   font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
@@ -120,6 +120,8 @@ blockquote {
   border-left: 5px solid #ffffff;
   margin-bottom: 2.5rem;
   background-color: $quote-bg;
+  line-height: 1.1;
+  font-family: 'PT Serif', serif;
 }
 
 blockquote p {

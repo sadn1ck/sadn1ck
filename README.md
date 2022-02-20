@@ -1,9 +1,21 @@
-# [anik.live](http://anik.live)
+# Hey, I'm Anik 👋
 
-> Undergrad at IIEST Shibpur
+- 🧑‍💻 Frontend Intern @ CodeDrills
+- 👨‍🎓 Student at the Department of Information Technology, IIEST Shibpur
+- 🧑‍💼 Core team member and Management Lead at [@dsc-iiest](https://github.com/dsc-iiest)
+- 🏢 Dev Team Member at [@codeiiest-dev](https://github.com/codeiiest-dev)
 
-I am a developer based in Kolkata, West Bengal. I love creating things people will use daily and it inspires me to learn more. I am always curious to know more about new technologies and spend my time tinkering and reading about them.
+## [My Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view)
 
-My interests lie in Full Stack Development, DevOps and CyberSec.
+## Contact & Details
 
-> Uses 11ty and [this theme](https://github.com/arpitbatra123/eleventy-blog-mnml)
+- [Email](mailto:anikdas0811@gmail.com)
+- [LinkedIn](https://linkedin.com/in/sadn1ck)
+- [Website](https://anik.live)
+
+## Blogs
+
+| Title                                                                                 | Date       |
+| ------------------------------------------------------------------------------------- | ---------- |
+| [Experiment - streaming logs](https://anik.live/posts/experiment-streaming-logs/)     | 16/10/2021 |
+| [Intro to Vue 3 Composition API](https://anik.live/posts/intro-vue3-composition-api/) | 12/10/2021 |

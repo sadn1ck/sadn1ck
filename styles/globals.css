@@ -8,6 +8,10 @@ html {
   @apply bg-black text-gray-50;
 }
 
+::selection {
+  background-color: #42b883;
+}
+
 /* markdown */
 
 .prose .anchor {

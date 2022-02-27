@@ -3,6 +3,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { allBlogs } from "../../.contentlayer/generated";
 import type { Blog } from "../../.contentlayer/generated/types";
 import Container from "../../components/Container";
+import Script from "next/script";
 
 type BlogProps = {
   blog: Blog;
@@ -36,6 +37,25 @@ const BlogLayout = ({ blog }: BlogProps) => {
           <Component />
         </div>
       </article>
+      {
+        <div className="giscus">
+          <Script
+            src="https://giscus.app/client.js"
+            data-repo="sadn1ck/sadn1ck"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkyNjUxNDc1NzM="
+            data-category="General"
+            data-category-id="DIC_kwDOD83Utc4CBS5a"
+            data-mapping="pathname"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="dark"
+            data-lang="en"
+            crossOrigin="anonymous"
+            async
+          />
+        </div>
+      }
     </Container>
   );
 };

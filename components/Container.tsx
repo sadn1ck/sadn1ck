@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import cn from "classnames";
+import Head from "next/head";
 
 type NavItemProps = {
   href: string;
@@ -29,9 +30,36 @@ function NavItem({ href, text, external }: NavItemProps) {
 }
 
 export default function Container({ children }) {
+  const meta = {
+    title: "Anik Das – Developer, student.",
+    description: `Aspiring Software Developer`,
+    image: "",
+    type: "website",
+  };
+  const router = useRouter();
   return (
     <>
-      <nav className="flex items-center justify-between sticky top-2 max-w-2xl mx-auto px-4 md:px-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur py-5">
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="robots" content="follow, index" />
+        <meta content={meta.description} name="description" />
+        {/* <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
+        <link rel="canonical" href={`https://leerob.io${router.asPath}`} /> */}
+        <meta property="og:type" content={meta.type} />
+        <meta property="og:site_name" content="Anik Das" />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:image" content={meta.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@__sadn1ck__" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+      </Head>
+      <nav
+        className="flex items-center justify-between sticky top-2 max-w-2xl mx-auto px-4 md:px-0 bg-black rounded-lg bg-opacity-50 backdrop-filter backdrop-blur py-5"
+        style={{ zIndex: 20 }}
+      >
         <div className="flex space-x-3">
           <NavItem href="/" text="Home" />
           <NavItem href="/experience" text="Experience" />

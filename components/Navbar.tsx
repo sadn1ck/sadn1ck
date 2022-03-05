@@ -14,12 +14,9 @@ function NavItem({ href, text, external }: NavItemProps) {
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} scroll={false}>
       <a
-        className={cn(
-          isActive ? "font-bold" : "text-gray-400",
-          "inline-block px-3 py-2 border-1 border-brand rounded-md transition-all"
-        )}
+        className={cn(isActive ? "text-brand" : "text-gray-400", "px-3 py-2")}
         target={external ? "_blank" : ""}
         rel={external ? "noreferrer noopener" : ""}
       >
@@ -39,15 +36,13 @@ function NavItem({ href, text, external }: NavItemProps) {
 export default function Navbar() {
   return (
     <nav
-      className="flex sticky top-2 max-w-2xl mx-auto px-4 md:px-0 rounded-lg bg-black py-3"
+      className="flex sticky top-2 max-w-2xl mx-auto px-4 md:px-0 bg-black py-3 rounded-lg"
       style={{ zIndex: 20 }}
     >
-      <div className="flex space-x-3">
-        <AnimateSharedLayout>
-          <NavItem href="/" text="Home" />
-          <NavItem href="/experience" text="Experience" />
-          <NavItem href="/blogs" text="Blogs" />
-        </AnimateSharedLayout>
+      <div className="flex space-x-3 justify-between">
+        <NavItem href="/" text="Home" />
+        <NavItem href="/experience" text="Experience" />
+        <NavItem href="/blogs" text="Blogs" />
       </div>
     </nav>
   );

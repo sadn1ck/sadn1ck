@@ -7,7 +7,9 @@ html {
   scroll-behavior: smooth;
   @apply bg-black text-gray-50;
 }
-
+#__next {
+  @apply max-w-2xl mx-auto;
+}
 .navigation-underline {
   @apply w-full border border-brand;
 }

@@ -1,20 +1,13 @@
-import {
-  AnimatePresence,
-  domAnimation,
-  LazyMotion,
-  m,
-  motion,
-} from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import "../styles/globals.css";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const window: any;
+
 function MyApp({ Component, pageProps, router }) {
-  const variants = {
-    hidden: { opacity: 0, x: -200, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -100 },
-  };
+  const url = `https://wallis.dev${router.route}`;
   return (
     <>
       <Navbar />
@@ -22,7 +15,7 @@ function MyApp({ Component, pageProps, router }) {
         exitBeforeEnter={true}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        <Component {...pageProps} />
+        <Component {...pageProps} canonical={url} key={url} />
       </AnimatePresence>
       <Footer />
     </>

@@ -105,8 +105,9 @@ blockquote > p::after {
 
 .prose blockquote p,
 .prose blockquote strong {
-  @apply text-gray-500;
+  @apply text-gray-300;
 }
+
 .prose .anchor:after {
   @apply text-gray-300;
   content: "#";

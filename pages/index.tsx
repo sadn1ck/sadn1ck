@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Container from "../components/Container";
 import About from "../components/About";
+import SocialIcons from "components/SocialIcons";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
                 Aspiring Software Developer, currently in my 3rd year of
                 Undergraduate study at IIEST Shibpur.
               </p>
+              <SocialIcons />
             </div>
             <div className="w-[100px] sm:w-[200px] relative md:p-4 sm:mb-0 mr-auto p-2">
               <Image

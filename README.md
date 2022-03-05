@@ -11,7 +11,7 @@
 
 - [Email](mailto:anikdas0811@gmail.com)
 - [LinkedIn](https://linkedin.com/in/sadn1ck)
-- [Website](https://anik.live)
+- [Website](https://anikd.com)
 
 ## Blogs
 
@@ -19,3 +19,7 @@
 | ------------------------------------------------------------------------------------- | ---------- |
 | [Experiment - streaming logs](https://anik.live/posts/experiment-streaming-logs/)     | 16/10/2021 |
 | [Intro to Vue 3 Composition API](https://anik.live/posts/intro-vue3-composition-api/) | 12/10/2021 |
+
+^[1]
+
+[1]: Heavily Inspired by [leerob.io](https://github.com/leerob/leerob.io)

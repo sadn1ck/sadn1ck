@@ -3,9 +3,6 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import "../styles/globals.css";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare const window: any;
-
 function MyApp({ Component, pageProps, router }) {
   const url = `https://wallis.dev${router.route}`;
   return (

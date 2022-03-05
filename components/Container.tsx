@@ -1,34 +1,5 @@
-import { useRouter } from "next/router";
-import NextLink from "next/link";
-import cn from "classnames";
 import Head from "next/head";
 import Footer from "./Footer";
-
-type NavItemProps = {
-  href: string;
-  text: string;
-  external?: boolean;
-};
-
-function NavItem({ href, text, external }: NavItemProps) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <NextLink href={href}>
-      <a
-        className={cn(
-          isActive ? "font-bold" : "text-gray-400",
-          "inline-block px-3 py-2 border-1 border-brand rounded-md hover:bg-brand/40 transition-all"
-        )}
-        target={external ? "_blank" : ""}
-        rel={external ? "noreferrer noopener" : ""}
-      >
-        <span className="capsize">{text}</span>
-      </a>
-    </NextLink>
-  );
-}
 
 export default function Container({ children }) {
   const meta = {
@@ -37,7 +8,7 @@ export default function Container({ children }) {
     image: "/meta_banner.png",
     type: "website",
   };
-  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -75,16 +46,6 @@ export default function Container({ children }) {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <nav
-        className="flex sticky top-2 max-w-2xl mx-auto px-4 md:px-0 rounded-lg bg-black py-3"
-        style={{ zIndex: 20 }}
-      >
-        <div className="flex space-x-3">
-          <NavItem href="/" text="Home" />
-          <NavItem href="/experience" text="Experience" />
-          <NavItem href="/blogs" text="Blogs" />
-        </div>
-      </nav>
       <div className="px-8 md:px-0 max-w-2xl mx-auto flex flex-col my-8">
         {children}
       </div>

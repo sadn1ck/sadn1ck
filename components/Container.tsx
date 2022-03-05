@@ -1,5 +1,5 @@
+import AnimateLayout from "layouts/AnimateLayout";
 import Head from "next/head";
-import Footer from "./Footer";
 
 export default function Container({ children }) {
   const meta = {
@@ -47,9 +47,8 @@ export default function Container({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <div className="px-8 md:px-0 max-w-2xl mx-auto flex flex-col my-8">
-        {children}
+        <AnimateLayout>{children}</AnimateLayout>
       </div>
-      <Footer />
     </>
   );
 }

@@ -7,6 +7,11 @@ html {
   scroll-behavior: smooth;
   @apply bg-black text-gray-50;
 }
+
+.navigation-underline {
+  @apply w-full border border-brand;
+}
+
 /* markdown */
 
 .prose .anchor {

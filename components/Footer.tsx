@@ -30,7 +30,6 @@ export default function Footer() {
               Blogs
             </a>
           </Link>
-          <hr className="visible md:hidden" />
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://github.com/sadn1ck">GitHub</ExternalLink>
@@ -41,7 +40,6 @@ export default function Footer() {
           <ExternalLink href="https://twitter.com/__sadn1ck__">
             Twitter
           </ExternalLink>
-          <hr className="visible md:hidden" />
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view">
@@ -54,7 +52,6 @@ export default function Footer() {
               Website Source
             </a>
           </ExternalLink>
-          <hr className="visible md:hidden" />
         </div>
       </div>
     </footer>

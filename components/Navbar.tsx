@@ -20,7 +20,7 @@ function NavItem({ href, text, external }: NavItemProps) {
         target={external ? "_blank" : ""}
         rel={external ? "noreferrer noopener" : ""}
       >
-        <span className="capsize">{text}</span>
+        {text}
         {isActive && (
           <motion.div
             layoutId="navigation-underline"
@@ -36,7 +36,7 @@ function NavItem({ href, text, external }: NavItemProps) {
 export default function Navbar() {
   return (
     <nav
-      className="flex sticky top-2 max-w-2xl mx-auto px-4 md:px-0 bg-black py-3 rounded-lg"
+      className="flex sticky top-2 max-w-2xl mx-auto px-0 bg-black py-3 rounded-lg"
       style={{ zIndex: 20 }}
     >
       <div className="flex space-x-3 justify-between">

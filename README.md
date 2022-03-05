@@ -1,17 +1,18 @@
 # Hey, I'm Anik 👋
 
-- 🧑‍💻 Frontend Intern @ CodeDrills
+- 👨‍💻 Aspiring Software Developer
+- 💻 Frontend Intern @ CodeDrills
 - 👨‍🎓 Student at the Department of Information Technology, IIEST Shibpur
 - 🧑‍💼 Core team member and Management Lead at [@dsc-iiest](https://github.com/dsc-iiest)
-- 🏢 Dev Team Member at [@codeiiest-dev](https://github.com/codeiiest-dev)
 
 ## [My Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view)
 
 ## Contact & Details
 
-- [Email](mailto:anikdas0811@gmail.com)
+- [This Email](mailto:anikdas0811@gmail.com) or [this one](mailto:anik@anikd.com)
 - [LinkedIn](https://linkedin.com/in/sadn1ck)
-- [Website](https://anikd.com)
+- [Twitter](https://twitter.com/__sadn1ck__)
+- [Website](https://anikd.com)[^1]
 
 ## Blogs
 
@@ -20,6 +21,4 @@
 | [Experiment - streaming logs](https://anik.live/posts/experiment-streaming-logs/)     | 16/10/2021 |
 | [Intro to Vue 3 Composition API](https://anik.live/posts/intro-vue3-composition-api/) | 12/10/2021 |
 
-^[1]
-
-[1]: Heavily Inspired by [leerob.io](https://github.com/leerob/leerob.io)
+[^1]: Inspired by [leerob.io](https://github.com/leerob/leerob.io)

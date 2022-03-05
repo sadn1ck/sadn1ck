@@ -23,6 +23,9 @@ export default function Blog({
       </Head>
       <Container>
         <div className="flex flex-col items-start justify-center max-w-2xl mx-auto">
+          <h3 className="mb-4 text-2xl font-bold tracking-tight md:text-4xl text-white">
+            All Posts
+          </h3>
           <div className="relative w-full mb-4">
             <input
               aria-label="Search blogs"
@@ -46,9 +49,6 @@ export default function Blog({
               />
             </svg>
           </div>
-          <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight md:text-4xl text-white">
-            All Posts
-          </h3>
           {!filteredBlogPosts.length && (
             <p className="mb-4 text-gray-400">No posts found.</p>
           )}
@@ -63,7 +63,5 @@ export default function Blog({
 
 export function getStaticProps() {
   const posts = allBlogs.map((val) => val);
-  console.log({ posts });
-
   return { props: { posts } };
 }

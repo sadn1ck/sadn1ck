@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import NextLink from "next/link";
 import cn from "classnames";
 import Head from "next/head";
+import Footer from "./Footer";
 
 type NavItemProps = {
   href: string;
@@ -17,7 +18,7 @@ function NavItem({ href, text, external }: NavItemProps) {
     <NextLink href={href}>
       <a
         className={cn(
-          isActive ? "font-bold text-brand bg-brand/50" : "text-gray-400",
+          isActive ? "font-bold" : "text-gray-400",
           "inline-block px-3 py-2 border-1 border-brand rounded-md hover:bg-brand/40 transition-all"
         )}
         target={external ? "_blank" : ""}
@@ -31,9 +32,9 @@ function NavItem({ href, text, external }: NavItemProps) {
 
 export default function Container({ children }) {
   const meta = {
-    title: "Anik Das – Developer, student.",
+    title: "Anik Das – Developer, student",
     description: `Aspiring Software Developer`,
-    image: "",
+    image: "/meta_banner.png",
     type: "website",
   };
   const router = useRouter();
@@ -55,23 +56,39 @@ export default function Container({ children }) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <nav
-        className="flex items-center justify-between sticky top-2 max-w-2xl mx-auto px-4 md:px-0 bg-black rounded-lg bg-opacity-50 backdrop-filter backdrop-blur py-5"
+        className="flex sticky top-2 max-w-2xl mx-auto px-4 md:px-0 rounded-lg bg-black py-3"
         style={{ zIndex: 20 }}
       >
         <div className="flex space-x-3">
           <NavItem href="/" text="Home" />
           <NavItem href="/experience" text="Experience" />
           <NavItem href="/blogs" text="Blogs" />
-          <div className="grow"></div>
-          <NavItem external href="https://github.com/sadn1ck" text="GitHub" />
         </div>
       </nav>
       <div className="px-8 md:px-0 max-w-2xl mx-auto flex flex-col my-8">
         {children}
       </div>
-      <footer>{/* @TODO:Footer */}</footer>
+      <Footer />
     </>
   );
 }

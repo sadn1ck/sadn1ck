@@ -13,9 +13,11 @@ export default function Experience(experience: OtherPage) {
         <meta name="description" content={experience.desc} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
         <Container>
+          <h3 className="mb-4 text-2xl font-bold tracking-tight md:text-4xl text-white">
+            Experience
+          </h3>
           <div className="prose">{<Component />}</div>
         </Container>
       </main>

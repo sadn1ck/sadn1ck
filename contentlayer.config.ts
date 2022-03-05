@@ -2,8 +2,8 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
+import rehypeExternalLinks from "rehype-external-links";
 
 const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -57,14 +57,7 @@ const contentLayerConfig = makeSource({
       rehypeSlug,
       rehypeCodeTitles,
       rehypePrism,
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ["anchor"],
-          },
-        },
-      ],
+      [rehypeExternalLinks, { target: "_blank", rel: ["noreferrer"] }],
     ],
   },
 });

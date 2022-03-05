@@ -39,6 +39,16 @@ export default function Home() {
             </div>
           </div>
           <About />
+          <h1 className="text-2xl underline font-bold">
+            <a
+              href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hover:text-brand"
+            >
+              Resume Link
+            </a>
+          </h1>
         </Container>
       </main>
 

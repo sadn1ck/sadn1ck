@@ -5,7 +5,7 @@ export default function Container({ children }) {
   const meta = {
     title: "Anik Das – Developer, student",
     description: `Aspiring Software Developer`,
-    image: "/meta_banner.png",
+    image: "https://anikd.com/meta_banner.png",
     type: "website",
   };
 

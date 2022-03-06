@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps, router }) {
       <Navbar />
       <AnimatePresence
         exitBeforeEnter={true}
+        onExitComplete={() => window.scrollTo(0, 0)}
       >
         <Component {...pageProps} canonical={url} key={url} />
       </AnimatePresence>

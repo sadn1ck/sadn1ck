@@ -26,7 +26,7 @@ const SocialIcons = (): JSX.Element => (
         href={href}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        className={`hover:text-gray-500 transition-colors ${
+        className={`hover:text-brand transition-colors ${
           i < links.length - 1 ? "mr-3" : ""
         }`}
         aria-label={ariaText}

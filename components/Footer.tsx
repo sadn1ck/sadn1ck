@@ -17,7 +17,9 @@ export default function Footer() {
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
       <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
-          <div className="text-lg font-bold opacity-30">Site</div>
+          <div className="text-lg font-bold text-brand hover:opacity-70">
+            Site
+          </div>
           <Link scroll={false} href="/">
             <a className="text-gray-300 hover:text-brand transition">Home</a>
           </Link>
@@ -31,7 +33,9 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <div className="text-lg font-bold opacity-30">Contact</div>
+          <div className="text-lg font-bold text-brand hover:opacity-70">
+            Contact
+          </div>
           <ExternalLink href="https://github.com/sadn1ck">GitHub</ExternalLink>
           <ExternalLink href="mailto:anikdas0811@gmail.com">Email</ExternalLink>
           <ExternalLink href="https://linkedin.com/in/sadn1ck">
@@ -42,14 +46,18 @@ export default function Footer() {
           </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
-          <div className="text-lg font-bold opacity-30">Source</div>
+          <div className="text-lg font-bold text-brand hover:opacity-70">
+            Source
+          </div>
           <ExternalLink href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view">
-            <a className="text-gray-300 hover:text-brand transition">Resume</a>
+            <span className="text-gray-300 hover:text-brand transition">
+              Resume
+            </span>
           </ExternalLink>
           <ExternalLink href="https://github.com/sadn1ck/sadn1ck">
-            <a className="text-gray-300 hover:text-brand transition">
+            <span className="text-gray-300 hover:text-brand transition">
               Website Source
-            </a>
+            </span>
           </ExternalLink>
         </div>
       </div>

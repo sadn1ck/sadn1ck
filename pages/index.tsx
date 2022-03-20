@@ -17,7 +17,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col-reverse sm:flex-row items-start">
             <div className="flex flex-col md:pl-0">
-              <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1">
+              <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 clip-title">
                 Anik Das
               </h1>
               <h2 className="text-gray-300 mb-4">
@@ -31,6 +31,7 @@ export default function Home() {
               <SocialIcons />
             </div>
             <div className="w-[100px] sm:w-[200px] relative md:p-4 sm:mb-0 mr-auto p-2">
+              <div className="-inset-0.5 animate-pulse bg-gradient-to-tr from-pink-500 to-purple-600 rounded-full absolute filter blur"></div>
               <Image
                 alt="Anik Das"
                 height={180}

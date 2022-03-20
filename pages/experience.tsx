@@ -15,7 +15,7 @@ export default function Experience(experience: OtherPage) {
       </Head>
       <main>
         <Container>
-          <h3 className="mb-4 text-2xl font-bold tracking-tight md:text-4xl text-white">
+          <h3 className="mb-4 text-2xl font-bold tracking-tight md:text-4xl text-white clip-title">
             Experience
           </h3>
           <div className="prose">{<Component />}</div>

@@ -23,7 +23,7 @@ export default function Blog({
       </Head>
       <Container>
         <div className="flex flex-col items-start justify-center max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold tracking-tight md:text-4xl text-white">
+          <h3 className="text-2xl font-bold tracking-tight md:text-4xl text-white clip-title">
             All Posts
           </h3>
           <div className="relative w-full my-8">

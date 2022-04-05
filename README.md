@@ -9,7 +9,7 @@
 
 ## Contact & Details
 
-- [This Email](mailto:anikdas0811@gmail.com) or [this one](mailto:anik@anikd.com)
+- [This Email](mailto:anikdas0811@gmail.com) or [this one](mailto:contact@anikd.com)
 - [LinkedIn](https://linkedin.com/in/sadn1ck)
 - [Twitter](https://twitter.com/__sadn1ck__)
 - [Website](https://anikd.com)[^1]

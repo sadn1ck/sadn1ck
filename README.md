@@ -1,7 +1,6 @@
 # Hey, I'm Anik 👋
 
 - 👨‍💻 Aspiring Software Developer
-- 💻 Frontend Intern @ CodeDrills
 - 👨‍🎓 Student at the Department of Information Technology, IIEST Shibpur
 - 🧑‍💼 Core team member and Management Lead at [@dsc-iiest](https://github.com/dsc-iiest)
 

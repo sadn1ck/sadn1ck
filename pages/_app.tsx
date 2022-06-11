@@ -6,18 +6,16 @@ import Head from "next/head";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps, router }) {
-  const url = `https://wallis.dev${router.route}`;
+  const url = `https://anikd.com${router.route}`;
   return (
     <>
-      <Head>
-        <Script
-          async
-          defer
-          data-website-id="bb4be3ad-5765-44e0-b6c3-9ba7a9a89a92"
-          data-do-not-track="true"
-          src="https://analytics.anikd.com/umami.js"
-        ></Script>
-      </Head>
+      <Script
+        async
+        defer
+        data-website-id="bb4be3ad-5765-44e0-b6c3-9ba7a9a89a92"
+        data-do-not-track="true"
+        src="https://analytics.anikd.com/umami.js"
+      ></Script>
       <Navbar />
       <AnimatePresence
         exitBeforeEnter={true}

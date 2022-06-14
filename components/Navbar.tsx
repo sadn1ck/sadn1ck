@@ -42,7 +42,7 @@ function NavItem({ href, text, external, StartIcon }: NavItemProps) {
 
 export default function Navbar() {
   return (
-    <nav className="max-w-2xl px-4 md:px-0 mx-auto bg-black py-3 rounded-lg">
+    <nav className="max-w-2xl px-4 md:px-0 mx-auto py-3 rounded-lg">
       <div className="flex space-x-2">
         <NavItem href="/" text="Home" StartIcon={FaHome} />
         <div className="flex-grow"></div>

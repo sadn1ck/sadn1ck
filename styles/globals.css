@@ -51,10 +51,6 @@ h6,
   font-family: "Inter";
 }
 
-.clip-title {
-  @apply text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500;
-}
-
 ::selection {
   background-color: #454545;
 }
@@ -65,7 +61,8 @@ html {
   min-width: 360px;
   scroll-behavior: smooth;
   overflow-y: scroll;
-  @apply bg-black text-gray-50;
+  background-color: #232323;
+  @apply text-gray-50;
 }
 
 .navigation-underline {
@@ -73,9 +70,11 @@ html {
 }
 
 /* markdown */
+blockquote > p,
 blockquote > p::before,
 blockquote > p::after {
   content: "" !important;
+  font-style: normal !important;
 }
 
 .prose .anchor {

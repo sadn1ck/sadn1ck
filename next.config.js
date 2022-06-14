@@ -8,6 +8,6 @@ module.exports = withContentlayer()({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["avatars.githubusercontent.com", "anik.live"],
+    domains: ["avatars.githubusercontent.com", "anikd.com"],
   },
 });

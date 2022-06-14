@@ -17,7 +17,7 @@
 
 | Title                                                                                 | Date       |
 | ------------------------------------------------------------------------------------- | ---------- |
-| [Experiment - streaming logs](https://anik.live/posts/experiment-streaming-logs/)     | 16/10/2021 |
-| [Intro to Vue 3 Composition API](https://anik.live/posts/intro-vue3-composition-api/) | 12/10/2021 |
+| [Experiment - streaming logs](https://anikd.com/posts/experiment-streaming-logs/)     | 16/10/2021 |
+| [Intro to Vue 3 Composition API](https://anikd.com/posts/intro-vue3-composition-api/) | 12/10/2021 |
 
 [^1]: Inspired by [leerob.io](https://github.com/leerob/leerob.io)

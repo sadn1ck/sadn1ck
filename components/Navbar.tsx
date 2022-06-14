@@ -16,7 +16,7 @@ function NavItem({ href, text, external, StartIcon }: NavItemProps) {
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href} scroll={false}>
+    <NextLink href={href}>
       <a
         className={cn(
           isActive ? "text-brand" : "text-gray-400",

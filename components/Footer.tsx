@@ -20,15 +20,15 @@ export default function Footer() {
           <div className="text-lg font-bold text-brand hover:opacity-70">
             Site
           </div>
-          <Link scroll={false} href="/">
+          <Link href="/">
             <a className="text-gray-300 hover:text-brand transition">Home</a>
           </Link>
-          <Link scroll={false} href="/experience">
+          <Link href="/experience">
             <a className="text-gray-300 hover:text-brand transition">
               Experience
             </a>
           </Link>
-          <Link scroll={false} href="/blogs">
+          <Link href="/blogs">
             <a className="text-gray-300 hover:text-brand transition">Blogs</a>
           </Link>
         </div>

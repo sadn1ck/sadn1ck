@@ -14,11 +14,11 @@ export default function Home() {
               <h1 className="font-bold text-3xl md:text-4xl tracking-tight mb-1">
                 Anik Das
               </h1>
-              <h2 className="text-gray-300 mb-4">
-                GSoC 2022 at <span className="font-semibold">Sugar Labs</span>
-              </h2>
+              <div className="text-gray-300 mb-4">
+                GSoC 2022 @ <span className="font-semibold">Sugar Labs</span>
+              </div>
               <p className="text-gray-300 mb-8">
-                Aspiring Software Developer, currently in my 3rd year of
+                Aspiring Software Developer, currently in my final year of
                 Undergraduate study at IIEST Shibpur.
               </p>
               <SocialIcons />

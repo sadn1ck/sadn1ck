@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import cn from "classnames";
 import { useRouter } from "next/router";
-import { AnimateSharedLayout, motion } from "framer-motion";
 import { IconType } from "react-icons/lib";
 import { FaHome } from "react-icons/fa";
 
@@ -26,15 +25,10 @@ function NavItem({ href, text, external, StartIcon }: NavItemProps) {
         )}
         target={external ? "_blank" : ""}
         rel={external ? "noreferrer noopener" : ""}
+        aria-label={text}
       >
         {StartIcon ? <StartIcon size={32} /> : <>{text}</>}
-        {isActive && (
-          <motion.div
-            layoutId="navigation-underline"
-            className="navigation-underline"
-            animate
-          />
-        )}
+        {isActive && <div className="navigation-underline" />}
       </a>
     </NextLink>
   );

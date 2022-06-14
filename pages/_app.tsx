@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import "../styles/globals.css";
@@ -17,12 +16,7 @@ function MyApp({ Component, pageProps, router }) {
         src="https://analytics.anikd.com/umami.js"
       ></Script>
       <Navbar />
-      <AnimatePresence
-        exitBeforeEnter={true}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        <Component {...pageProps} canonical={url} key={url} />
-      </AnimatePresence>
+      <Component {...pageProps} canonical={url} key={url} />
       <Footer />
     </>
   );

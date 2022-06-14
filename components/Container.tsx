@@ -1,9 +1,8 @@
-import AnimateLayout from "layouts/AnimateLayout";
 import Head from "next/head";
 
 export default function Container({ children }) {
   const meta = {
-    title: "Anik Das – Developer, student",
+    title: "Anik Das",
     description: `Aspiring Software Developer`,
     image: "https://anikd.com/meta_banner.png",
     type: "website",

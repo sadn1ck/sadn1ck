@@ -1,0 +1,93 @@
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  color: var(--gray);
+  opacity: 90%;
+}
+
+a:hover {
+  opacity: 60%;
+}
+
+/* utility classes */
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-white {
+  color: #eeeeee;
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+/* custom css */
+
+main {
+  padding-top: 1rem;
+}
+
+section {
+  margin-top: 4rem;
+}
+
+section > .name-title {
+  margin-bottom: 0.5rem;
+}
+
+section > .about-title,
+section > .contact-title,
+section > .work-title {
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  padding-top: 1rem;
+}
+.links > p {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+/* work */
+.work-card {
+  margin-bottom: 2rem;
+}
+
+.work-details > p.work-content {
+  margin-top: 1rem;
+}
+
+.work-time {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+.work-content {
+  font-size: 0.95rem;
+}
+
+/* work */
+
+/* contact */
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.contact {
+  margin-bottom: 5rem;
+}
+
+/* contact */

@@ -15,6 +15,34 @@ a:hover {
   opacity: 60%;
 }
 
+/* generic stuff */
+
+a {
+  text-decoration-thickness: 0.25px;
+  text-underline-offset: 5px;
+}
+h1,
+h2,
+h3,
+.work-co {
+  font-family: "DM Serif Display" !important;
+}
+h1 {
+  font-size: 250%;
+}
+h2 {
+  font-size: 200%;
+}
+h3 {
+  font-size: 175%;
+}
+.work-co {
+  font-size: 125%;
+}
+code {
+  font-size: 90%;
+}
+
 /* utility classes */
 
 .text-bold {

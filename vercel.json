@@ -1,8 +1,23 @@
 {
-    "redirects": [
+  "redirects": [
+    {
+      "source": "/resume",
+      "destination": "https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/pres.pdf",
+      "headers": [
         {
-            "source": "/resume",
-            "destination": "https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view"
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"pres.pdf\""
         }
-    ]
+      ]
+    }
+  ]
 }

@@ -7,7 +7,7 @@
   ],
   "headers": [
     {
-      "source": "/pres.pdf",
+      "source": "/pdf.pdf",
       "headers": [
         {
           "key": "Content-Type",
@@ -15,7 +15,7 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "inline; filename=\"pres.pdf\""
+          "value": "inline; filename=\"pdf.pdf\""
         }
       ]
     }

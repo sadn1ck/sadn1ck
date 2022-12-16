@@ -25,16 +25,16 @@ h1,
 h2,
 h3,
 .work-co {
-  font-family: "DM Serif Display" !important;
+  font-family: "DM Sans" !important;
 }
 h1 {
-  font-size: 250%;
-}
-h2 {
   font-size: 200%;
 }
-h3 {
+h2 {
   font-size: 175%;
+}
+h3 {
+  font-size: 150%;
 }
 .work-co {
   font-size: 125%;

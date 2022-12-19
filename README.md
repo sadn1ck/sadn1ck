@@ -12,3 +12,4 @@
 - [LinkedIn](https://linkedin.com/in/sadn1ck)
 - [Twitter](https://twitter.com/__sadn1ck__)
 - [Website](https://anikd.com)
+- <a rel="me" href="https://hachyderm.io/@sadn1ck">Mastodon</a>

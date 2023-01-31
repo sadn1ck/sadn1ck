@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "CalSans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("/fonts/cssb.woff2") format("woff2");
+}
+
 a,
 a:visited {
   color: var(--gray);
@@ -21,24 +29,40 @@ a {
   text-decoration-thickness: 0.25px;
   text-underline-offset: 5px;
 }
-h1,
-h2,
-h3,
-.work-co {
-  font-family: "DM Sans" !important;
-}
+
 h1 {
-  font-size: 200%;
+  font-size: 56px;
 }
+
 h2 {
-  font-size: 175%;
+  font-size: 40px;
+  letter-spacing: 0.01em;
 }
+
 h3 {
-  font-size: 150%;
+  font-size: 36px;
+  letter-spacing: 0.015em;
 }
+
+h4 {
+  font-size: 28px;
+  letter-spacing: 0.02em;
+}
+
+h5 {
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+
+h6, p, div {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
 .work-co {
   font-size: 125%;
 }
+
 code {
   font-size: 90%;
 }
@@ -67,13 +91,13 @@ section {
   margin-top: 4rem;
 }
 
-section > .name-title {
+section>.name-title {
   margin-bottom: 0.5rem;
 }
 
-section > .about-title,
-section > .contact-title,
-section > .work-title {
+section>.about-title,
+section>.contact-title,
+section>.work-title {
   margin-bottom: 1.5rem;
 }
 
@@ -81,7 +105,8 @@ section > .work-title {
   display: flex;
   padding-top: 1rem;
 }
-.links > p {
+
+.links>p {
   margin-right: 1rem;
   font-weight: bold;
 }
@@ -91,7 +116,7 @@ section > .work-title {
   margin-bottom: 2rem;
 }
 
-.work-details > p.work-content {
+.work-details>p.work-content {
   margin-top: 1rem;
 }
 
@@ -101,6 +126,7 @@ section > .work-title {
   color: var(--gray);
   font-size: 0.9rem;
 }
+
 .work-content {
   font-size: 0.95rem;
 }

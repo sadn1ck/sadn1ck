@@ -9,7 +9,6 @@
   font-family: "CalSans";
   font-style: normal;
   font-display: swap;
-  font-weight: 600;
   src: url("/fonts/cssb.woff2") format("woff2");
 }
 
@@ -74,7 +73,7 @@ code {
 }
 
 .text-white {
-  color: #eeeeee;
+  color: var(--text);
 }
 
 .text-gray {

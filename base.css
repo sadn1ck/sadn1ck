@@ -5,11 +5,9 @@
   padding: 0;
 }
 
-@font-face {
-  font-family: "CalSans";
-  font-style: normal;
-  font-display: swap;
-  src: url("/fonts/cssb.woff2") format("woff2");
+
+html {
+  line-height: 1.8rem;
 }
 
 a,
@@ -29,37 +27,17 @@ a {
   text-underline-offset: 5px;
 }
 
-h1 {
-  font-size: 56px;
-}
-
-h2 {
-  font-size: 40px;
-  letter-spacing: 0.01em;
-}
-
-h3 {
-  font-size: 36px;
-  letter-spacing: 0.015em;
-}
-
-h4 {
-  font-size: 28px;
-  letter-spacing: 0.02em;
-}
-
-h5 {
-  font-size: 20px;
-  letter-spacing: 0.03em;
-}
-
-h6, p, div {
-  font-size: 16px;
-  letter-spacing: 0.04em;
-}
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
 .work-co {
-  font-size: 125%;
+  all: unset;
+  display: block;
 }
 
 code {
@@ -72,7 +50,7 @@ code {
   font-weight: bold;
 }
 
-.text-white {
+.text {
   color: var(--text);
 }
 
@@ -91,23 +69,21 @@ section {
 }
 
 section>.name-title {
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
 section>.about-title,
 section>.contact-title,
 section>.work-title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .links {
   display: flex;
+  gap: 0.5rem;
   padding-top: 1rem;
-}
-
-.links>p {
-  margin-right: 1rem;
-  font-weight: bold;
 }
 
 /* work */
@@ -115,19 +91,23 @@ section>.work-title {
   margin-bottom: 2rem;
 }
 
+.work-co>a:nth-child(1) {
+  font-weight: bold;
+}
+
 .work-details>p.work-content {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .work-time {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   color: var(--gray);
-  font-size: 0.9rem;
-}
-
-.work-content {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
 }
 
 /* work */
@@ -136,11 +116,21 @@ section>.work-title {
 .contact-card {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card>p:nth-child(1) {
+  display: none;
+}
+
+
+@media only screen and (min-width: 360px) {
+  .contact-card>p:nth-child(1) {
+    display: block;
+    /* border: 2px solid red; */
+  }
 }
 
 .contact {
   padding-bottom: 5rem;
 }
-
-/* contact */

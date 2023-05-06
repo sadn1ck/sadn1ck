@@ -1,12 +1,11 @@
-# Hey, I'm Anik 👋
+# Hi, I'm Anik 👋
 
-- 👨‍💻 Software Engineer Intern @ [ChronicleHQ](https://github.com/chroniclehq)
+- 👨‍💻 Incoming Software Engineer @ [Chronicle](https://github.com/chroniclehq)
 - 💻 Google Summer of Code 2022 @ [Sugar Labs](https://github.com/sugarlabs)
-- 👨‍🎓 Final Year Student @ IIEST Shibpur
 
-## [My Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view)
+## [Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view)
 
-## Contact & Details
+## Contact
 
 - [Email](mailto:contact@anikd.com)
 - [LinkedIn](https://linkedin.com/in/sadn1ck)

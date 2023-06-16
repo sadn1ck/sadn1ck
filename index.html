@@ -26,8 +26,11 @@
     <meta property="twitter:description" content="Software Engineer, Developer @ GSoC 2022, Sugar Labs">
     <meta property="twitter:image" content="https://anikd.com/meta_banner.png">
 
-    <script async defer data-website-id="9adf7538-9f40-47fb-8a16-967800b61d9b"
-        src="https://analytics.anikd.com/umami.js"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Public+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -49,7 +52,7 @@
             background-size: 50px 50px;
             background-color: var(--bg);
             color: var(--text);
-            font-family: "Google Sans", Helvetica, Arial, sans-serif;
+            font-family: "Public Sans", Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -102,20 +105,30 @@
         </section>
 
         <section class="work">
-            <h2 class="work-title text-bold text">
+            <!-- <h2 class="work-title text-bold text">
                 Work
-            </h2>
+            </h2> -->
             <div class="work-card">
                 <div class="work-details">
                     <p class="work-co">
                         <a target="_blank" rel="noopener noreferrer" href="https://chroniclehq.com/">Chronicle</a>
                     </p>
                     <p class="work-time">
-                        <span>Software Engineer Intern</span> <span>06/2022 -
+                        <span>Software Engineer</span> <span>07/2023 -
+                            Present</span>
+                    </p>
+                    <p class="work-time">
+                        <span>SWE Intern</span> <span>06/2022 -
                             03/2023</span>
                     </p>
                     <p class="work-content">
-                        Building the future of presentations
+                    <ul>
+                        <li>Wrote 2 extensions for the TipTap text editor to unite and maintain common usage scenarios
+                        </li>
+                        <li>Debugged and fixed multiple P0 bugs related to real time sync and collaboration</li>
+                        <li>Setup brand page, analytics and registration flow for the chroniclehq.com landing page which
+                            receiver over 20,000 total page views in the first week after launch</li>
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -128,13 +141,17 @@
                             Summer of Code</a>
                     </p>
                     <p class="work-time">
-                        <span>Open Source Developer</span> <span>05/2022 -
+                        <span>OSS Developer</span> <span>05/2022 -
                             09/2022</span>
                     </p>
                     <p class="work-content">
-                        Migrate a <code>create-react-app</code> project to
-                        Webpack 5, and improve the developer
-                        experience of the project
+                    <ul>
+                        <li>
+                            Migrate a <code>create-react-app</code> project to
+                            Webpack 5, and improve the developer
+                            experience of the project
+                        </li>
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -144,14 +161,30 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://codedrills.io">CodeDrills</a>
                     </p>
                     <p class="work-time">
-                        <span>Frontend Engineer Intern</span> <span>12/2021 -
+                        <span>Frontend Engg. Intern</span> <span>12/2021 -
                             04/2022</span>
                     </p>
                     <p class="work-content">
-                        Delivered the frontend to the Recruiter platform with
-                        Vue & Vuetify, in use by 5+ companies
+                    <ul>
+                        <li>Delivered the frontend to the Recruiter platform with
+                            Vue & Vuetify, in use by 5+ companies</li>
+                    </ul>
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <section id="posts" class="posts hidden">
+            <h2 class="post-title text-bold text">
+                Posts
+            </h2>
+            <div class="post-card hidden">
+                <span class="text-sm">
+                    2021-09-01
+                </span>
+                <a target="_blank" rel="noopener noreferrer" href="">
+                    Title
+                </a>
             </div>
         </section>
 
@@ -205,5 +238,46 @@
         </section>
     </main>
 </body>
+<script async type="module">
+    const postsEl = document.getElementById("posts");
+    function toggleClass(el, className) {
+        if (el && el.classList)
+            el.classList.toggle(className);
+    }
+    const blogs = await fetch("https://api.hashnode.com/", {
+        "headers": {
+            "accept": "*/*",
+            "cache-control": "no-cache",
+            "content-type": "application/json",
+        },
+        "referrer": "https://api.hashnode.com/",
+        "referrerPolicy": "origin",
+        "body": "{\"query\":\"{\\n  user(username: \\\"sadn1ck\\\") {\\n    publication {\\n      posts {\\n        slug\\n        title\\n        dateAdded\\n      }\\n    }\\n  }\\n}\"}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    }).then(r => {
+        const data = r.json()
+        postsEl.classList.remove("hidden")
+        return data
+    })
+
+    // console.log(blogs.data.user.publication.posts)
+    const posts = blogs.data.user.publication.posts
+    posts.forEach(post => {
+        const clone = document.querySelector(".post-card").cloneNode(true)
+        const dateEl = clone.querySelector("span")
+        const titleLinkEl = clone.querySelector("a")
+        dateEl.textContent = new Date(post.dateAdded).toLocaleDateString()
+        titleLinkEl.textContent = post.title
+        titleLinkEl.href = `https://blog.anikd.com/${post.slug}`
+        postsEl.appendChild(clone)
+        toggleClass(clone, "hidden")
+    });
+    const templateEl = document.querySelector("#posts > div.post-card.hidden")
+    templateEl.remove()
+
+
+</script>
 
 </html>

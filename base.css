@@ -50,12 +50,22 @@ code {
   font-weight: bold;
 }
 
+.text-sm {
+  font-size: 0.8rem;
+  font-family: "PT Mono", monospace;
+  color: 'gray';
+}
+
 .text {
   color: var(--text);
 }
 
 .text-gray {
   color: var(--gray);
+}
+
+.hidden {
+  display: none;
 }
 
 /* custom css */
@@ -75,7 +85,8 @@ section>.name-title {
 
 section>.about-title,
 section>.contact-title,
-section>.work-title {
+section>.work-title,
+section>.post-title {
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
@@ -93,6 +104,7 @@ section>.work-title {
 
 .work-co>a:nth-child(1) {
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .work-details>p.work-content {
@@ -104,13 +116,16 @@ section>.work-title {
   justify-content: space-between;
   flex-wrap: wrap;
   color: var(--gray);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
   font-weight: bold;
+  font-family: "PT Mono", monospace;
 }
 
 /* work */
+
+ul {
+  list-style-position: inside;
+}
 
 /* contact */
 .contact-card {
@@ -133,4 +148,28 @@ section>.work-title {
 
 .contact {
   padding-bottom: 5rem;
+}
+
+/* posts */
+
+.post-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.post-card a {
+  margin-left: 2rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .post-card {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  .post-card a {
+    margin-left: 0;
+  }
 }

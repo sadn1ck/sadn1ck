@@ -1,0 +1,46 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+
+@layer base {
+  :root {
+    --underline: theme(colors.gray.600/60%);
+    --background: 229 229 229;
+    --highlight: 115 115 115;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --underline: theme(colors.gray.500/80%);
+      --background: 38 38 38;
+      --highlight: 255 255 255;
+    }
+  }
+
+  a {
+    text-decoration-color: var(--underline) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+
+    &:hover,
+    &:focus {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+/**
+  * This injects Tailwind's component classes and any component classes
+  * registered by plugins.
+  */
+@tailwind components;
+
+/**
+  * This injects Tailwind's utility classes and any utility classes registered
+  * by plugins.
+  */
+@tailwind utilities;

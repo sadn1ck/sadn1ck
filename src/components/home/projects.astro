@@ -1,0 +1,58 @@
+---
+import Project from "./project.astro";
+const projects = [
+  {
+    id: "radial-menu",
+    name: "Radial Menu",
+    content: "Video game-ish radial menu, inspired by @raunofreiberg",
+    source: "https://github.com/sadn1ck/radial-menu-experiment",
+    deploy: "https://radial-menu-experiment.vercel.app/",
+  },
+  {
+    id: "godns",
+    name: "godns",
+    content: "[wip] toy dns resolver following @jvns' wonderful tutorial",
+    source: "https://github.com/sadn1ck/godns",
+    deploy: "",
+  },
+  {
+    id: "gsoc",
+    name: "GSoC '22 Report",
+    content:
+      "Google Summer of Code 2022 final work report: migrating to a custom Webpack config",
+    source: "https://gist.github.com/sadn1ck/6b3ac8321fcbc9c0c9a592b438ff83a0",
+    deploy: "",
+  },
+];
+---
+
+<section id="projects">
+  <h2 class="text-sm text-gray-500 dark:text-gray-300 mb-4">Projects</h2>
+  <div class="flex gap-4 overflow-x-scroll pb-16" id="scroll-projects">
+    {
+      projects.map((value) => {
+        return (
+          <Project
+            id={value.id}
+            name={value.name}
+            source={value.source}
+            deploy={value.deploy}
+            content={value.content}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  #scroll-projects {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none; /* for Chrome, Safari, and Opera */
+    }
+  }
+</style>

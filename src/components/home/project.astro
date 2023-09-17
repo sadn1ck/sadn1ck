@@ -1,0 +1,42 @@
+---
+import ext from "../../assets/external.svg?raw";
+type Project = {
+  name: string;
+  source: string;
+  deploy: string;
+  id: string;
+  content: string;
+};
+
+const project = Astro.props;
+---
+
+<div
+  id={project.id}
+  style={{
+    "--bg-color":
+      "linear-gradient(rgb(var(--background)), rgb(var(--background)))",
+    "--border-color": `linear-gradient(145deg,
+        rgb(var(--highlight)) 0%,
+        rgb(var(--highlight) / 0.2) 33.33%,
+        rgb(var(--highlight) / 0.14) 66.67%,
+        rgb(var(--highlight) / 0.1) 100%)
+      `,
+  }}
+  class="flex flex-col min-w-[200px] h-[200px] rounded-xl border border-transparent p-4
+  [background:padding-box_var(--bg-color),border-box_var(--border-color)]"
+>
+  <h4 class="flex-shrink-0 flex-grow-0 h-10 inline-flex gap-1">
+    <a target="_blank" href={project.source}>{project.name}</a><Fragment
+      set:html={ext}
+    />
+  </h4>
+  <p class="text-gray-600 dark:text-gray-300 text-sm">{project.content}</p>
+  {
+    project.deploy && (
+      <a href={project.deploy} target="_blank" class="text-sm mt-auto">
+        Deployed URL
+      </a>
+    )
+  }
+</div>

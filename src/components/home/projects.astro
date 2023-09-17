@@ -28,7 +28,7 @@ const projects = [
 
 <section id="projects">
   <h2 class="text-sm text-gray-500 dark:text-gray-300 mb-4">Projects</h2>
-  <div class="flex gap-4 overflow-x-scroll pb-16" id="scroll-projects">
+  <div class="flex gap-4 overflow-x-scroll pb-16 pr-8" id="scroll-projects">
     {
       projects.map((value) => {
         return (
@@ -50,6 +50,23 @@ const projects = [
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll;
+
+    /* the 0 in scroll amount should be set when scrolled so that the start also gets gradient  */
+    /* thanks to paco.me */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 0,
+      #000 calc(100% - 20%),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 24px,
+      #000 calc(100% - 20%),
+      transparent 100%
+    );
 
     &::-webkit-scrollbar {
       display: none; /* for Chrome, Safari, and Opera */

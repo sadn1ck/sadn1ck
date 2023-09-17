@@ -34,8 +34,12 @@ const project = Astro.props;
   <p class="text-gray-600 dark:text-gray-300 text-sm">{project.content}</p>
   {
     project.deploy && (
-      <a href={project.deploy} target="_blank" class="text-sm mt-auto">
-        Deployed URL
+      <a
+        href={project.deploy}
+        target="_blank"
+        class="text-sm mt-auto inline-flex"
+      >
+        Deployed URL <Fragment set:html={ext} />
       </a>
     )
   }

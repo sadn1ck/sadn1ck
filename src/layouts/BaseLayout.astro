@@ -2,6 +2,7 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/playfair-display";
 import "../assets/global.css";
+import Footer from "../components/footer.astro";
 ---
 
 <!doctype html>
@@ -13,11 +14,28 @@ import "../assets/global.css";
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{"Anik Das"}</title>
+    <meta name="title" content="Anik Das" />
+    <meta name="description" content="software engg @ chronicle" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anikd.com" />
+    <meta property="og:title" content="Anik Das" />
+    <meta property="og:description" content="software engg @ chronicle" />
+    <meta property="og:image" content="/meta_banner.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/" />
+    <meta property="twitter:title" content="Anik Das" />
+    <meta property="twitter:description" content="software engg @ chronicle" />
+    <meta property="twitter:image" content="/meta_banner.png" />
   </head>
   <body class="font-sans tracking-tight">
     <slot />
   </body>
+  <Footer />
 </html>

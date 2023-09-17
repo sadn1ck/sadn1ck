@@ -1,0 +1,53 @@
+---
+const work = [
+  {
+    workplace: "Chronicle",
+    role: "Software Engineer",
+    duration: "2023 - Now",
+    description: "Building the future of storytelling",
+  },
+  {
+    workplace: "Chronicle",
+    role: "Software Engineer Intern",
+    duration: "2022 - 2023",
+    description: "Building the future of storytelling (as an intern)",
+  },
+  {
+    workplace: "Google Summer of Code '22",
+    role: "OSS Contributor",
+    duration: "2022",
+    description: "Migrate CRA to Webpack 5, improve DX and tooling",
+  },
+  {
+    workplace: "Codedrills",
+    role: "Frontend Engineer",
+    duration: "2021 - 2022",
+    description:
+      "Built the frontend of the Recruiter platform, in use by 5+ companies",
+  },
+];
+---
+
+<section id="work">
+  <h2 class="text-sm text-gray-500 dark:text-gray-300 mb-4">Work</h2>
+  {
+    work.map((w) => {
+      return (
+        <div
+          id={w.duration}
+          class="grid grid-cols-3 md:grid-cols-6 items-start gap-8 mb-8"
+        >
+          <span class="col-span-1 sm:col-span-2 text-sm text-left text-gray-500 dark:text-gray-400 font-mono">
+            {w.duration}
+          </span>
+          <div class="col-span-2 sm:col-span-4 flex flex-col">
+            <p class="font-serif tracking-wide italic mb-2">
+              {w.role}, {w.workplace}
+            </p>
+            <p class="tracking-normal">{w.description}</p>
+          </div>
+        </div>
+      );
+    })
+  }
+</section>

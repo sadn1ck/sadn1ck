@@ -1,0 +1,26 @@
+---
+const serverDate = new Date().toLocaleString("en-IN", {
+  timeZone: "Asia/Kolkata",
+  timeStyle: "short",
+});
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById("footer-time");
+    if (!el) return;
+    setInterval(() => {
+      el.innerHTML = new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        timeStyle: "short",
+      });
+    }, 1000 * 60);
+  });
+</script>
+
+<footer
+  class="h-8 text-xs flex justify-between items-center mt-16 pt-4 pb-8 border-t-[1px] border-gray-500/40"
+>
+  <span id="footer-time">{serverDate}</span>
+  <span>Made with Astro, Tailwind</span>
+</footer>

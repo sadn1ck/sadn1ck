@@ -1,0 +1,17 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Back from "../components/Back.astro";
+import Layout from "../layouts/BaseLayout.astro";
+---
+
+<head>
+  <ViewTransitions />
+  <title>Craft ✦ Anik Das</title>
+</head>
+<Layout transition:name="fade">
+  <h1 class="relative text-lg mb-4">
+    Coming soon™
+
+    <Back />
+  </h1>
+</Layout>

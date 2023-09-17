@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
+import Back from "../../components/Back.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (b, a) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<head>
+  <ViewTransitions />
+  <title>Blogs ✦ Anik Das</title>
+</head>
+<BaseLayout transition:name="fade">
+  <h1 class="mb-12 text-lg relative">
+    Blogs
+    <Back />
+  </h1>
+  <section>
+    <ul class="flex flex-col gap-2">
+      {
+        posts.map((post) => (
+          <li class="-mx-2 px-4 rounded-md dark:hover:bg-gray-700 hover:bg-gray-300 transition-colors duration-150">
+            <a
+              style="text-decoration: none;"
+              href={`/blog/${post.slug}/`}
+              class="flex flex-row justify-between items-center w-full h-full py-4"
+            >
+              <h3 class="title font-serif">{post.data.title}</h3>
+              <p class="font-mono text-sm">
+                {post.data.pubDate.toLocaleDateString("en-IN")}
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

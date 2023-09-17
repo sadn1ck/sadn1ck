@@ -1,0 +1,42 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/playfair-display";
+import { ViewTransitions } from "astro:transitions";
+import "../assets/global.css";
+import Back from "../components/Back.astro";
+import Footer from "../components/footer.astro";
+
+const { frontmatter: post } = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="min-h-screen bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-50 max-w-xl mx-auto pt-16 px-8 lg:px-0 lg:pt-32"
+  transition:animate="fade"
+>
+  <head>
+    <ViewTransitions />
+    <meta charset="UTF-8" />
+    <meta name="description" content={post.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{post.title}</title>
+    <meta name="title" content={post.title} />
+    <meta name="description" content={post.description} />
+  </head>
+  <body class="prose dark:prose-invert font-sans tracking-tight">
+    <h1 class="relative text-lg mb-4">
+      {post.title}
+      <Back />
+    </h1>
+    <span class="text-gray-600 dark:text-gray-300">
+      Published on: {post.pubDate}
+    </span>
+    <section id="content" class="overflow-x-hidden">
+      <slot />
+    </section>
+    <Footer />
+  </body>
+</html>

@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/inter";
 import "@fontsource-variable/playfair-display";
+import { ViewTransitions } from "astro:transitions";
 import "../assets/global.css";
 import Footer from "../components/footer.astro";
 ---
@@ -9,10 +10,12 @@ import Footer from "../components/footer.astro";
 <html
   lang="en"
   class="min-h-screen bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-50 max-w-xl mx-auto pt-16 px-8 lg:px-0 lg:pt-32"
+  transition:animate="fade"
 >
   <head>
+    <ViewTransitions />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={"software engg @ chronicle"} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -25,17 +28,17 @@ import Footer from "../components/footer.astro";
     <meta property="og:url" content="https://anikd.com" />
     <meta property="og:title" content="Anik Das" />
     <meta property="og:description" content="software engg @ chronicle" />
-    <meta property="og:image" content="/meta_banner.png" />
+    <meta property="og:image" content="/meta.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="/" />
+    <meta property="twitter:url" content="https://anikd.com" />
     <meta property="twitter:title" content="Anik Das" />
     <meta property="twitter:description" content="software engg @ chronicle" />
-    <meta property="twitter:image" content="/meta_banner.png" />
+    <meta property="twitter:image" content="/meta.png" />
   </head>
   <body class="font-sans tracking-tight">
     <slot />
+    <Footer />
   </body>
-  <Footer />
 </html>

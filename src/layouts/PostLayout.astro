@@ -25,16 +25,28 @@ const { frontmatter: post } = Astro.props;
     <title>{post.title}</title>
     <meta name="title" content={post.title} />
     <meta name="description" content={post.description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={post.title} />
+    <meta property="og:description" content={post.description} />
+    <meta property="og:image" content="/meta.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={post.title} />
+    <meta property="twitter:description" content={post.description} />
+    <meta property="twitter:image" content="/meta.png" />
   </head>
   <body class="prose dark:prose-invert font-sans tracking-tight">
-    <h1 class="relative text-lg mb-4">
+    <h1 class="relative text-lg mb-4 font-normal">
       {post.title}
       <Back />
     </h1>
     <span class="text-gray-600 dark:text-gray-300">
       Published on: {post.pubDate}
     </span>
-    <section id="content" class="overflow-x-hidden">
+    <section id="writing-content" class="overflow-x-hidden">
       <slot />
     </section>
     <Footer />

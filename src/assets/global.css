@@ -9,6 +9,7 @@
     --underline: theme(colors.gray.600/60%);
     --background: 229 229 229;
     --highlight: 115 115 115;
+    --scrollbar: theme(colors.gray.400);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -16,6 +17,7 @@
       --underline: theme(colors.gray.500/80%);
       --background: 38 38 38;
       --highlight: 255 255 255;
+      --scrollbar: theme(colors.gray.600);
     }
   }
 
@@ -30,6 +32,78 @@
       text-decoration-thickness: 2px;
       text-underline-offset: 4px;
     }
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-height: 12px;
+    min-width: 12px;
+    background-color: var(--scrollbar);
+    border-radius: 12px;
+    border: 5px solid transparent;
+    background-clip: padding-box;
+  }
+
+  @media (hover: hover) {
+    ::-webkit-scrollbar-thumb:hover {
+      --scrollbar-color: var(--scrollbar);
+    }
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    --scrollbar-color: theme(colors.gray.700);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  ::-webkit-resizer {
+    display: none;
+  }
+
+  main > section {
+    --stagger: 0;
+    --delay: 120ms;
+    --start: 0ms;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    main > section {
+      animation: enter 0.6s both;
+      animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
+    }
+  }
+
+  @keyframes enter {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  #writing-content p em {
+    font-family: "Playfair Display", serif !important;
+    font-size: 1.2rem;
   }
 }
 

@@ -1,0 +1,31 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"writing">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<>
+  <head>
+    <ViewTransitions />
+    <meta
+      property="og:url"
+      content={"https://anikd.com/writing/" + post.slug}
+    />
+    <meta
+      property="twitter:url"
+      content={"https://anikd.com/writing/" + post.slug}
+    />
+  </head>
+  <Content transition:name="fade" />
+</>

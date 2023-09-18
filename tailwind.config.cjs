@@ -9,7 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
+        sans: [
+          "InterVariable",
+          "Inter",
+          "sans-serif",
+          ...defaultTheme.fontFamily.sans,
+        ],
         serif: [
           "PlayfairVariable",
           "Playfair",

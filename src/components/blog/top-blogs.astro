@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+// ! TODO: make blog list component
+const posts = (await getCollection("writing"))
+  .filter((x) => x.data.pinned)
+  .sort((b, a) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+---
+
+<section id="work" style="--stagger: 2;" class="mb-8">
+  <h2 class="text-sm text-gray-500 dark:text-gray-300 mb-4">Writing</h2>
+  <ul class="flex flex-col gap-2">
+    {
+      posts.map((post) => (
+        <li class="-mx-2 px-4 rounded-md dark:hover:bg-gray-700 hover:bg-gray-300 transition-colors duration-150">
+          <a
+            style="text-decoration: none;"
+            href={`/writing/${post.slug}/`}
+            class="flex flex-row justify-between items-center w-full h-full py-4"
+          >
+            <h3 class="title font-serif">{post.data.title}</h3>
+            <p class="font-mono text-sm">
+              {post.data.pubDate.toLocaleDateString("en-IN")}
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

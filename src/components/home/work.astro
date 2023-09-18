@@ -20,7 +20,7 @@ const work = [
   },
   {
     workplace: "Codedrills",
-    role: "Frontend Engineer",
+    role: "Frontend Engineer Intern",
     duration: "2021 - 2022",
     description:
       "Built the frontend of the Recruiter platform, in use by 5+ companies",
@@ -28,7 +28,7 @@ const work = [
 ];
 ---
 
-<section id="work">
+<section id="work" style="--stagger: 3;">
   <h2 class="text-sm text-gray-500 dark:text-gray-300 mb-4">Work</h2>
   {
     work.map((w) => {
@@ -41,7 +41,7 @@ const work = [
             {w.duration}
           </span>
           <div class="col-span-2 sm:col-span-4 flex flex-col">
-            <p class="font-serif tracking-wide italic mb-2">
+            <p class="font-serif tracking-normal italic mb-2">
               {w.role}, {w.workplace}
             </p>
             <p class="tracking-normal">{w.description}</p>

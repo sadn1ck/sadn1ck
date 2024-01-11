@@ -1,0 +1,96 @@
+---
+title: Google Summer of Code 2022 Retrospective
+date: 2022-08-31
+---
+
+> I got selected for Google Summer of Code 2022 under Sugar Labs, to work on the Music Blocks v4 project (yay). Official details about my project can be [found here.](https://summerofcode.withgoogle.com/myprojects/details/XubAsh1T)
+
+## The project
+
+Currently, `musicblocks-v4` uses `react-scripts` from `create-react-app` for its dev and build scripts. It is a good starter, however, it packs a lot more things than we require, and abstracts the configurations entirely.
+
+The project would revolve around migrating to a custom Webpack config - separate ones for development and production, with chosen tooling to improve the developer experience.
+
+## The "Tech Stack"
+
+Most of my work will revolve around TypeScript and Webpack, along with some dabbling in React. Another large part would be Google, to search for the errors I will inevitably come across.
+
+## Setting the foundations
+
+A large part of the initial work revolved around setting up the base for all future work - migrating to Webpack from `create-react-app` in one fell swoop.
+
+Contrary to my (inflated) expectations, the process was relatively painless. I didn't eject the project, as one would generally do in such cases. The output was not worth it - I would have to properly install different versions again for every package.
+
+What I did was nuke `react-scripts` from `package.json` and just manually install all the required dependencies.
+
+I also decided to have fully typed configurations for any tool that I decided to use - namely, webpack, jest and cypress.
+
+For webpack, I set up 2 environments - `development` and `production` each having their own specific config, and merged with a common config to produce the final `Configuration` object.
+
+## Developer Experience Tooling
+
+- `eslint` checks on save
+- type checking by `typescript` on save
+- hot module reloading using Webpack 5
+
+All of these are extremely helpful, beats having to press `Ctrl+ Shift + I` 50 times to make sure it formats (right????)
+
+## Production Build Optimizations
+
+Making sure that our web app loads fast is a primary concern. A large part of optimizing this depends on the current build output.
+
+Possible performance improvements can be done via creating chunks of output javascript (which could be parallelly loaded for better performance), compression and minification/mangling of output code.
+
+Initially, I used Webpack's inbuilt `optimization` configuration and split the output into chunks for each of the dependencies and components. This allowed for a lot of modularity - with dynamic imports and lazy loading.
+
+(ie, dep1, dep2, dep3, component1, component2 were all separate javascript files which could be loaded parallelly)
+
+Then, I analyzed the current build output with `webpack-bundle-analyzer`.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661590688042/HAwD1vqQgj.png)
+
+This showed a lot of chunks which could be compressed down to smaller chunks to have a lot of savings in the final bundle.
+
+So I used `webpack-compression-plugin` in the production build process to compress files above a threshold of 50KB with the `gzip` algorithm. This resulted in 50%+ savings for the selected files.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661590795939/nD5DW5YdR.png)
+
+All in all, this was an excellent optimization to have.
+
+## WebAssembly support & PWA-fication
+
+We have plans to have a custom compiler for our own simplified language for `musicblocks-v4` - as such, to have it in our web app, we decided to have it as a WebAssembly module.
+
+For that, we needed to support WASM loading - thankfully, Webpack 5 had experimental support for loading wasm which made my job significantly easier. All I had to do was to make sure the wasm module's URL was properly constructed, since `development` and `production` returns of asset imports was different.
+
+Converting our current web app into a PWA was also very easy, with Webpack having a dedicated `webpack-workbox-plugin` for the same.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661593267949/Bobp7wICS.png)
+
+I just had to take care of the fact that I didn't load it in `development` as that would lead to unnecessary caching.
+
+## Testing and Continuous Integration
+
+The final piece of work to wrap up my project was setting up unit and end-to-end testing. For unit testing I used Jest and for E2E testing I used Cypress.
+
+Both are well known tools with excellent support and a plethora of information about their behaviour.
+
+Setting up both of them was super easy, with only Jest requiring a particular configuration (`pathsToModuleNameMapper` to `tsconfig`'s `compilerOptions.path`) to have path aliasing like in source code.
+
+Then I set up GitHub Actions to run the unit and e2e tests whenever a pull request is made.
+
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661594680515/61SUA7Emf.png)
+
+## Final Thoughts
+
+GSoC was a super fun journey for me, and it was a pleasure to contribute something large and meaningful to an Open Source project. Previously I had mostly contributed small fixes here and there, and some general architecture changes, but GSoC gave me an entire summer to plan and execute a large project. The planning and execution part was extremely rewarding, and taught me a lot about keeping enough time for any setbacks.
+
+I'd like to thank my mentor, [Anindya Kundu](https://github.com/meganindya/), for being an excellent mentor throughout - clearing all my doubts and guiding me through undefined (hah) territory. It was a pleasure working with you.
+
+## List of Pull Requests
+
+- [tooling: webpack setup, prod/dev typed configs, remove CRA](https://github.com/sugarlabs/musicblocks-v4/pull/194)
+- [linting/typecheck logs, HMR, upgrade dependencies](https://github.com/sugarlabs/musicblocks-v4/pull/197)
+- [basic chunk splitting, bundle analyzer, gzip compression](https://github.com/sugarlabs/musicblocks-v4/pull/199)
+- [wasm support, enable PWA for offline usage and installability](https://github.com/sugarlabs/musicblocks-v4/pull/200)
+- [setup unit + e2e testing, and ci for running in github actions](https://github.com/sugarlabs/musicblocks-v4/pull/204)

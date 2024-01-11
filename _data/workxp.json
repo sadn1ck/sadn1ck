@@ -1,0 +1,26 @@
+[
+  {
+    "workplace": "Chronicle",
+    "role": "Software Engineer",
+    "duration": "2023 - Now",
+    "description": "Building the future of storytelling"
+  },
+  {
+    "workplace": "Chronicle",
+    "role": "Software Engineer Intern",
+    "duration": "2022 - 2023",
+    "description": "Building the future of storytelling (as an intern)"
+  },
+  {
+    "workplace": "Google Summer of Code '22",
+    "role": "OSS Contributor",
+    "duration": "2022",
+    "description": "Migrate CRA to Webpack 5, improve DX and tooling"
+  },
+  {
+    "workplace": "Codedrills",
+    "role": "Frontend Engineer Intern",
+    "duration": "2021 - 2022",
+    "description": "Built the frontend of the Recruiter platform, in use by 5+ companies"
+  }
+]

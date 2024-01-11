@@ -1,0 +1,23 @@
+---
+eleventyExcludeFromCollections: true
+title: Blogs
+---
+
+<section style="display: flex; flex-direction: column; margin-top: 4rem">
+  {% for blog in collections.blogs reversed %}
+  <p
+    style="
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 32px;
+    "
+  >
+    <a style="grid-column: span 4 / span 4" href="{{ blog.url }}"
+      >{{ blog.data.title }}</a
+    >
+    <span style="opacity: 0.75; font-size: 80%; grid-column: span 2 / span 2"
+      >{{ blog.data.date | date: "%d/%m/%Y" }}</span
+    >
+  </p>
+  {% endfor %}
+</section>

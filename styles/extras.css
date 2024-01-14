@@ -1,11 +1,12 @@
 body {
-  font-family: "Latin Modern", "Times New Roman", Times, serif;
+  font-family: "Geist Sans", sans-serif;
   line-height: 1.8;
   text-rendering: optimizeLegibility;
 }
 
 hr {
   opacity: 25% !important;
+  margin-bottom: 2rem;
 }
 
 nav {

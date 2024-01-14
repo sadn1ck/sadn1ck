@@ -12,14 +12,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://anikd.com" />
-    <meta property="og:title" content="Anik Das" />
+    <meta property="og:title" content="{{title | default: 'Anik Das'}}" />
     <meta property="og:description" content="software engg @ chronicle" />
     <meta property="og:image" content="/images/meta.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://anikd.com" />
-    <meta property="twitter:title" content="Anik Das" />
+    <meta property="twitter:title" content="{{title | default: 'Anik Das'}}" />
     <meta property="twitter:description" content="software engg @ chronicle" />
     <meta property="twitter:image" content="/images/meta.png" />
     <link rel="stylesheet" href="/styles/style.css" />
@@ -35,7 +35,7 @@
   <header>
     <nav style="letter-spacing: 0.01rem">
       <a href="/">Home</a>
-      <div style="display: flex; gap: 10px;">
+      <div style="display: flex; gap: 10px">
         <a href="https://github.com/sadn1ck">Github</a>
         <a href="https://twitter.com/__sadn1ck__">Twitter</a>
         <a href="/blogs">Blog</a>
@@ -44,7 +44,7 @@
   </header>
   <hr />
   <!--  -->
-  <body class="latex-dark-auto">
+  <body class="latex-dark-auto markdown-body">
     <h1 style="margin-bottom: 2rem; --stagger: 0.2">{{ title }}</h1>
     <main style="--stagger: 0.8">{{ content }}</main>
   </body>

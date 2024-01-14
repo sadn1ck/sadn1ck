@@ -6,91 +6,39 @@
 */
 
 @font-face {
-  font-family: 'Latin Modern';
+  font-family: "Geist Sans";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-display: swap;
-  src: url('https://latex.vercel.app/fonts/LM-regular.woff2') format('woff2'),
-    url('https://latex.vercel.app/fonts/LM-regular.woff') format('woff'),
-    url('https://latex.vercel.app/fonts/LM-regular.ttf') format('truetype');
+  src: url("./fonts/Geist-Regular.woff2") format("woff2"),
+    url("./fonts/Geist-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: normal;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/LM-italic.woff2') format('woff2'),
-    url('https://latex.vercel.app/fonts/LM-italic.woff') format('woff'),
-    url('https://latex.vercel.app/fonts/LM-italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
+  font-family: "Geist Sans";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-display: swap;
-  src: url('https://latex.vercel.app/fonts/LM-bold.woff2') format('woff2'),
-    url('https://latex.vercel.app/fonts/LM-bold.woff') format('woff'),
-    url('https://latex.vercel.app/fonts/LM-bold.ttf') format('truetype');
+  src: url("./fonts/Geist-SemiBold.woff2") format("woff2"),
+    url("./fonts/Geist-SemiBold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: bold;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/LM-bold-italic.woff2') format('woff2'),
-    url('https://latex.vercel.app/fonts/LM-bold-italic.woff') format('woff'),
-    url('https://latex.vercel.app/fonts/LM-bold-italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
-  font-weight: normal;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: normal;
-  font-weight: bold;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
-  font-weight: bold;
-  font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-bold-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
+  font-family: "Geist Sans";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-semibold.woff2') format('woff2');
+  src: url("./fonts/Geist-Bold.woff2") format("woff2"),
+    url("./fonts/Geist-Bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
+  font-family: "Geist Mono";
+  font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('https://latex.vercel.app/fonts/Libertinus-semibold-italic.woff2') format('woff2');
+  src: url("./fonts/GeistMono-Regular.woff2") format("woff2"),
+    url("./fonts/GeistMono-Regular.woff") format("woff");
 }
 
 /* Box sizing rules */
@@ -135,7 +83,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-   .latex-dark-auto {
+  .latex-dark-auto {
     --body-color: hsl(0, 0%, 86%);
     --body-bg-color: hsl(0, 0%, 16%);
     --link-visited: hsl(196 80% 77%);
@@ -177,19 +125,14 @@ html {
   }
 }
 
-body.libertinus {
-  font-family: 'Libertinus', Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-
 body {
-  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
-  line-height: 1.8;
+  font-family: "Geist Sans", sans-serif;
 
-  max-width: 80ch;
+  max-width: 65ch;
   min-height: 100vh;
   overflow-x: hidden;
   margin: 0 auto;
-  padding: 2rem 1.25rem;
+  padding: 2rem;
 
   counter-reset: theorem definition sidenote-counter;
 
@@ -197,11 +140,11 @@ body {
   background-color: var(--body-bg-color);
 
   text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" on, "calt" on, "salt" on;
 }
 
 /* Justify and hyphenate all paragraphs */
 p {
-  text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -232,6 +175,7 @@ p.no-indent {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  text-underline-offset: 4px;
 }
 
 /* Make links red */
@@ -274,9 +218,9 @@ article > * + * {
 code,
 pre,
 kbd {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  font-size: 85%;
+  font-family: "Geist Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 90%;
 }
 pre {
   padding: 1rem 1.4rem;
@@ -311,11 +255,11 @@ table:not(.borders-custom) {
   counter-increment: caption;
 }
 /* add bottom border on column table headings  */
-table:not(.borders-custom) tr > th[scope='col'] {
+table:not(.borders-custom) tr > th[scope="col"] {
   border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
 /* add right border on row table headings  */
-table:not(.borders-custom) tr > th[scope='row'] {
+table:not(.borders-custom) tr > th[scope="row"] {
   border-right: var(--border-width-thin) solid var(--table-border-color);
 }
 table:not(.borders-custom) > tbody > tr:first-child > td,
@@ -344,7 +288,7 @@ caption {
 }
 
 caption::before {
-  content: 'Table ' counter(caption) '. ';
+  content: "Table " counter(caption) ". ";
   font-weight: bold;
 }
 
@@ -453,7 +397,7 @@ nav li {
   display: block;
 }
 nav li:before {
-  content: counters(item, '.') ' ';
+  content: counters(item, ".") " ";
   counter-increment: item;
   padding-right: 0.85rem;
 }
@@ -471,7 +415,7 @@ dl dd {
   font-style: italic;
 }
 .theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
+  content: "Theorem " counter(theorem) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -484,7 +428,7 @@ dl dd {
   font-style: italic;
 }
 .lemma::before {
-  content: 'Lemma ' counter(theorem) '. ';
+  content: "Lemma " counter(theorem) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -497,11 +441,11 @@ dl dd {
   position: relative;
 }
 .proof::before {
-  content: 'Proof. ' attr(title);
+  content: "Proof. " attr(title);
   font-style: italic;
 }
 .proof:after {
-  content: '◾️';
+  content: "◾️";
   filter: var(--proof-symbol-filter);
   position: absolute;
   right: -12px;
@@ -516,7 +460,7 @@ dl dd {
   font-style: normal;
 }
 .definition::before {
-  content: 'Definition ' counter(definition) '. ';
+  content: "Definition " counter(definition) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -550,7 +494,7 @@ dl dd {
 /* (WIP) add border when a sidenote is clicked on */
 .sidenote:target {
   border: var(--sidenote-target-border-color) 1.5px solid;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   scroll-margin-block-start: 10rem;
 }
 
@@ -575,7 +519,7 @@ dl dd {
 
 /* add number in front of the sidenote */
 .sidenote-number ~ .sidenote::before {
-  content: counter(sidenote-counter) ' ';
+  content: counter(sidenote-counter) " ";
   font-size: 0.7rem;
   top: -0.5rem;
 }
@@ -584,12 +528,26 @@ label.sidenote-toggle:not(.sidenote-number) {
   display: none;
 }
 
+blockquote {
+  position: relative;
+}
+
+blockquote::before {
+  content: "";
+  background: var(--pre-bg-color);
+  width: 16px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -40px;
+  border-radius: 2px;
+}
+
 /* sidenotes inside blockquotes are indented more */
 blockquote .sidenote {
   margin-right: -24vw;
   width: 18vw;
 }
-
 
 label.sidenote-toggle {
   display: inline;

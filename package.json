@@ -1,8 +1,8 @@
 {
   "name": "sadn1ck",
   "scripts": {
-    "dev": "pnpm eleventy --serve",
-    "build": "pnpm eleventy"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-rss": "^1.2.0",

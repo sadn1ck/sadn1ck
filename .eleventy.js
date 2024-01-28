@@ -4,7 +4,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 /**
  * @param { import('@11ty/eleventy/src/UserConfig') } eleventyConfig
  * */
-module.exports = function (eleventyConfig) {
+module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addWatchTarget("./styles/");

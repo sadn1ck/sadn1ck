@@ -35,7 +35,7 @@
 @font-face {
   font-family: "Geist Mono";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-display: swap;
   src: url("./fonts/GeistMono-Regular.woff2") format("woff2"),
     url("./fonts/GeistMono-Regular.woff") format("woff");
@@ -222,6 +222,13 @@ kbd {
     "Courier New", monospace;
   font-size: 90%;
 }
+
+code {
+  background: var(--pre-bg-color);
+  padding: 0 4px 0 4px;
+  border-radius: 6px;
+}
+
 pre {
   padding: 1rem 1.4rem;
   max-width: 100%;
@@ -628,6 +635,7 @@ h1 {
   font-size: 2.5rem;
   line-height: 3.25rem;
   margin-bottom: 1.625rem;
+  letter-spacing: -0.075rem;
 }
 
 h2 {

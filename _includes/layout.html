@@ -2,34 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="software engg @ chronicle" />
+    <meta
+      name="description"
+      content="{{desc | default: 'software engg @ chronicle'}}"
+    />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/ico" href="/images/favicon.ico" />
     <title>{{title | default: "Anik Das"}}</title>
     <meta name="title" content="{{title | default: 'Anik Das'}}" />
-    <meta name="description" content="software engg @ chronicle" />
+    <meta
+      name="description"
+      content="{{desc | default: 'software engg @ chronicle'}}"
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://anikd.com" />
     <meta property="og:title" content="{{title | default: 'Anik Das'}}" />
-    <meta property="og:description" content="software engg @ chronicle" />
+    <meta
+      property="og:description"
+      content="{{desc | default: 'software engg @ chronicle'}}"
+    />
     <meta property="og:image" content="/images/meta.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://anikd.com" />
     <meta property="twitter:title" content="{{title | default: 'Anik Das'}}" />
-    <meta property="twitter:description" content="software engg @ chronicle" />
+    <meta
+      property="twitter:description"
+      content="{{desc | default: 'software engg @ chronicle'}}"
+    />
     <meta property="twitter:image" content="/images/meta.png" />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/extras.css" />
-    <link rel="stylesheet" href="/styles/prism.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"
-      defer
-      async
-    ></script>
+    <link
+      rel="stylesheet"
+      href="https://www.unpkg.com/@jongwooo/prism-theme-github@1.14.0/themes/prism-github-default-auto.min.css"
+    />
   </head>
   <!-- diff -->
   <header>
@@ -45,7 +55,9 @@
   <hr />
   <!--  -->
   <body class="latex-dark-auto markdown-body">
-    <h1 style="margin-bottom: 2rem; --stagger: 0.2">{{ title }}</h1>
+    <h1 style="margin-bottom: 2rem; --stagger: 0.2; text-wrap: pretty">
+      {{ title }}
+    </h1>
     <main style="--stagger: 0.8">{{ content }}</main>
   </body>
 </html>

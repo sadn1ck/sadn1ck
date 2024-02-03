@@ -4,7 +4,7 @@ desc: A short blog post on how to model simple UI interactions with XState
 date: 2024-02-03
 ---
 
-We've recently started to use [XState](https://stately.ai/docs) at work for separating business logic from the UI.
+We've recently started using [XState](https://stately.ai/docs) at work for separating business logic from the UI.
 
 Modeling UI interactions with it which previously relied on bits and pieces of scattered state is now a lot simpler.
 
@@ -168,9 +168,9 @@ function App() {
 }
 ```
 
-The best part about state machines, you've avoided a lot of if-else soup. No need to wrestle with timers and id's in UI. (No `useEffect` as well 👀)
+The best part about state machines, you've avoided a lot of if-else soup. No need to wrestle with timers and their ids in UI. (No `useEffect` as well 👀)
 
-You don't need to worry about whether your UI logic leaking into your business logic. You can completely decouple the two.
+You don't need to worry about your UI logic leaking into your business logic. You can completely decouple the two.
 
 #### Sandbox
 

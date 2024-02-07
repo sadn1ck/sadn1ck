@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+
 @font-face {
   font-family: "Geist Sans";
   font-style: normal;
@@ -12,24 +14,6 @@
   font-display: swap;
   src: url("./fonts/Geist-Regular.woff2") format("woff2"),
     url("./fonts/Geist-Regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Geist Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("./fonts/Geist-SemiBold.woff2") format("woff2"),
-    url("./fonts/Geist-SemiBold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Geist Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("./fonts/Geist-Bold.woff2") format("woff2"),
-    url("./fonts/Geist-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -41,11 +25,28 @@
     url("./fonts/GeistMono-Regular.woff") format("woff");
 }
 
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+.font-mono {
+  font-family: "Geist Mono", monospace;
+}
+
+.font-sans {
+  font-family: "Geist", sans-serif;
+}
+
 /* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+::selection {
+  color: rgb(237, 237, 237);
+  background-color: rgb(101, 101, 101);
 }
 
 :root {
@@ -61,30 +62,12 @@
   --border-width-thick: 2.27px;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
-  --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
-  \parindent =~ 17.625pt; taking also into account the ratio
-  1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
-  size, the identation value in rem CSS units is:
-  \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
-}
-
-.latex-dark {
-  --body-color: hsl(0, 0%, 86%);
-  --body-bg-color: hsl(0, 0%, 16%);
-  --link-visited: hsl(196 80% 77%);
-  --link-focus-outline: hsl(215, 63%, 73%);
-  --pre-bg-color: hsl(0, 1%, 25%);
-  --kbd-bg-color: hsl(0, 0%, 16%);
-  --kbd-border-color: hsl(210, 5%, 70%);
-  --table-border-color: white;
-  --sidenote-target-border-color: hsl(0, 0%, 59%);
-  --footnotes-border-color: hsl(0, 0%, 59%);
-  --proof-symbol-filter: invert(80%);
+  --text-indent-size: 1.463rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  .latex-dark-auto {
-    --body-color: hsl(0, 0%, 86%);
+  .auto-dark {
+    --body-color: hsl(0, 0%, 95%);
     --body-bg-color: hsl(0, 0%, 16%);
     --link-visited: hsl(196 80% 77%);
     --link-focus-outline: hsl(215, 63%, 73%);
@@ -95,6 +78,10 @@
     --sidenote-target-border-color: hsl(0, 0%, 59%);
     --footnotes-border-color: hsl(0, 0%, 59%);
     --proof-symbol-filter: invert(80%);
+  }
+  ::selection {
+    background-color: rgb(161, 161, 161);
+    color: rgb(30, 30, 30);
   }
 }
 
@@ -125,22 +112,31 @@ html {
   }
 }
 
+nav {
+  padding: 2rem 0 2rem 0;
+  opacity: 0.9;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.30rem;
+}
+
 body {
   font-family: "Geist Sans", sans-serif;
-
-  max-width: 65ch;
+  padding: 0 2rem;
+  line-height: 1.8;
+  max-width: 720px;
   min-height: 100vh;
   overflow-x: hidden;
   margin: 0 auto;
-  padding: 2rem;
-
   counter-reset: theorem definition sidenote-counter;
-
   color: var(--body-color);
   background-color: var(--body-bg-color);
-
   text-rendering: optimizeLegibility;
   font-feature-settings: "liga" on, "calt" on, "salt" on;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 /* Justify and hyphenate all paragraphs */
@@ -185,6 +181,7 @@ a:visited {
 }
 
 a:focus {
+  border-radius: 4px;
   outline-offset: 2px;
   outline: 2px solid var(--link-focus-outline);
 }
@@ -354,25 +351,6 @@ table.borders-custom {
 .col-11-r tr > :nth-child(11),
 .col-12-r tr > :nth-child(12) {
   text-align: right;
-}
-
-/* Center align the title */
-h1:first-child {
-  text-align: center;
-}
-
-/* Nested ordered list for ToC */
-nav ol {
-  counter-reset: item;
-  padding-left: 2rem;
-}
-nav li {
-  display: block;
-}
-nav li:before {
-  content: counters(item, ".") " ";
-  counter-increment: item;
-  padding-right: 0.85rem;
 }
 
 /* Center definitions (most useful for display equations) */
@@ -598,10 +576,10 @@ input.sidenote-toggle {
 
 /* Heading typography */
 h1 {
-  font-size: 2.5rem;
-  line-height: 3.25rem;
+  font-size: 3rem;
+  line-height: 130%;
   margin-bottom: 1.625rem;
-  letter-spacing: -0.075rem;
+  letter-spacing: -0.06rem;
 }
 
 h2 {

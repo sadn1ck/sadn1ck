@@ -1,5 +1,5 @@
 ---
-title: Modeling interactions with XState
+title: Modeling UI interactions with XState
 desc: A short blog post on how to model simple UI interactions with XState
 date: 2024-02-03
 ---
@@ -15,7 +15,7 @@ Consider a simple interaction for an element with the following spec:
 - Any time after that, if the element is hovered by the user, we show the element
   - When hover ends, we again delay hiding it for 3 seconds, similar to initial load
 
-<video controls preload="none"  width="100%">
+<video autoplay playsinline muted controls  width="100%">
   <source src="/images/xstate-1.mp4" type="video/mp4">></source>
 </video>
 

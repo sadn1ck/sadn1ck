@@ -1,18 +1,17 @@
-body {
-  font-family: "Geist Sans", sans-serif;
-  line-height: 1.8;
-  text-rendering: optimizeLegibility;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display";
+}
+footer {
+  font-size: 85%;
 }
 
 hr {
   opacity: 25% !important;
-  margin-bottom: 2rem;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* Styles for inline code or code snippets */
@@ -24,7 +23,8 @@ kbd {
   font-size: 92.5% !important;
 }
 
-p > code, li > code {
+p > code,
+li > code {
   padding: 2px 4px 2px 4px;
   outline: 0.5px solid var(--kbd-border-color);
   margin: 0 2px 0 2px;
@@ -53,12 +53,75 @@ kbd {
   font-size: 75%;
 }
 
+.link-underline {
+  transition: colors 0.15s ease-in;
+  color: var(--link-visited);
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: var(--link-underline-offset, 0);
+  left: 0;
+  background-color: var(--link-visited);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-underline:hover::after,
+.link-underline:active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.blog-item {
+  --link-visited: var(--body-color);
+  text-decoration: none;
+  color: var(--body-color) !important;
+  gap: 1.25rem;
+  vertical-align: middle;
+  transition: opacity 0.15s ease-out;
+}
+
+.blog-item:hover {
+  opacity: 75%;
+}
+
+.blog-item .date {
+  min-width: 84px;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 85%;
+  opacity: 85%;
+  margin-right: 1rem;
+}
+
+.blog-item .title {
+  text-decoration: underline;
+  text-decoration-skip-ink: all;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 0.75px;
+}
+
+.header-anchor {
+  --link-underline-offset: 0px;
+}
+.header-anchor::before {
+  content: "🔗 ";
+}
+
 /* animation */
 @media (prefers-reduced-motion: no-preference) {
   h1,
-  main {
+  main,
+  footer {
     animation: enter 0.6s both;
-    animation-delay: min(calc(var(--stagger) * 100ms), 300ms);
+    animation-delay: min(calc(var(--stagger) * 100ms + var(--delay)), 300ms);
   }
 }
 

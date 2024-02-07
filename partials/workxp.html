@@ -1,4 +1,4 @@
-<h2 style="margin-bottom: 48px">Work Experience</h2>
+<h2>Work Experience</h2>
 <section>
   {% for work in workxp %}
   <div
@@ -9,7 +9,7 @@
       margin-bottom: 32px;
     "
   >
-    <span style="grid-column: span 2 / span 2; text-align: left">
+    <span style="grid-column: span 2 / span 2; text-align: left" class="font-mono">
       {{work.duration}}
     </span>
     <div
@@ -19,10 +19,10 @@
         flex-direction: column;
       "
     >
-      <span style="margin-bottom: 8px">{{work.role}}, {{work.workplace}}</span>
-      <span style="font-weight: 400; opacity: 85%; font-size: medium"
-        >{{work.description}}</span
+      <span class="font-serif" style="margin-bottom: 0.25rem; font-weight: bold"
+        >{{work.role}}, {{work.workplace}}</span
       >
+      <span style="font-weight: 400; font-size: 90%">{{work.description}}</span>
     </div>
   </div>
   {% endfor %}

@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  style="
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  "
+>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -36,28 +42,69 @@
     <meta property="twitter:image" content="/images/meta.png" />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/extras.css" />
-    <link
-      rel="stylesheet"
-      href="https://www.unpkg.com/@jongwooo/prism-theme-github@1.14.0/themes/prism-github-default-auto.min.css"
-    />
+    <link rel="stylesheet" href="/styles/prism-github-default-auto.min.css" />
   </head>
   <!-- diff -->
-  <header>
-    <nav style="letter-spacing: 0.01rem">
-      <a href="/">Home</a>
-      <div style="display: flex; gap: 10px">
-        <a href="https://github.com/sadn1ck">Github</a>
-        <a href="https://twitter.com/__sadn1ck__">Twitter</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </nav>
-  </header>
-  <hr />
   <!--  -->
-  <body class="latex-dark-auto markdown-body">
-    <h1 style="margin-bottom: 2rem; --stagger: 0.2; text-wrap: pretty">
-      {{ title }}
-    </h1>
-    <main style="--stagger: 0.8">{{ content }}</main>
+  <body class="auto-dark markdown-body">
+    <header>
+      <nav style="font-size: 95%; --link-visited: var(--body-color)">
+        <a
+          class="link-underline font-mono"
+          style="align-self: baseline; font-weight: bold"
+          href="/"
+          >anikd.com</a
+        >
+        <div
+          class="nav-links-collection"
+          style="display: flex; gap: 8px; flex-wrap: wrap"
+        >
+          <a class="link-underline" href="/blogs">Blog</a>
+          <span role="separator">/</span>
+          <a class="link-underline" href="https://github.com/sadn1ck">Github</a>
+          <span role="separator">/</span>
+          <a class="link-underline" href="https://twitter.com/__sadn1ck__"
+            >Twitter</a
+          >
+          <span role="separator">/</span>
+          <a
+            class="link-underline"
+            href="https://craft.anikd.com"
+            target="_blank"
+            style="display: flex; align-items: center; gap: 4px"
+          >
+            <span> Craft </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16px"
+              height="16px"
+              viewBox="0 0 28 28"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              />
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main style="--stagger: 1">
+      <h1 style="--delay: -0.1; text-wrap: pretty">{{ title }}</h1>
+      {{ content }}
+    </main>
+
+    <footer
+      style="padding: 0 0 2rem 0; margin-top: auto; --delay: 0.1s"
+      class="font-mono"
+    >
+      [GMT +5:30]
+    </footer>
   </body>
 </html>

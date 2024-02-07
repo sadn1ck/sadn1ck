@@ -11,15 +11,12 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("./images/");
   eleventyConfig.addPassthroughCopy("./images/");
   eleventyConfig.addPassthroughCopy("./styles/");
-  eleventyConfig.ignores?.add("og.html");
   // Customize Markdown library settings:
   eleventyConfig.amendLibrary("md", (mdLib) => {
     mdLib.use(markdownItAnchor, {
-      permalink: markdownItAnchor.permalink.ariaHidden({
-        placement: "before",
-        class: "header-anchor",
-        symbol: "🖇️",
-        ariaHidden: false,
+      permalink: markdownItAnchor.permalink.headerLink({
+        class: "header-anchor link-underline",
+        safariReaderFix: true
       }),
       level: [1, 2, 3, 4],
     });

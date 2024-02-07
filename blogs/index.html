@@ -3,28 +3,11 @@ eleventyExcludeFromCollections: true
 title: Blogs
 ---
 
-<section style="display: flex; flex-direction: column; margin-top: 4rem">
+<section style="display: flex; flex-direction: column; gap: 1rem">
   {% for blog in collections.blogs reversed %}
-  <p
-    style="
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 32px;
-    "
-  >
-    <a style="grid-column: span 4 / span 4" href="{{ blog.url }}"
-      >{{ blog.data.title }}</a
-    >
-    <span
-      style="
-        opacity: 0.75;
-        font-size: 80%;
-        grid-column: span 2 / span 2;
-        text-align: right;
-        font-variant-numeric: tabular-nums;
-      "
-      >{{ blog.data.date | date: "%Y-%m-%d" }}</span
-    >
-  </p>
+  <a href="{{ blog.url }}" class="blog-item">
+    <span class="date font-mono"> {{ blog.data.date | date: "%Y&bull;%m" }} </span>
+    <span class="title">{{blog.data.title}}</span>
+  </a>
   {% endfor %}
 </section>

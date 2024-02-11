@@ -6,7 +6,9 @@ title: Blogs
 <section style="display: flex; flex-direction: column; gap: 1rem">
   {% for blog in collections.blogs reversed %}
   <a href="{{ blog.url }}" class="blog-item">
-    <span class="date font-mono"> {{ blog.data.date | date: "%Y&bull;%m" }} </span>
+    <span class="date font-mono">
+      {{ blog.data.date | date: "%Y&bull;%m&bull;%d" }}
+    </span>
     <span class="title">{{blog.data.title}}</span>
   </a>
   {% endfor %}

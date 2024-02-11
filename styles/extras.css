@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", serif;
 }
 footer {
   font-size: 85%;
@@ -23,6 +23,7 @@ kbd {
   font-size: 92.5% !important;
 }
 
+a > code,
 p > code,
 li > code {
   padding: 2px 4px 2px 4px;

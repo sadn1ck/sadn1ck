@@ -1,6 +1,7 @@
 ---
 title: Restart
 date: 2024-01-11
+tags: []
 ---
 
 I want to start writing. A lot. Good, bad, technical, non-technical. Whatever.

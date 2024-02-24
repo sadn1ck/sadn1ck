@@ -2,6 +2,7 @@
 title: Modeling UI interactions with XState
 desc: A short blog post on how to model simple UI interactions with XState
 date: 2024-02-03
+tags: ["xstate", "ui", "state modeling"]
 ---
 
 We've recently started using [XState](https://stately.ai/docs) at work for separating business logic from the UI.
@@ -19,7 +20,7 @@ Consider a simple interaction for an element with the following spec:
   <source src="/images/xstate-1.mp4" type="video/mp4">></source>
 </video>
 
-### Breakdown
+## Breakdown
 
 A nice little interaction for showing that extra controls exist but keeping them out of view. Based on the problem, there are certain events after which the element is shown:
 
@@ -124,7 +125,7 @@ export { hoverMachine };
 
 This is a simple state machine (which is very similar to our event based description that we made).
 
-### State descriptions
+## State descriptions
 
 There's an initial state called `initial` (hah), which transitions to `hide` after 3 seconds in case there is no `HOVER_ENTER`/`HOVER_LEAVE` event.
 
@@ -172,7 +173,7 @@ The best part about state machines, you've avoided a lot of if-else soup. No nee
 
 You don't need to worry about your UI logic leaking into your business logic. You can completely decouple the two.
 
-#### Sandbox
+### Sandbox
 
 <iframe src="https://stackblitz.com/edit/vitejs-vite-tqbjy7?ctl=1&embed=1&file=src%2Fmachine.ts&hideNavigation=1" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="Modeling Interactions w/ XState" loading="lazy"></iframe>
 

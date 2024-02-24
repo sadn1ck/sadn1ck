@@ -1,6 +1,7 @@
 ---
 title: Google Summer of Code 2022 Retrospective
 date: 2022-08-31
+tags: ['gsoc']
 ---
 
 > I got selected for Google Summer of Code 2022 under Sugar Labs, to work on the Music Blocks v4 project (yay). Official details about my project can be [found here.](https://summerofcode.withgoogle.com/myprojects/details/XubAsh1T)

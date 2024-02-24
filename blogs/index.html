@@ -6,8 +6,13 @@ title: Blogs
 <section style="display: flex; flex-direction: column; gap: 1rem">
   {% for blog in collections.blogs reversed %}
   <a href="{{ blog.url }}" class="blog-item">
-    <span class="date font-mono">
-      {{ blog.data.date | date: "%Y&bull;%m&bull;%d" }}
+    <span
+      style="
+        font-variant-numeric: tabular-nums;
+        color: gray;
+      "
+    >
+      {{ blog.data.date | date: "%Y-%m-%d" }}
     </span>
     <span class="title">{{blog.data.title}}</span>
   </a>

@@ -18,7 +18,7 @@ module.exports = (eleventyConfig) => {
     mdLib.use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.headerLink({
         class: "header-anchor link-underline",
-        safariReaderFix: true
+        safariReaderFix: true,
       }),
       level: [1, 2, 3, 4],
     });
@@ -30,7 +30,22 @@ module.exports = (eleventyConfig) => {
     },
   });
 
-
+  eleventyConfig.addFilter("dateOnly", function (dateVal, locale = "en-us") {
+    var theDate = new Date(dateVal);
+    return theDate.toLocaleDateString(locale, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  });
+  eleventyConfig.addFilter("isBlog", function (content) {
+    const split = content.split("blogs/");
+    if (split[0] === "/" && split[1] && split[1]?.length > 0) {
+      return true;
+    }
+    return false;
+  });
   return {
     dir: {
       output: "dist",

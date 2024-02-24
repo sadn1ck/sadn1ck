@@ -2,6 +2,7 @@
 title: Notes from reading DOM Enlightenment
 desc: A summary of the things I learnt from reading DOMEnlightenment.com
 date: 2024-02-10
+tags: ['ui', 'dom']
 ---
 
 Read here: [DOM Enlightenment](https://domenlightenment.com/)

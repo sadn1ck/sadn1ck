@@ -2,7 +2,8 @@
   "name": "sadn1ck",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "update:css": "wget \"https://raw.githubusercontent.com/sindresorhus/github-markdown-css/main/github-markdown.css\" -O \"./styles/custom.css\""
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-rss": "^1.2.0",

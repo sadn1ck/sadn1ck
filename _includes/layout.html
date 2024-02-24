@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="{{desc | default: 'software engg @ chronicle'}}"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
     />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/ico" href="/images/favicon.ico" />
@@ -18,7 +18,7 @@
     <meta name="title" content="{{title | default: 'Anik Das'}}" />
     <meta
       name="description"
-      content="{{desc | default: 'software engg @ chronicle'}}"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
     />
 
     <!-- Open Graph / Facebook -->
@@ -27,7 +27,7 @@
     <meta property="og:title" content="{{title | default: 'Anik Das'}}" />
     <meta
       property="og:description"
-      content="{{desc | default: 'software engg @ chronicle'}}"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
     />
     <meta property="og:image" content="/images/meta.png" />
 
@@ -37,16 +37,95 @@
     <meta property="twitter:title" content="{{title | default: 'Anik Das'}}" />
     <meta
       property="twitter:description"
-      content="{{desc | default: 'software engg @ chronicle'}}"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
     />
     <meta property="twitter:image" content="/images/meta.png" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="/styles/extras.css" />
+    <link rel="stylesheet" href="/styles/custom.css" />
     <link rel="stylesheet" href="/styles/prism-github-default-auto.min.css" />
+    <style>
+      /* critical css */
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 1rem;
+        /* font-family: system-ui, sans-serif;
+        font-weight: normal; */
+        font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+        font-weight: normal;
+        
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 2rem;
+        }
+      }
+
+      nav {
+        padding: 2rem 0 2rem 0;
+        opacity: 0.9;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      body {
+        padding: 0 2rem;
+        max-width: 768px;
+        min-height: 100vh;
+        overflow-x: hidden;
+        margin: 0 auto !important;
+        text-rendering: optimizeLegibility;
+
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      /* Justify and hyphenate all paragraphs */
+      p {
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        margin-top: 1rem;
+      }
+
+      a {
+        text-decoration-skip-ink: auto;
+        text-underline-offset: 4px;
+      }
+
+      /* Make images easier to work with */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .blog-item {
+        display: inline;
+      }
+
+      @media screen and (max-width: 400px) {
+        .blog-item {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          margin-bottom: 0.25rem;
+        }
+      }
+
+      footer {
+        font-size: 85%;
+      }
+    </style>
   </head>
   <!-- diff -->
   <!--  -->
-  <body class="auto-dark markdown-body">
+  <body class="auto-dark markdown-body font-sans">
     <header>
       <nav style="font-size: 95%; --link-visited: var(--body-color)">
         <a
@@ -97,6 +176,10 @@
     </header>
     <main style="--stagger: 1">
       <h1 style="--delay: -0.1; text-wrap: pretty">{{ title }}</h1>
+      {% if page.url | isBlog %}
+      <span style="font-style: italic">{{ page.date | dateOnly }}</span>
+      {% endif %}
+      <!--  -->
       {{ content }}
     </main>
 

@@ -1,27 +1,60 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const markdownItAnchor = require("markdown-it-anchor");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
+/** @type {import('shiki').BundledTheme} */
+const DARK_THEME = "one-dark-pro";
+/** @type {import('shiki').BundledTheme} */
+const LIGHT_THEME = "vitesse-light";
+
 /**
- * @param { import('@11ty/eleventy/src/UserConfig') } eleventyConfig
+ * @param { import('@11ty/eleventy').UserConfig } eleventyConfig
  * */
-module.exports = (eleventyConfig) => {
+module.exports = (eleventyConfig, options) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addWatchTarget("./styles/");
   eleventyConfig.addWatchTarget("./images/");
+  eleventyConfig.addWatchTarget("./partials/");
   eleventyConfig.addPassthroughCopy("./images/");
   eleventyConfig.addPassthroughCopy("./styles/");
-  // Customize Markdown library settings:
-  eleventyConfig.amendLibrary("md", (mdLib) => {
-    mdLib.use(markdownItAnchor, {
-      permalink: markdownItAnchor.permalink.headerLink({
-        class: "header-anchor link-underline",
-        safariReaderFix: true,
-      }),
-      level: [1, 2, 3, 4],
+
+  eleventyConfig.amendLibrary("md", () => {});
+  eleventyConfig.on("eleventy.before", async () => {
+    const shiki = await import("shiki");
+    const highlighter = await shiki.getHighlighter({
+      ...options,
+      langs: [
+        "js",
+        "ts",
+        "tsx",
+        "jsx",
+        "go",
+        "elixir",
+        "json",
+        "json5",
+        "jsonc",
+        "yaml",
+        "css",
+        "postcss",
+        "html",
+        "plaintext",
+      ],
     });
+    await highlighter.loadTheme(LIGHT_THEME);
+    await highlighter.loadTheme(DARK_THEME);
+    eleventyConfig.amendLibrary("md", (mdLib) =>
+      mdLib.set({
+        highlight: (code, lang) =>
+          highlighter.codeToHtml(code, {
+            lang,
+            themes: {
+              dark: DARK_THEME,
+              light: LIGHT_THEME,
+            },
+          }),
+      })
+    );
   });
 
   eleventyConfig.addPlugin(sitemap, {

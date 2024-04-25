@@ -40,114 +40,22 @@
       content="{{desc | default: 'software engineer @ chronicle'}}"
     />
     <meta property="twitter:image" content="/images/meta.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/styles/custom.css" />
-    <link rel="stylesheet" href="/styles/prism-github-default-auto.min.css" />
-    <style>
-      /* critical css */
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        font-size: 1rem;
-        /* font-family: system-ui, sans-serif;
-        font-weight: normal; */
-        font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-        font-weight: normal;
-        
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 2rem;
-        }
-      }
-
-      nav {
-        padding: 2rem 0 2rem 0;
-        opacity: 0.9;
-        display: inline-flex;
-        flex-direction: column;
-        gap: 0.3rem;
-      }
-
-      body {
-        padding: 0 2rem;
-        max-width: 768px;
-        min-height: 100vh;
-        overflow-x: hidden;
-        margin: 0 auto !important;
-        text-rendering: optimizeLegibility;
-
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-      }
-
-      /* Justify and hyphenate all paragraphs */
-      p {
-        hyphens: auto;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        margin-top: 1rem;
-      }
-
-      a {
-        text-decoration-skip-ink: auto;
-        text-underline-offset: 4px;
-      }
-
-      /* Make images easier to work with */
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .blog-item {
-        display: inline;
-      }
-
-      @media screen and (max-width: 400px) {
-        .blog-item {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-          margin-bottom: 0.25rem;
-        }
-      }
-
-      footer {
-        font-size: 85%;
-      }
-    </style>
   </head>
-  <!-- diff -->
-  <!--  -->
-  <body class="auto-dark markdown-body font-sans">
+  <body>
     <header>
-      <nav style="font-size: 95%; --link-visited: var(--body-color)">
-        <a
-          class="link-underline font-mono"
-          style="align-self: baseline; font-weight: bold"
-          href="/"
-          >anikd.com</a
-        >
-        <div
-          class="nav-links-collection"
-          style="display: flex; gap: 8px; flex-wrap: wrap"
-        >
-          <a class="link-underline" href="/blogs">Blog</a>
-          <span role="separator">/</span>
-          <a class="link-underline" href="https://github.com/sadn1ck">Github</a>
-          <span role="separator">/</span>
-          <a class="link-underline" href="https://twitter.com/__sadn1ck__"
-            >Twitter</a
+      <nav>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <a style="align-self: baseline; font-weight: bold" href="/"
+            >anikd.com</a
           >
           <span role="separator">/</span>
+          <a href="https://github.com/sadn1ck">Github</a>
+          <span role="separator">/</span>
+          <a href="https://twitter.com/__sadn1ck__">Twitter</a>
+          <span role="separator">/</span>
           <a
-            class="link-underline"
             href="https://craft.anikd.com"
             target="_blank"
             style="display: flex; align-items: center; gap: 4px"
@@ -174,20 +82,15 @@
         </div>
       </nav>
     </header>
-    <main style="--stagger: 1">
-      <h1 style="--delay: -0.1; text-wrap: pretty">{{ title }}</h1>
+    <main>
+      <h1 style="text-wrap: pretty">{{ title }}</h1>
       {% if page.url | isBlog %}
       <span style="font-style: italic">{{ page.date | dateOnly }}</span>
       {% endif %}
       <!--  -->
-      {{ content }}
+      <section style="margin-top: 2rem">{{ content }}</section>
     </main>
 
-    <footer
-      style="padding: 0 0 2rem 0; margin-top: auto; --delay: 0.1s"
-      class="font-mono"
-    >
-      [GMT +5:30]
-    </footer>
+    <footer style="padding: 0 0 2rem 0; margin-top: auto">[GMT +5:30]</footer>
   </body>
 </html>

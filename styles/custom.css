@@ -143,6 +143,7 @@ blockquote {
   border-left: 4px solid rgba(var(--accent-color), 0.5);
   padding-left: 1rem;
   margin: 1.5rem 0;
+  font-style: italic;
 }
 
 /* shiki setup */

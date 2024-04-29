@@ -5,9 +5,11 @@ title: Anik Das
 
 <section>
 
-Building polished web interfaces. Software Engineer at [Chronicle](https://chroniclehq.com). Face weird bugs (daily).
+Building polished web interfaces. Software Engineer at [Chronicle](https://chroniclehq.com).
 
-Working on Typescript, React, and state machines. Bashing my head against the wall working with text editors on the web. Learning golang and elixir on the side by building small projects.
+Working on Typescript, React, State machines and Text editors on the web. Love nerding out on types. Learning a bit of golang and elixir on the side.
+
+Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on Twitter or Discord @ `sadn1ck`.
 
 [Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?pli=1) ✦ [LinkedIn](https://www.linkedin.com/in/sadn1ck)
 

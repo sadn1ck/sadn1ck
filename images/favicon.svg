@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 16 16'>
+    <text x='0' y='14' id="content">↗</text>
+    <style>
+        #content {
+            fill: dark !important;
+            color: dark !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #content {
+                fill: white !important;
+                color: white !important;
+            }
+        }
+    </style>
+</svg>

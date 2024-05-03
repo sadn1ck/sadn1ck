@@ -1,5 +1,5 @@
-### Anik Das
+#### Anik Das
 
-> software engineer @ [chronicle](https://chroniclehq.com) ✦ prev: gsoc '22 @ [sugar labs](https://github.com/sugarlabs)
+software engineer @ [chronicle](https://chroniclehq.com) ✦ prev: gsoc '22 @ [sugar labs](https://github.com/sugarlabs)
 
-#### [website](https://anikd.com) ✦ [resume](https://anikd.com/resume) ✦ [blog](https://anikd.com/blog)
+**[blog](https://anikd.com) ✦ [resume](https://anikd.com/resume) ✦ [twitter](https://twitter.com/__sadn1ck__)**

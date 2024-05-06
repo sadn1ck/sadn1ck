@@ -3,7 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 /** @type {import('shiki').BundledTheme} */
-const DARK_THEME = "one-dark-pro";
+const DARK_THEME = "vitesse-dark";
 /** @type {import('shiki').BundledTheme} */
 const LIGHT_THEME = "vitesse-light";
 

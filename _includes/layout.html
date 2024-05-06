@@ -80,8 +80,9 @@
       </nav>
     </header>
     <main>
+      {% if title %}
       <h1 style="text-wrap: pretty">{{ title }}</h1>
-      {% if page.url | isBlog %}
+      {% endif %} {% if page.url | isBlog %}
       <span style="font-style: italic">{{ page.date | dateOnly }}</span>
       {% endif %}
       <!--  -->

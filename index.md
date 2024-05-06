@@ -1,7 +1,8 @@
 ---
 layout: layout.html
-title: Anik Das
 ---
+
+## Anik Das
 
 <section>
 
@@ -15,10 +16,14 @@ Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me 
 
 </section>
 
-<h2>Blogs</h2>
+<div id="spacer" />
 
+<div class="blog-list">
+<!-- `{{ blog.data.date | date: "%Y %b" }}` • [{{ blog.data.title}}]({{blog.url}}) -->
 {% for blog in collections.blogs reversed %}
-
-`{{ blog.data.date | date: "%Y %b" }}` • [{{ blog.data.title}}]({{blog.url}})
-
+<a href="{{blog.url}}">
+    <span class="title">{{blog.data.title}}</span>
+    <span class="date">{{ blog.data.date | date: "%b %Y" }}</span>
+</a>
 {% endfor %}
+</div>

@@ -1,16 +1,18 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 16 16'>
-    <text x='0' y='14' id="content">↗</text>
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
     <style>
-        #content {
-            fill: dark !important;
-            color: dark !important;
+        :root {
+            --text: 14, 14, 14;
         }
 
         @media (prefers-color-scheme: dark) {
-            #content {
-                fill: white !important;
-                color: white !important;
+            :root {
+                --text: 220, 220, 220;
             }
         }
+
+        .favicon {
+            fill: rgb(var(--text));
+        }
     </style>
+    <path class="favicon" d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z" />
 </svg>

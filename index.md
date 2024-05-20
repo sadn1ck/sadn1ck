@@ -23,7 +23,7 @@ Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me 
 {% for blog in collections.blogs reversed %}
 <a href="{{blog.url}}">
     <span class="title">{{blog.data.title}}</span>
-    <span class="date">{{ blog.data.date | date: "%b %Y" }}</span>
+    <span class="date">{{ blog.data.date | date: "%Y-%m" }}</span>
 </a>
 {% endfor %}
 </div>

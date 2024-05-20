@@ -5,6 +5,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   "
+  data-blog="{{page.url | isBlog}}"
 >
   <head>
     <meta charset="UTF-8" />
@@ -48,7 +49,7 @@
             >anikd.com</a
           >
           <span role="separator">/</span>
-          <a href="https://github.com/sadn1ck">Github</a>
+          <a href="https://github.com/sadn1ck">GitHub</a>
           <span role="separator">/</span>
           <a href="https://twitter.com/__sadn1ck__">Twitter</a>
           <span role="separator">/</span>
@@ -87,10 +88,15 @@
       {% endif %}
       <!--  -->
       <section style="margin-top: 2rem">{{ content }}</section>
+      <footer
+        class="footer"
+        style="display: flex; gap: 8px; align-items: center"
+      >
+        <span>✌️</span>
+        <span role="separator">/</span>
+        <span> India </span>
+        <a href="#" id="backtotop">Back to top</a>
+      </footer>
     </main>
-
-    <footer style="padding: 0 0 2rem 0; margin: auto 0 0 auto">
-      GMT +5:30
-    </footer>
   </body>
 </html>

@@ -1,4 +1,3 @@
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
@@ -10,9 +9,8 @@ const LIGHT_THEME = "vitesse-light";
 /**
  * @param { import('@11ty/eleventy').UserConfig } eleventyConfig
  * */
-module.exports = (eleventyConfig, options) => {
+module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addWatchTarget("./styles/");
   eleventyConfig.addWatchTarget("./images/");
   eleventyConfig.addWatchTarget("./partials/");
@@ -23,36 +21,23 @@ module.exports = (eleventyConfig, options) => {
   eleventyConfig.on("eleventy.before", async () => {
     const shiki = await import("shiki");
     const highlighter = await shiki.getHighlighter({
-      ...options,
-      langs: [
-        "js",
-        "ts",
-        "tsx",
-        "jsx",
-        "go",
-        "elixir",
-        "json",
-        "json5",
-        "jsonc",
-        "yaml",
-        "css",
-        "postcss",
-        "html",
-        "plaintext",
-      ],
+      themes: [LIGHT_THEME, DARK_THEME],
+      langs: ["ts", "tsx", "go", "json5", "jsonc", "css", "html"],
     });
     await highlighter.loadTheme(LIGHT_THEME);
     await highlighter.loadTheme(DARK_THEME);
+
     eleventyConfig.amendLibrary("md", (mdLib) =>
       mdLib.set({
-        highlight: (code, lang) =>
-          highlighter.codeToHtml(code, {
+        highlight: (code, lang) => {
+          return highlighter.codeToHtml(code, {
             lang,
             themes: {
               dark: DARK_THEME,
               light: LIGHT_THEME,
             },
-          }),
+          });
+        },
       })
     );
   });
@@ -64,8 +49,7 @@ module.exports = (eleventyConfig, options) => {
   });
 
   eleventyConfig.addFilter("dateOnly", function (dateVal, locale = "en-us") {
-    var theDate = new Date(dateVal);
-    return theDate.toLocaleDateString(locale, {
+    return new Date(dateVal).toLocaleDateString(locale, {
       weekday: "long",
       year: "numeric",
       month: "long",

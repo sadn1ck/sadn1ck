@@ -178,13 +178,10 @@ blockquote {
   border-bottom: 1px solid rgba(var(--accent-color), 0.4);
 }
 
-main:nth-last-child(1) {
-  margin-bottom: 6rem;
+#content {
+  padding: 6rem 0 4rem 0;
 }
 
-.footer #backtotop {
-  margin-left: auto;
-}
 [data-blog="false"] #backtotop {
   opacity: 0;
 }
@@ -192,31 +189,34 @@ main:nth-last-child(1) {
   opacity: 1;
 }
 
-.footer {
-  font-size: smaller;
+.header {
   padding: 0 2rem 0 2rem;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 0;
+  top: 0;
   width: min(100vw, var(--content-width));
-  height: 3rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   background-color: rgb(var(--bg));
 }
-.footer::before {
+.header::before {
   content: "";
   position: fixed;
   pointer-events: none;
-  bottom: calc(3rem - 2px);
+  top: calc(4rem - 2px);
   left: 0;
-  height: 5rem;
+  height: 4rem;
   width: 100%;
   backdrop-filter: blur(1px);
-  background: linear-gradient(to bottom, transparent, rgb(var(--bg)));
-  -webkit-mask-image: linear-gradient(to top, rgb(var(--bg)) 40%, transparent);
-  mask-image: linear-gradient(to top, rgb(var(--bg)) 40%, transparent);
+  background: linear-gradient(to top, transparent, rgb(var(--bg)));
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgb(var(--bg)) 40%,
+    transparent
+  );
+  mask-image: linear-gradient(to bottom, rgb(var(--bg)) 40%, transparent);
 }
 
 .shiki {

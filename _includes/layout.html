@@ -42,61 +42,57 @@
     <link rel="stylesheet" href="/styles/custom.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap">
-          <a style="align-self: baseline; font-weight: bold" href="/"
-            >anikd.com</a
+    <header class="header" style="display: inline-flex; align-items: center">
+      <nav style="display: flex; gap: 8px; flex-wrap: wrap">
+        <a style="align-self: baseline; font-weight: bold" href="/"
+          >anikd.com</a
+        >
+        <span role="separator">/</span>
+        <a href="https://github.com/sadn1ck">GitHub</a>
+        <span role="separator">/</span>
+        <a href="https://twitter.com/__sadn1ck__">Twitter</a>
+        <span role="separator">/</span>
+        <a
+          href="https://craft.anikd.com"
+          target="_blank"
+          style="display: flex; align-items: center; gap: 4px"
+        >
+          <span> Craft </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16px"
+            height="16px"
+            viewBox="0 0 28 28"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-          <span role="separator">/</span>
-          <a href="https://github.com/sadn1ck">GitHub</a>
-          <span role="separator">/</span>
-          <a href="https://twitter.com/__sadn1ck__">Twitter</a>
-          <span role="separator">/</span>
-          <a
-            href="https://craft.anikd.com"
-            target="_blank"
-            style="display: flex; align-items: center; gap: 4px"
-          >
-            <span> Craft </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16px"
-              height="16px"
-              viewBox="0 0 28 28"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M15 3h6v6" />
-              <path d="M10 14 21 3" />
-              <path
-                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-              />
-            </svg>
-          </a>
-        </div>
+            <path d="M15 3h6v6" />
+            <path d="M10 14 21 3" />
+            <path
+              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+            />
+          </svg>
+        </a>
       </nav>
     </header>
     <main>
-      {% if title %}
-      <h1 style="text-wrap: pretty">{{ title }}</h1>
-      {% endif %} {% if page.url | isBlog %}
-      <span style="font-style: italic">{{ page.date | dateOnly }}</span>
+      <div id="content">
+        {% if page.url | isBlog %}
+        <a aria-label="Home" href="/">&hookleftarrow; Home</a>
+        {% endif %} {% if title %}
+        <h1 style="text-wrap: pretty">{{ title }}</h1>
+        {% endif %} {% if page.url | isBlog %}
+        <span style="font-style: italic">{{ page.date | dateOnly }}</span>
+        {% endif %}
+        <!--  -->
+        <section style="margin-top: 2rem">{{ content }}</section>
+      </div>
+      {% if page.url | isBlog %}
+      <a aria-label="Back to top" href="#">&UpArrow; Back to top</a>
       {% endif %}
-      <!--  -->
-      <section style="margin-top: 2rem">{{ content }}</section>
-      <footer
-        class="footer"
-        style="display: flex; gap: 8px; align-items: center"
-      >
-        <span>✌️</span>
-        <span role="separator">/</span>
-        <span> India </span>
-        <a href="#" id="backtotop">Back to top</a>
-      </footer>
     </main>
   </body>
 </html>

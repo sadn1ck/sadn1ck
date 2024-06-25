@@ -1,22 +1,17 @@
 ---
 layout: layout.html
+title: Anik Das
 ---
 
-## Anik Das
+Software Engineer at [Chronicle](https://chroniclehq.com).
 
-<section>
-
-Building polished web interfaces. Software Engineer at [Chronicle](https://chroniclehq.com).
-
-Working on Typescript, React, State machines and Text editors on the web. Love nerding out on types. Learning a bit of golang and elixir on the side.
+Working on typescript, react, state machines and rich text editors on the web. Love nerding out on types. Learning a bit of golang and elixir on the side.
 
 Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on Twitter or Discord @ `sadn1ck`.
 
-[Resume](https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?pli=1) ✦ [LinkedIn](https://www.linkedin.com/in/sadn1ck)
+<div class="spacer"></div>
 
-</section>
-
-<div id="spacer" />
+## Blogs
 
 <div class="blog-list">
 <!-- `{{ blog.data.date | date: "%Y %b" }}` • [{{ blog.data.title}}]({{blog.url}}) -->
@@ -27,3 +22,5 @@ Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me 
 </a>
 {% endfor %}
 </div>
+
+<div class="spacer"></div>

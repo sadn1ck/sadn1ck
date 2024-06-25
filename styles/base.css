@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+
+    :not(h1, h2, h3, h4, h5, h6, p) {
+        margin: 0;
+    }
+}
+
+:root {
+    --accent-color: 79, 79, 238;
+    --text: 14, 14, 14;
+    --bg: 249, 249, 249;
+    --content-width: 640px;
+    --sans: -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    --monospace: monospace;
+    --serif: "Bricolage Grotesque", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent-color: 117, 117, 205;
+        --text: 220, 220, 220;
+        --bg: 14, 14, 14;
+    }
+}
+
+::selection {
+    background-color: rgba(var(--accent-color), 0.25);
+}
+
+html {
+    font-family: var(--sans);
+
+    letter-spacing: -0.005rem;
+
+    accent-color: rgb(var(--accent-color));
+    color: rgb(var(--text));
+    background-color: rgb(var(--bg));
+    height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    max-width: 840px;
+    text-rendering: optimizeLegibility;
+    gap: 1rem;
+    padding: 2rem;
+    overflow-y: scroll;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 1rem;
+
+    h1 {
+        margin-top: 0;
+    }
+}
+
+/* Justify and hyphenate all paragraphs */
+p,
+ul,
+ol {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+li {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    line-height: 1.6;
+}
+
+/* Make images easier to work with */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    display: block;
+    border-radius: 4px;
+}
+
+a {
+    color: rgb(var(--accent-color));
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-skip-ink: all;
+        text-underline-offset: 4px;
+    }
+}
+
+p code,
+li code {
+    border-radius: 4px;
+    background: rgba(var(--accent-color), 0.15);
+    outline: 1px solid rgba(var(--accent-color), 0.5);
+    padding: 4px;
+}
+
+code {
+    line-height: 150%;
+    letter-spacing: -0.03%;
+    /* prevent line break in code */
+    white-space: nowrap;
+}
+
+pre {
+    padding: 1rem;
+    border-radius: 4px;
+
+    &:focus {
+        outline: none;
+    }
+
+    code {
+        white-space: unset;
+    }
+}
+
+blockquote {
+    border-left: 4px solid rgba(var(--accent-color), 0.5);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.05rem;
+    font-family: var(--serif);
+    font-feature-settings:
+        "liga" 1,
+        "dlig" 1,
+        "calt" 1;
+}
+
+a {
+    font-family: var(--serif);
+
+    &::after {
+        font-family: var(--sans);
+    }
+
+    &.dead {
+        pointer-events: none;
+        color: gray;
+    }
+}
+
+ul {
+    margin: 0;
+}
+
+.spacer {
+    padding: 0.5rem 0;
+}

@@ -158,9 +158,7 @@ function App() {
         }}
       >
         <div className="...">
-          <h1 className="...">
-            Should show element: {shouldShow ? "yes" : "no"}
-          </h1>
+          <h1 className="...">Should show element: {shouldShow ? "yes" : "no"}</h1>
           <span>State machine state: {state.value}</span>
         </div>
       </main>
@@ -183,5 +181,3 @@ References:
 - [Core concepts](https://stately.ai/docs/state-machines-and-statecharts)
 
 Feel free to contact me on [Twitter](https://twitter.com/__sadn1ck__) for any questions or feedback, or if you find any mistakes in this. I'd love to hear from you!
-
-<a href="#">Back to top</a>

@@ -33,24 +33,22 @@ nav {
         display: flex;
         flex-direction: column;
         padding: 2px 8px;
-
-        &.external li {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        &.external a::after {
-            content: " \2197";
-        }
     }
 
     /* mobile */
     @media screen and (max-width: 768px) {
+        font-size: 0.9rem;
         .navgroup {
             flex-direction: row;
             gap: 8px;
             flex-wrap: wrap;
             justify-content: center;
+
+            li:not(:last-child)::after {
+                color: inherit;
+                content: "✦";
+                padding-left: 4px;
+            }
         }
     }
 }
@@ -72,7 +70,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -119,28 +117,6 @@ nav {
     border-bottom: 1px solid rgba(var(--accent-color), 0.4);
 }
 /* project list */
-
-[data-blog="false"] #backtotop {
-    opacity: 0;
-}
-[data-blog="true"] #backtotop {
-    opacity: 1;
-}
-
-.btn-to-top {
-    all: unset;
-    margin-top: 4rem;
-    background-color: rgba(var(--accent-color), 0.15);
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: small;
-    &:active {
-        background-color: rgba(var(--accent-color), 0.25);
-    }
-    &:focus {
-        outline: 1px solid rgb(var(--accent-color));
-    }
-}
 
 /* shiki setup */
 

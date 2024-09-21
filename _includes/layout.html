@@ -45,9 +45,6 @@
                 <li>
                     <a href="/">Home</a>
                 </li>
-                <!-- <li>
-                    <a href="/notes" class="dead">Notes (soon&trade;)</a>
-                </li> -->
             </ul>
             <ul class="navgroup external">
                 <li>
@@ -59,9 +56,6 @@
                         href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?pli=1"
                         >Resume</a
                     >
-                </li>
-                <li>
-                    <a target="_blank" href="https://craft.anikd.com">Craft</a>
                 </li>
                 <li>
                     <a target="_blank" href="https://twitter.com/__sadn1ck__">Twitter</a>
@@ -82,17 +76,6 @@
             {% endif %}
             <!--  -->
             <section style="margin-top: 2rem">{{ content }}</section>
-            {% if page.url | isBlog %}
-            <button class="btn-to-top" aria-label="Back to top" onclick="goToTop()">
-                <script>
-                    function goToTop() {
-                        window.scrollTo(0, 0);
-                    }
-                </script>
-                &UpArrow; Back to top
-            </button>
-            {% endif %}
         </main>
-        <div class="grid-background"></div>
     </body>
 </html>

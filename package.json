@@ -2,7 +2,8 @@
   "name": "sadn1ck",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "new:blog": "sh ./new-blog.sh"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-rss": "^1.2.0",

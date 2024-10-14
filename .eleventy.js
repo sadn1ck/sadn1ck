@@ -16,7 +16,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("./partials/");
   eleventyConfig.addPassthroughCopy("./images/");
   eleventyConfig.addPassthroughCopy("./styles/");
-  eleventyConfig.ignores.add("**/*.draft.md");
+  eleventyConfig.ignores?.add("**/*.draft.md");
 
   eleventyConfig.amendLibrary("md", () => {});
   eleventyConfig.on("eleventy.before", async () => {
@@ -39,7 +39,7 @@ module.exports = (eleventyConfig) => {
             },
           });
         },
-      }),
+      })
     );
   });
 

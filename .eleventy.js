@@ -21,7 +21,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.amendLibrary("md", () => {});
   eleventyConfig.on("eleventy.before", async () => {
     const shiki = await import("shiki");
-    const highlighter = await shiki.getHighlighter({
+    const highlighter = await shiki.getSingletonHighlighter({
       themes: [LIGHT_THEME, DARK_THEME],
       langs: ["ts", "tsx", "go", "json5", "jsonc", "css", "html"],
     });
@@ -64,6 +64,31 @@ module.exports = (eleventyConfig) => {
     }
     return false;
   });
+
+  function isValidDimension(value) {
+    return typeof value === "number" || typeof value === "string";
+  }
+
+  eleventyConfig.addLiquidShortcode(
+    "image",
+    async function (src, alt = "", width, height) {
+      if (
+        typeof this.page?.inputPath === "string" &&
+        this.page.inputPath.startsWith("./blogs")
+      ) {
+        width = isValidDimension(width) ? width : "100%";
+        height = isValidDimension(height) ? height : "auto";
+        const blogSlug = this.page.fileSlug;
+        const external = src?.startsWith?.("http") ?? false;
+        const blogImageSrc = external
+          ? src
+          : `/images/blogs/${blogSlug}/${src}`;
+        return `<div class="img-wrapper" data-state="closed" data-img-alt="${alt}"><img loading="lazy" class="blog-img" src="${blogImageSrc}" width="${width}" height="${height}" alt="${alt}" loading="lazy" /></div>`;
+      }
+      return "";
+    }
+  );
+
   return {
     dir: {
       output: "dist",

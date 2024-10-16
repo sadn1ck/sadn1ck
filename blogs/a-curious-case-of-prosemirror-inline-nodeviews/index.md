@@ -1,0 +1,100 @@
+---
+title: A curious case of ProseMirror inline nodeViews
+desc: ProseMirror inline nodeViews, devtooling Linear's text editor and more. Or how I stayed up late and fixed a bug.
+date: 2024-10-15
+tags: ["prosemirror", "richtext"]
+---
+
+**Essential mini glossary:**
+
+1. ProseMirror - a set of libraries for building rich text editors.
+2. Node - a ProseMirror document is a hierarchy of nodes, like the browser DOM. The document might be a "doc" with "paragraph" and "heading" as nodes, and "text" as a leaf node.
+3. NodeView - Another way to change how ProseMirror renders a node. Allows you to define a custom UI for a specific node.
+
+---
+
+Recently I was working on implementing a mentions feature in text fields at Chronicle. We use ProseMirror for all our text fields - excellent library - and we use `@nytimes/react-prosemirror` for the React component based nodeView integration.
+
+After getting the bulk of the implementation done, I noticed an extremely weird issue.
+
+## Cursor, cursor - where do you land?
+
+If you have created a mention with some existing text content before it, and then after creating you delete all the way from before the mention to the start of the line - it will insert a hard break at the last backspace keystroke.
+
+_WAT_
+
+That's surely some weird hot reload issue, I'll just reload.
+
+{% image "https://cdn.7tv.app/emote/6484f9b6f64f0ac1a08ab777/4x.webp", "...", 64, 64 %}
+
+It happens again.
+
+_WTF_
+
+{% image "the-bug.gif", "WHAT IS THIS", "100%", "auto" %}
+
+## GitHub maxxing (aaaaand discuss.prosemirror.net)
+
+I frantically start mashing away at my poor keyboard. Within a minute I have a 10s of tabs open pointing to the ProseMirror forums, none of them even remotely match my issue, and I'm dreading that I have fallen into a `contenteditable` edge case.
+
+The closest related forum post I found is the [first discussion about inline nodes with content](https://discuss.prosemirror.net/t/discussion-inline-nodes-with-content/496) in ProseMirror itself. Funnily enough that did have the fix I needed, but it was impossible to connect it at the time.
+
+Another related (ish) issue is [this one about widget decorations](https://github.com/ProseMirror/prosemirror/issues/831), which matched the prize but not the participants.
+
+At this point I've spent hours searching both ProseMirror forums and GitHub issues, and I gave up for the day and went to bed-
+
+_WAAAIIIT_ A GODDAMN SECOND. _LINEAR_ HAS MENTIONS. I CAN DEVTOOL THEM. SURELY THEY HAVE SOLVED THIS.
+
+## A span (or two) of hope
+
+I jump back up from bed and go to Linear. Find a comment field to destroy, and start typing.
+
+At first I just mention myself (user mention), and it _didn't_ have the issue. My heart drops. I check the elements panel, and everything seems the same as I have.
+
+{% image "https://cdn.7tv.app/emote/64047fa6871734dcee8efc4a/2x.webp", "I do some thonking", 64, 64 %}
+
+Oh I can also mention issues, might as well try that.
+
+{% image "linear-issue-mention.png", "An issue mention in Linear", "60%", "auto" %}
+
+I inspect the DOM.
+
+{% image "span-of-hope.png", "Spans added by Linear before and after nodeViews", 350, 350 %}
+
+### _JAAAAACKPOOOOOT_
+
+I wrap my existing nodeView with those 2 spans containing ZeroWidthSpace, and yussss - the issue disappears.
+
+Why exactly does this work? Since ProseMirror works on `contenteditable`s it is likely that not having a proper position to land the cursor after deleting leads to ProseMirror (or, more likely, the browser) inserting a hard break. That is somewhere it can land.
+
+These zero width spaces provide a similar functionality, but without any visual impact.
+
+Thank you Linear. I go back to sleep.
+
+## The cause
+
+I wake up and first thing I think of is why the hell did Linear's normal mentions not have this problem? What is different?
+
+On comparing the DOM, I realised that the user mention did _not_ have any `flex` children inside, while the issue mention, had its status logo + mention slug in a `flex` container.
+
+So, as any person would, I googled an insane query.
+
+{% image "search.png", "Hmm I wonder what I'll get", "100%", "auto" %}
+
+[Forum post ↗](https://discuss.prosemirror.net/t/after-setting-it-to-display-flex-the-cursor-is-mispositioned/4484/2)
+
+{% image "the-final-result.png", "Marijn Haverbeke, ProseMirror author says having flex inside inline nodes is a bad idea", "100%", "auto" %}
+
+## Conclusion
+
+Well, if you do need to have flex items inside your inline node(view)s, then now you know how to fix it. Have two spans surrounding your nodeView content, so that the browser can position your cursor there if there is a loss of content surrounding it.
+
+Or else, if you can, just avoid it.
+
+Bye.
+
+## Playground
+
+Try the behaviour out in this embedded ProseMirror instance. The checbox adds/removes the extra spans needed (`:has` is goated)
+
+<iframe src="https://pm-inline-nodeview-blog.vercel.app/" width="100%" height="500px" style="border: 0; border-radius: 4px; overflow: hidden;" title="A curious case of ProseMirror inline node(views)" loading="lazy"></iframe>

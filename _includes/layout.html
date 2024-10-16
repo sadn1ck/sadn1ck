@@ -1,74 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html
-    lang="en"
-    style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale"
-    data-blog="{{page.url | isBlog}}"
+  lang="en"
+  style="
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  "
+  data-blog="{{page.url | isBlog}}"
 >
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="{{desc | default: 'software engineer @ chronicle'}}" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="shortcut icon" href="/images/favicon.svg" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/images/favicon.svg" />
 
-        <title>{{title | default: "Anik Das"}}</title>
-        <meta name="title" content="{{title | default: 'Anik Das'}}" />
-        <meta name="description" content="{{desc | default: 'software engineer @ chronicle'}}" />
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anikd.com" />
-        <meta property="og:title" content="{{title | default: 'Anik Das'}}" />
-        <meta
-            property="og:description"
-            content="{{desc | default: 'software engineer @ chronicle'}}"
-        />
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://anikd.com" />
-        <meta property="twitter:title" content="{{title | default: 'Anik Das'}}" />
-        <meta
-            property="twitter:description"
-            content="{{desc | default: 'software engineer @ chronicle'}}"
-        />
+    <title>{{title | default: "Anik Das"}}</title>
+    <meta name="title" content="{{title | default: 'Anik Das'}}" />
+    <meta
+      name="description"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
+    />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anikd.com" />
+    <meta property="og:title" content="{{title | default: 'Anik Das'}}" />
+    <meta
+      property="og:description"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
+    />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://anikd.com" />
+    <meta property="twitter:title" content="{{title | default: 'Anik Das'}}" />
+    <meta
+      property="twitter:description"
+      content="{{desc | default: 'software engineer @ chronicle'}}"
+    />
 
-        <link rel="stylesheet" href="/styles/md.css" />
-        <link rel="stylesheet" href="/styles/custom.css" />
-    </head>
-    <body class="markdown-body">
-        <nav class="navgroup">
-            <a href="/">Home</a>
+    <link rel="stylesheet" href="/styles/md.css" />
+    <link rel="stylesheet" href="/styles/custom.css" />
+  </head>
+  <body class="markdown-body">
+    <nav class="navgroup">
+      <a href="/">Home</a>
 
-            <a
-                class="resume"
-                target="_blank"
-                href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?pli=1"
-                >Resume</a
-            >
+      <a
+        class="resume"
+        target="_blank"
+        href="https://drive.google.com/file/d/11RewrnkZ4WVkDOFusuqm-wCPPJjGt044/view?pli=1"
+        >Resume</a
+      >
 
-            <div class="icons">
-                <a title="GitHub" target="_blank" href="https://github.com/sadn1ck"
-                    ><span class="mdi mdi--github"
-                /></a>
-                <a title="Twitter" target="_blank" href="https://twitter.com/__sadn1ck__"
-                    ><span class="mdi mdi--twitter"
-                /></a>
+      <div class="icons">
+        <a title="GitHub" target="_blank" href="https://github.com/sadn1ck"
+          ><span class="mdi mdi--github"
+        /></a>
+        <a
+          title="Twitter"
+          target="_blank"
+          href="https://twitter.com/__sadn1ck__"
+          ><span class="mdi mdi--twitter"
+        /></a>
 
-                <a title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/sadn1ck"
-                    ><span class="mdi mdi--linkedin"
-                /></a>
-            </div>
-        </nav>
-        <!-- <hr style="height: 1px !important; background-color: var(--borderColor-muted)" /> -->
-        <main>
-            <!--  -->
-            {% if title %}
-            <h1 style="text-wrap: pretty">{{ title }}</h1>
-            {% endif %}
-            <!--  -->
-            {% if page.url | isBlog %}
-            <span style="font-style: italic">{{ page.date | dateOnly }}</span>
-            {% endif %}
-            <!--  -->
-            <section style="margin-top: 2rem">{{ content }}</section>
-        </main>
-    </body>
+        <a
+          title="LinkedIn"
+          target="_blank"
+          href="https://www.linkedin.com/in/sadn1ck"
+          ><span class="mdi mdi--linkedin"
+        /></a>
+      </div>
+    </nav>
+    <!-- <hr style="height: 1px !important; background-color: var(--borderColor-muted)" /> -->
+    <main>
+      <!--  -->
+      {% if title %}
+      <h1 style="text-wrap: pretty">{{ title }}</h1>
+      {% endif %}
+      <!--  -->
+      {% if page.url | isBlog %}
+      <span style="font-style: italic">{{ page.date | dateOnly }}</span>
+      {% endif %}
+      <!--  -->
+      <section style="margin-top: 2rem">{{ content }}</section>
+    </main>
+  </body>
 </html>

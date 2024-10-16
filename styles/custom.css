@@ -69,6 +69,22 @@ html {
 }
 /* blog list */
 
+.img-wrapper {
+    padding: 8px 0 12px 0;
+}
+
+.img-wrapper img {
+    outline: 1px solid var(--borderColor-muted);
+    border-radius: 4px;
+}
+
+.img-wrapper::after {
+    content: attr(data-img-alt);
+    display: block;
+    font-size: 0.8rem;
+    color: var(--fgColor-muted);
+}
+
 /* shiki setup */
 
 .shiki {

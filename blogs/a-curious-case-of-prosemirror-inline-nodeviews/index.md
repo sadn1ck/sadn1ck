@@ -39,11 +39,29 @@ I frantically start mashing away at my poor keyboard. Within a minute I have a 1
 
 The closest related forum post I found is the [first discussion about inline nodes with content](https://discuss.prosemirror.net/t/discussion-inline-nodes-with-content/496) in ProseMirror itself. Funnily enough that did have the fix I needed, but it was impossible to connect it at the time.
 
+This was more or less the _starting_ discussion about this variety of nodes, which contrasted ProseMirror's inherent document structure as a tree of nodes, with no limitation on its contents, versus, cases with leaf nodes containing editable text in most cases, except when it has children (aka like mentions, where it is an inline span inside a text node).
+
+For clarity,
+
+> generaly, ProseMirror's documents is like
+>
+> `doc > paragraph > text, text, text`
+>
+> where text is child-less
+>
+> but with inline nodes
+>
+> `doc > paragraph > text, mention (has child elements), text, text`
+
 Another related (ish) issue is [this one about widget decorations](https://github.com/ProseMirror/prosemirror/issues/831), which matched the prize but not the participants.
+
+> Here, the random hard_break insertion was happening, but with another of ProseMirror's abstractions - called Widgets decorations, which are DOM nodes that are shown in the document at a given position.
+>
+> This apparently was a bug in Chrome's contenteditable implementation, which led to another dead end.
 
 At this point I've spent hours searching both ProseMirror forums and GitHub issues, and I gave up for the day and went to bed-
 
-_WAAAIIIT_ A GODDAMN SECOND. _LINEAR_ HAS MENTIONS. I CAN DEVTOOL THEM. SURELY THEY HAVE SOLVED THIS.
+_WAAAIIIT_ A GODDAMN SECOND. [_LINEAR_](https://linear.app) HAS MENTIONS. I CAN DEVTOOL THEM. SURELY THEY HAVE SOLVED THIS.
 
 ## A span (or two) of hope
 

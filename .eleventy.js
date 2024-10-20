@@ -1,4 +1,4 @@
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 /** @type {import('shiki').BundledTheme} */
@@ -10,7 +10,6 @@ const LIGHT_THEME = "vitesse-light";
  * @param { import('@11ty/eleventy').UserConfig } eleventyConfig
  * */
 module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addWatchTarget("./styles/");
   eleventyConfig.addWatchTarget("./images/");
   eleventyConfig.addWatchTarget("./partials/");
@@ -41,12 +40,6 @@ module.exports = (eleventyConfig) => {
         },
       })
     );
-  });
-
-  eleventyConfig.addPlugin(sitemap, {
-    sitemap: {
-      hostname: "https://anikd.com",
-    },
   });
 
   eleventyConfig.addFilter("dateOnly", function (dateVal, locale = "en-us") {
@@ -88,6 +81,30 @@ module.exports = (eleventyConfig) => {
       return "";
     }
   );
+
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://anikd.com",
+    },
+  });
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom", // or "rss", "json"
+    outputPath: "/atom.xml",
+    collection: {
+      name: "blogs", // iterate over `collections.blogs`
+      limit: 0, // 0 means no limit
+    },
+    metadata: {
+      language: "en",
+      title: "Anik Das",
+      subtitle: "rss feed for blogs @ anikd.com",
+      base: "https://anikd.com/",
+      author: {
+        name: "Anik Das",
+        // email: "anikdas0811@gmail.com", // Optional
+      },
+    },
+  });
 
   return {
     dir: {

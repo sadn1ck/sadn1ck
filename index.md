@@ -5,22 +5,21 @@ title: Anik Das
 
 Software Engineer at [Chronicle](https://chroniclehq.com).
 
-Working on typescript, react, state machines and rich text editors on the web. Love nerding out on types. Learning a bit of golang and elixir on the side.
+Working on rich text editors, CRDTs, typescript, state machines and more on the web. Love nerding out on performance optimizations.
 
-Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on Twitter or Discord @ `sadn1ck`.
-
-<div class="spacer"></div>
+Learning a bit of golang and elixir on the side. Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on Twitter or Discord @ `sadn1ck`.
 
 ## Blogs
 
-<div class="blog-list">
-<!-- `{{ blog.data.date | date: "%Y %b" }}` • [{{ blog.data.title}}]({{blog.url}}) -->
+<ul class="blog-list">
 {% for blog in collections.blogs reversed %}
-<a href="{{blog.url}}">
-    <span class="title">{{blog.data.title}}</span>
-    <span class="date">{{ blog.data.date | date: "%Y-%m" }}</span>
-</a>
+<li>
+    <span class="date">
+      <time>{{ blog.data.date | date: "%d %b, %Y" }}</time>
+    </span>
+    <a href="{{blog.url}}">
+      <span class="title">{{blog.data.title}}</span>
+    </a>
+  </li>
 {% endfor %}
-</div>
-
-<div class="spacer"></div>
+</ul>

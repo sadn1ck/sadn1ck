@@ -1,19 +1,17 @@
 {
   "name": "sadn1ck",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy",
+    "dev": "rm -rf dist && eleventy --serve",
+    "build": "rm -rf dist && eleventy",
     "new:blog": "sh ./new-blog.sh"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-rss": "^2.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@types/bun": "latest"
-  },
-  "dependencies": {
+    "@types/bun": "latest",
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-fetch": "^4.0.1",
-    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
-    "shiki": "^1.22.0"
-  }
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
+  },
+  "dependencies": {}
 }

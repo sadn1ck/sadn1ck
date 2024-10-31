@@ -113,6 +113,6 @@ Bye.
 
 ## Playground
 
-Try the behaviour out in this embedded ProseMirror instance. The checbox adds/removes the extra spans needed (`:has` is goated)
+Try the behaviour out in this embedded ProseMirror instance. The checkbox adds/removes the extra spans needed (`:has` is goated)
 
 <iframe src="https://pm-inline-nodeview-blog.vercel.app/" width="100%" height="500px" style="border: 0; border-radius: 4px; overflow: hidden;" title="A curious case of ProseMirror inline node(views)" loading="lazy"></iframe>

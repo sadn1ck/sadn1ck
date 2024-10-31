@@ -31,8 +31,8 @@ F.
 
 The fix? Changed the `content` glob to not scan `node_modules` (and `.js?(x)` files, which are basically 90% of the files inside) and instead scan the `packages` directory via relative paths, which will only scan source files.
 
-![fix for the slow HMR perf](/images/blogs/debugging-slow-hmr-vite/diff.png)
+{% image "diff.png", "fix for the slow HMR perf", "100%", "auto" %}
 
 The result? (before vs after)
 
-![before vs. after of applying fix](/images/blogs/debugging-slow-hmr-vite/before-v-after.png)
+{% image "before-v-after.png", "before vs. after of applying fix", "100%", "auto" %}

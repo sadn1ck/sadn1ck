@@ -1,7 +1,7 @@
 ---
 title: Google Summer of Code 2022 Retrospective
 date: 2022-08-31
-tags: ['gsoc']
+tags: ["gsoc"]
 ---
 
 > I got selected for Google Summer of Code 2022 under Sugar Labs, to work on the Music Blocks v4 project (yay). Official details about my project can be [found here.](https://summerofcode.withgoogle.com/myprojects/details/XubAsh1T)
@@ -48,13 +48,13 @@ Initially, I used Webpack's inbuilt `optimization` configuration and split the o
 
 Then, I analyzed the current build output with `webpack-bundle-analyzer`.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661590688042/HAwD1vqQgj.png)
+{% image "[bundle-analyzer.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661590688042/HAwD1vqQgj.png)", "webpack bundle analyzer", "100%", "auto" %}
 
 This showed a lot of chunks which could be compressed down to smaller chunks to have a lot of savings in the final bundle.
 
 So I used `webpack-compression-plugin` in the production build process to compress files above a threshold of 50KB with the `gzip` algorithm. This resulted in 50%+ savings for the selected files.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661590795939/nD5DW5YdR.png)
+{% image "https://cdn.hashnode.com/res/hashnode/image/upload/v1661590795939/nD5DW5YdR.png", "webpack compression plugin", "100%", "auto" %}
 
 All in all, this was an excellent optimization to have.
 
@@ -66,7 +66,7 @@ For that, we needed to support WASM loading - thankfully, Webpack 5 had experime
 
 Converting our current web app into a PWA was also very easy, with Webpack having a dedicated `webpack-workbox-plugin` for the same.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661593267949/Bobp7wICS.png)
+{% image "https://cdn.hashnode.com/res/hashnode/image/upload/v1661593267949/Bobp7wICS.png", "webpack workbox plugin", "100%", "auto" %}
 
 I just had to take care of the fact that I didn't load it in `development` as that would lead to unnecessary caching.
 
@@ -80,7 +80,7 @@ Setting up both of them was super easy, with only Jest requiring a particular co
 
 Then I set up GitHub Actions to run the unit and e2e tests whenever a pull request is made.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1661594680515/61SUA7Emf.png)
+{% image "https://cdn.hashnode.com/res/hashnode/image/upload/v1661594680515/61SUA7Emf.png", "github actions", "100%", "auto" %}
 
 ## Final Thoughts
 

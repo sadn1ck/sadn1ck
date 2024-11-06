@@ -7,7 +7,7 @@ Software Engineer at [Chronicle](https://chroniclehq.com).
 
 Working on rich text editors, CRDTs, typescript, state machines and more on the web. Love nerding out on performance optimizations.
 
-Learning a bit of golang and elixir on the side. Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on [Twitter](https://x.com/__sadn1ck__) or Discord @ `sadn1ck`.
+Learning a bit of golang and elixir on the side. Big fan of Spider-man, tailor-made memes and dad jokes. Feel free to message me on [Bluesky](https://bsky.app/profile/anikd.com) or Discord @ `sadn1ck`.
 
 ## Blogs
 

@@ -182,4 +182,4 @@ References:
 - [XState](https://stately.ai/docs/)
 - [Core concepts](https://stately.ai/docs/state-machines-and-statecharts)
 
-Feel free to contact me on [Bluesky](https://bsky.app/profile/anikd.com) for any questions or feedback, or if you find any mistakes in this. I'd love to hear from you!
+Feel free to contact me on [BlueSky](https://bsky.app/profile/anikd.com) for any questions or feedback, or if you find any mistakes in this. I'd love to hear from you!

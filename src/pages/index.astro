@@ -1,0 +1,92 @@
+---
+import BlogCard from "@components/BlogCard.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { HOME, SITE, SOCIALS } from "@consts";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const blog = (await getCollection("blog"))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+---
+
+<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+	<Container>
+		<aside data-pagefind-ignore>
+			<h1 class="font-semibold text-black dark:text-white">Anik Das</h1>
+			<div class="space-y-16">
+				<section>
+					<article class="space-y-4">
+						<span>
+							<p>
+								Software Engineer working on rich text editors,
+								CRDTs, typescript, state machines and more on
+								the web. Love nerding out on performance
+								optimizations and developer tools.
+							</p>
+						</span>
+					</article>
+				</section>
+
+				<section class="animate space-y-6">
+					<div
+						class="flex flex-wrap items-center justify-between gap-y-2"
+					>
+						<h2 class="font-semibold text-black dark:text-white">
+							Latest posts
+						</h2>
+						<Link href="/blog"> See all posts </Link>
+					</div>
+					<ul class="not-prose flex flex-col gap-4">
+						{
+							blog.map((post) => (
+								<li>
+									<BlogCard entry={post} />
+								</li>
+							))
+						}
+					</ul>
+				</section>
+
+				<section class="animate space-y-4">
+					<h2 class="font-semibold text-black dark:text-white">
+						Let's Connect
+					</h2>
+					<article>
+						<p>
+							If you want to get in touch with me about something
+							or just to say hi, reach out on social media or send
+							me an email.
+						</p>
+					</article>
+					<ul class="not-prose flex flex-wrap gap-2">
+						{
+							SOCIALS.map((SOCIAL, index) => (
+								<li class="flex gap-x-2 text-nowrap">
+									<Link
+										href={SOCIAL.HREF}
+										external
+										aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+									>
+										{SOCIAL.NAME}
+									</Link>
+									{index < SOCIALS.length - 1 && "/"}
+								</li>
+							))
+						}
+						<!-- <li class="line-clamp-1">
+							<Link
+								href={`mailto:${SITE.EMAIL}`}
+								aria-label={`Email ${SITE.TITLE}`}
+							>
+								{SITE.EMAIL}
+							</Link>
+						</li> -->
+					</ul>
+				</section>
+			</div>
+		</aside>
+	</Container>
+</Layout>

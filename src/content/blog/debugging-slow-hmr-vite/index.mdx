@@ -1,0 +1,42 @@
+---
+title: Debugging a case of slow HMR in Vite
+description: Copy-pasted globs considered harmful
+date: "2024-04-29"
+tags: ["debugging", "vite"]
+---
+
+import { Image } from 'astro:assets';
+import diff from './diff.png';
+import beforeVAfter from './before-v-after.png';
+
+Recently at work, we were faced with increasingly long HMR times in our React app after a file change. It was pretty frustrating and was affecting team productivity. I took it up because it was likely a performance bug _somewhere_, and I was desperate to find it out.
+
+## Investigations & `vite` dive
+
+First, I ran `vite` in debug mode (via `--debug`) to get a sense check of what was actually happening when we saved the file.
+
+In (very) short, `vite` constructs a module graph of your code, and each module has a list of importees. Whenever a module's code is changed, `vite` figures outs the modules related to the changed module, what may require an update, and constructs an _array of modules_ that need to be updated & [invalidated](https://github.com/vitejs/vite/blob/b7ddfae5f852c2948fab03e94751ce56f5f31ce0/packages/vite/src/node/server/hmr.ts#L237).
+
+After that, it creates an array of updates (with the changed code, and any updates to a module) that needs to be sent, which is accepted at a particular module (called _HMR boundary_).
+
+Back to the problem - in the debug logs, I saw that the `index.css` HMR update (which needs to run on every file change, since we use tailwind and it needs to scan for classes) at the place where it is imported, was taking **~17s** (!!!!)
+
+## Profiling the dev server
+
+That already gave me a hint to what was going wrong - the `content` key in tailwind config was probably scanning way too many files - but just to be sure, I ran `vite` in `--profile` mode, took a CPU profile (`p`+`enter`) and threw it on [speedscope](https://speedscope.app).
+
+There, I saw the glob matching & directory scanning were taking way too long, which validated my assumption about it being a too-many-files-and-folders-being-scanned problem.
+
+> I forgot to take a screenshot of the flamegraph. My apologies.
+
+We also have a monorepo with `pnpm` workspaces, which likely amplified the problem - as the glob was scanning internal packages inside `node_modules`, it was also scanning every dependent package of our internal packages.
+
+F.
+
+The fix? Changed the `content` glob to not scan `node_modules` (and `.js?(x)` files, which are basically 90% of the files inside) and instead scan the `packages` directory via relative paths, which will only scan source files.
+
+<Image src={diff} alt="fix for the slow HMR perf" />
+
+The result? (before vs after)
+
+<Image src={beforeVAfter} alt="before vs. after of applying fix" />

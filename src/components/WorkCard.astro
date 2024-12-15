@@ -2,7 +2,8 @@
 import type { CollectionEntry } from "astro:content";
 import { dirname, join } from "node:path";
 import { getImage } from "astro:assets";
-import {readFile} from 'node:fs/promises'
+import { readFile } from "node:fs/promises";
+import { prettyDate } from "@lib/utils";
 
 type Props = {
   entry: CollectionEntry<"work">;
@@ -10,19 +11,17 @@ type Props = {
 
 const { entry } = Astro.props;
 
-
 const fileDir = dirname(entry.filePath ?? "");
 const logoPath = join(process.cwd(), fileDir, "logo.svg");
-let logoSvgText = ''
+let logoSvgText = "";
 
 try {
   logoSvgText = await readFile(logoPath, {
-    encoding: 'utf-8'
-  })
-} catch(e) {
-    logoSvgText = `<svg><text>404</text></svg>`
+    encoding: "utf-8",
+  });
+} catch (e) {
+  logoSvgText = `<svg><text>404</text></svg>`;
 }
-
 ---
 
 <a
@@ -30,7 +29,7 @@ try {
   rel="noopener noreferrer"
   class="not-prose group relative flex flex-nowrap items-center rounded-lg border border-black/15 px-4 py-3 pr-10 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
 >
-	<span class="mr-4 size-8 object-contain" set:html={logoSvgText}></span>
+  <span class="mr-4 size-8 object-contain" set:html={logoSvgText} />
   <!-- <img
     src={logo.src}
     width={logo.attributes.width}
@@ -40,10 +39,10 @@ try {
   /> -->
   <div class="flex flex-1 flex-col truncate">
     <div class="truncate font-semibold">
-      {entry.data.title}
+      {entry.data.role}, {entry.data.company}
     </div>
-    <div class="truncate text-sm">
-      {entry.data.description}
+    <div class="truncate text-sm tabular-nums">
+      {prettyDate(entry.data.startDate)} - {prettyDate(entry.data.endDate)}
     </div>
   </div>
   <svg

@@ -13,6 +13,16 @@ export function formatDate(date: Date) {
   }).format(date);
 }
 
+export function prettyDate(date: Date) {
+  if (date > new Date()) {
+    return "Present";
+  }
+  return Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+  }).format(date);
+}
+
 export function readingTime(html: string) {
   const textOnly = html.replace(/<[^>]+>/g, "");
   const wordCount = textOnly.split(/\s+/).length;

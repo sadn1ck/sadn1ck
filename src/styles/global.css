@@ -5,7 +5,7 @@
 html {
   overflow-y: auto;
   color-scheme: light;
-  scroll-padding-top: 20px;
+  scroll-padding-top: 120px;
 }
 
 @media (prefers-color-scheme: dark) {

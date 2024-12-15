@@ -22,7 +22,7 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={`${post.data.role} at ${post.data.company}`} description={""}>
   <Container>
     <div class="animate">
       <BackToPrevious href="/">Back to home</BackToPrevious>
@@ -36,7 +36,7 @@ const { Content, headings } = await render(post);
         }
       </div>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
-        {post.data.title}
+        {post.data.role} at {post.data.company}
       </h1>
     </div>
     {headings.length > 0 && <TableOfContents headings={headings} />}

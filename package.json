@@ -7,7 +7,10 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "toolbar:disable": "astro preferences disable devToolbar",
+    "toolbar:enable": "astro preferences enable devToolbar"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

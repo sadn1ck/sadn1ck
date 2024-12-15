@@ -1,0 +1,47 @@
+---
+import BackToPrevious from "@components/BackToPrevious.astro";
+import Container from "@components/Container.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import Layout from "@layouts/Layout.astro";
+import { readingTime } from "@lib/utils";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("work"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => a.data.order - b.data.order);
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"work">;
+
+const post = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/">Back to home</BackToPrevious>
+    </div>
+    <div class="my-10 space-y-1">
+      <div class="animate flex items-center gap-1.5">
+        {
+          post.body && (
+            <div class="font-base text-sm">{readingTime(post.body)}</div>
+          )
+        }
+      </div>
+      <h1 class="animate text-3xl font-semibold text-black dark:text-white">
+        {post.data.title}
+      </h1>
+    </div>
+    {headings.length > 0 && <TableOfContents headings={headings} />}
+    <article class="animate">
+      <Content />
+    </article>
+  </Container>
+</Layout>

@@ -32,17 +32,6 @@ header {
   @apply saturate-200 backdrop-blur-sm;
 }
 
-aside {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-mono tracking-tighter;
-  }
-}
-
 main {
   @apply flex-1 py-32;
 }

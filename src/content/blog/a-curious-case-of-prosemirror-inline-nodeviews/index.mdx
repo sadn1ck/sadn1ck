@@ -5,13 +5,12 @@ date: "2024-10-15"
 tags: ["prosemirror", "rich-text", "debugging"]
 ---
 
-import { Image } from 'astro:assets';
-import linearIssueMention from './linear-issue-mention.png';
-import spanOfHope from './span-of-hope.png';
-import theBug from './the-bug.gif';
-import search from './search.png';
-import theFinalResult from './the-final-result.png';
-
+import { Image } from "astro:assets";
+import linearIssueMention from "./linear-issue-mention.png";
+import spanOfHope from "./span-of-hope.png";
+import theBug from "./the-bug.gif";
+import search from "./search.png";
+import theFinalResult from "./the-final-result.png";
 
 **Essential mini glossary:**
 
@@ -33,13 +32,25 @@ _WAT_
 
 That's surely some weird hot reload issue, I'll just reload.
 
-<img widht='64' height='64' src="https://cdn.7tv.app/emote/6484f9b6f64f0ac1a08ab777/2x.webp" alt="..." width="64" height="64" />
+<img
+  widht="64"
+  height="64"
+  src="https://cdn.7tv.app/emote/6484f9b6f64f0ac1a08ab777/2x.webp"
+  alt="..."
+  width="64"
+  height="64"
+/>
 
 It happens again.
 
 _WTF_
 
-<img width="100%" style="aspect-ratio: auto" src={theBug.src} alt="WHAT IS THIS" />
+<img
+  width="100%"
+  style="aspect-ratio: auto"
+  src={theBug.src}
+  alt="WHAT IS THIS"
+/>
 
 ## GitHub maxxing (aaaaand discuss.prosemirror.net)
 
@@ -77,7 +88,12 @@ I jump back up from bed and go to Linear. Find a comment field to destroy, and s
 
 At first I just mention myself (user mention), and it _didn't_ have the issue. My heart drops. I check the elements panel, and everything seems the same as I have.
 
-<img widht='64' height='64' src="https://cdn.7tv.app/emote/64047fa6871734dcee8efc4a/2x.webp" alt="I do some thonking" />
+<img
+  widht="64"
+  height="64"
+  src="https://cdn.7tv.app/emote/64047fa6871734dcee8efc4a/2x.webp"
+  alt="I do some thonking"
+/>
 
 Oh I can also mention issues, might as well try that.
 
@@ -85,7 +101,10 @@ Oh I can also mention issues, might as well try that.
 
 I inspect the DOM.
 
-<Image src={spanOfHope} alt="Spans added by Linear before and after nodeViews" />
+<Image
+  src={spanOfHope}
+  alt="Spans added by Linear before and after nodeViews"
+/>
 
 ### _JAAAAACKPOOOOOT_
 
@@ -109,7 +128,10 @@ So, as any person would, I googled an insane query.
 
 [Forum post ↗](https://discuss.prosemirror.net/t/after-setting-it-to-display-flex-the-cursor-is-mispositioned/4484/2)
 
-<Image src={theFinalResult} alt="Marijn Haverbeke, ProseMirror author says having flex inside inline nodes is a bad idea" />
+<Image
+  src={theFinalResult}
+  alt="Marijn Haverbeke, ProseMirror author says having flex inside inline nodes is a bad idea"
+/>
 
 ## Conclusion
 
@@ -123,4 +145,11 @@ Bye.
 
 Try the behaviour out in this embedded ProseMirror instance. The checkbox adds/removes the extra spans needed (`:has` is goated)
 
-<iframe src="https://pm-inline-nodeview-blog.vercel.app/" width="100%" height="400px" style="border: 0; border-radius: 4px; overflow: hidden;" title="A curious case of ProseMirror inline node(views)" loading="lazy"></iframe>
+<iframe
+  src="https://pm-inline-nodeview-blog.vercel.app/"
+  width="100%"
+  height="400px"
+  style="border: 0; border-radius: 4px; overflow: hidden;"
+  title="A curious case of ProseMirror inline node(views)"
+  loading="lazy"
+></iframe>

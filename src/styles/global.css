@@ -5,7 +5,8 @@
 html {
   overflow-y: auto;
   color-scheme: light;
-  scroll-padding-top: 120px;
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,7 +54,7 @@ article {
   @apply prose-p:text-pretty;
   @apply prose-headings:text-balance prose-headings:font-semibold;
   @apply prose-headings:text-black prose-headings:dark:text-white;
-  @apply prose-img:rounded-md prose-img:outline prose-img:outline-offset-2 prose-img:outline-black/15 prose-img:dark:outline-white/20;
+  @apply prose-img:rounded-md prose-video:rounded-md;
 }
 
 @layer utilities {
@@ -69,7 +70,16 @@ article {
 }
 
 summary {
-  @apply select-none list-none;
+  @apply select-none;
+  span {
+    margin-left: 4px;
+  }
+  &::-webkit-details-marker {
+    font-size: smaller;
+  }
+  &::marker {
+    font-size: smaller;
+  }
 }
 
 .animate {

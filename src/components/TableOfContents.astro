@@ -21,8 +21,7 @@ function buildToc(headings: Heading[]) {
     if (heading.depth === 2) {
       toc.push(heading);
     } else {
-      // keep just 1 level
-      // parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
     }
   });
   return toc;
@@ -33,21 +32,10 @@ function buildToc(headings: Heading[]) {
   open
   class:list={[
     "animate rounded-lg border border-black/15 dark:border-white/20",
-    "group",
   ]}
 >
   <summary>
     <span class="align-middle">Table of Contents</span>
-    <Image
-      height={16}
-      width={16}
-      src={`/chevron.svg`}
-      alt="Chevron"
-      class:list={[
-        "inline-block",
-        "transition-transform duration-100 ease-in-out group-open:rotate-90",
-      ]}
-    />
   </summary>
   <nav class="">
     <ul class="py-3">

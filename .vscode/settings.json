@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": false,
+  // "editor.codeActionsOnSave": {
+  // 	"source.organizeImports": "never"
+  // },
+  "[mdx]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    },
+    "editor.formatOnSave": false
+  }
+}

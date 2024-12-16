@@ -1,0 +1,121 @@
+---
+// src/components/Lightbox.astro
+---
+
+<div
+	id="lightbox"
+	data-lightbox-state="closed"
+	class:list={[
+		"fixed inset-0 z-50 hidden items-center justify-center bg-black p-4",
+		"transition-opacity duration-100",
+		"data-[lightbox-state=closed]:bg-opacity-0 data-[lightbox-state=open]:bg-opacity-70 backdrop-blur-sm",
+	]}
+>
+</div>
+
+<style is:inline>
+	#lightbox.active {
+		display: flex;
+	}
+</style>
+
+<script is:inline>
+	function escapeKeyHandler(event) {
+		if (event.key === "Escape") {
+			const lightbox = document.getElementById("lightbox");
+			if (lightbox && lightbox.dataset.lightboxState === "open") {
+				closeLightbox(lightbox);
+			}
+		}
+	}
+
+	/**
+	 * @param {HTMLImageElement | HTMLVideoElement} image
+	 */
+	function openLightbox(image) {
+		const lightbox = document.getElementById("lightbox");
+		const imageClone = image.cloneNode();
+
+		// prevents duplicates from click/pointerup together
+		if (!lightbox || lightbox.firstChild) return;
+
+		lightbox.classList.add("active");
+		lightbox.dataset.lightboxState = "open";
+
+		/** @type {HTMLImageElement | HTMLVideoElement} */
+		const inserted = lightbox.appendChild(imageClone);
+		inserted.classList.add("max-h-full");
+		inserted.classList.add("w-auto");
+
+		inserted.animate(
+			[
+				{ transform: "scale(0.9)", opacity: 0.5 },
+				{ transform: "scale(1)", opacity: 1 },
+			],
+			{
+				duration: 200,
+				easing: "ease-in-out",
+			}
+		);
+
+		const close = () => {
+			const closeAnimation = inserted.animate(
+				[
+					{ transform: "scale(1)", opacity: 1 },
+					{ transform: "scale(0.9)", opacity: 0.5 },
+				],
+				{
+					duration: 200,
+					easing: "ease-in-out",
+				}
+			);
+			closeAnimation.finished.then(() => {
+				closeLightbox(lightbox);
+			});
+		};
+
+		lightbox.addEventListener("click", (e) => {
+			/** @type {HTMLElement} */
+			// const target = e.target;
+			//
+			close(e);
+		});
+	}
+
+	/**
+	 * @param {HTMLDivElement} lightbox
+	 */
+	function closeLightbox(lightbox) {
+		lightbox.classList.remove("active");
+		lightbox.dataset.lightboxState = "closed";
+		if (lightbox.lastElementChild)
+			lightbox.removeChild(lightbox.lastElementChild);
+		// enable body scroll
+		document.body.style.overflow = "auto";
+	}
+
+	/**
+	 * @param {MouseEvent | PointerEvent} event
+	 */
+	function imageClickHandler(event) {
+		const image = /** @type {HTMLImageElement | HTMLVideoElement} */ (
+			event.target
+		);
+		// prevent body scroll
+		document.body.style.overflow = "hidden";
+		image.scrollIntoView({ behavior: "instant", block: "center" });
+		openLightbox(image);
+	}
+
+	function setupLightbox() {
+		const allImages = document.querySelectorAll("img");
+		const allVideos = document.querySelectorAll("video");
+		[...allImages, ...allVideos].forEach((image) => {
+			image.addEventListener("click", imageClickHandler);
+		});
+	}
+
+	document.addEventListener("DOMContentLoaded", () => setupLightbox());
+	document.addEventListener("astro:after-swap", () => setupLightbox());
+	document.addEventListener("keydown", escapeKeyHandler);
+</script>

@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { dirname, join } from "node:path";
+import { getImage } from "astro:assets";
+import { readFile } from "node:fs/promises";
+import { prettyDate } from "@lib/utils";
+
+type Props = {
+  entry: CollectionEntry<"work">;
+};
+
+const { entry } = Astro.props;
+
+const fileDir = dirname(entry.filePath ?? "");
+const logoPath = join(process.cwd(), fileDir, "logo.svg");
+let logoSvgText = "";
+
+try {
+  logoSvgText = await readFile(logoPath, {
+    encoding: "utf-8",
+  });
+} catch (e) {
+  logoSvgText = `<svg><text>404</text></svg>`;
+}
+---
+
+<a
+  href={`/${entry.collection}/${entry.id}`}
+  rel="noopener noreferrer"
+  class="not-prose group relative flex flex-nowrap items-center rounded-lg border border-black/15 px-4 py-3 pr-10 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+>
+  <span class="mr-4 size-8 object-contain" set:html={logoSvgText} />
+  <!-- <img
+    src={logo.src}
+    width={logo.attributes.width}
+    height={logo.attributes.height}
+    alt={`${entry.data.title} logo`}
+    class="mr-4 size-8 object-contain"
+  /> -->
+  <div class="flex flex-1 flex-col truncate">
+    <div class="truncate font-semibold">
+      {entry.data.role}, {entry.data.company}
+    </div>
+    <div class="truncate text-sm tabular-nums">
+      {prettyDate(entry.data.startDate)} - {prettyDate(entry.data.endDate)}
+    </div>
+  </div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
+  >
+    <line
+      x1="5"
+      y1="12"
+      x2="19"
+      y2="12"
+      class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"
+    ></line>
+    <polyline
+      points="12 5 19 12 12 19"
+      class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+    ></polyline>
+  </svg>
+</a>

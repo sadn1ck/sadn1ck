@@ -22,7 +22,7 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={`${post.data.company}`} description={""}>
+<Layout title={`${post.data.company}`} description={`Things I did as a ${post.data.role} at ${post.data.company}`}>
   <Container>
     <div class="animate">
       <BackToPrevious href="/">Back to home</BackToPrevious>

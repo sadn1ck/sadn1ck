@@ -14,13 +14,13 @@ import theFinalResult from "./the-final-result.png";
 
 **Essential mini glossary:**
 
-1. ProseMirror - a set of libraries for building rich text editors.
-2. Node - a ProseMirror document is a hierarchy of nodes, like the browser DOM. The document might be a "doc" with "paragraph" and "heading" as nodes, and "text" as a leaf node.
-3. NodeView - Another way to change how ProseMirror renders a node. Allows you to define a custom UI for a specific node.
+1. [ProseMirror](https://prosemirror.net/docs/ref/) - a set of libraries for building rich text editors.
+2. [Node](https://prosemirror.net/docs/ref/#model.Node) - a ProseMirror document is a hierarchy of nodes, like the browser DOM. The document might be a "doc" with "paragraph" and "heading" as nodes, and "text" as a leaf node.
+3. [NodeView](https://prosemirror.net/docs/ref/#view.NodeView) - Another way to change how ProseMirror renders a node. Allows you to define a custom UI for a specific node.
 
 ---
 
-Recently I was working on implementing a mentions feature in text fields at Chronicle. We use ProseMirror for all our text fields - excellent library - and we use `@nytimes/react-prosemirror` for the React component based nodeView integration.
+Recently I was working on implementing a mentions feature in text fields at Chronicle. We use ProseMirror for all our text fields - excellent library - and we use [`@nytimes/react-prosemirror`](https://github.com/nytimes/react-prosemirror) for the React component based nodeView integration.
 
 After getting the bulk of the implementation done, I noticed an extremely weird issue.
 
@@ -32,18 +32,9 @@ _WAT_
 
 That's surely some weird hot reload issue, I'll just reload.
 
-<img
-  widht="64"
-  height="64"
-  src="https://cdn.7tv.app/emote/6484f9b6f64f0ac1a08ab777/2x.webp"
-  alt="..."
-  width="64"
-  height="64"
-/>
+...
 
 It happens again.
-
-_WTF_
 
 <img
   width="100%"

@@ -130,7 +130,7 @@
 	function setupLightbox() {
 		const allImages = document.querySelectorAll("img");
 		const allVideos = document.querySelectorAll("video");
-		console.info(`[debug] window.isMobile:`, window.isMobile);
+		console.debug(`[debug] window.isMobile:`, window.isMobile);
 		[...allImages, ...allVideos].forEach((image) => {
 			// dont lightbox on mobile
 			if (!window.isMobile) {

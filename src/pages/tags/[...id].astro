@@ -6,38 +6,38 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const blogs = await getCollection("blog", ({ data }) => !data.draft);
 
   // Get unique tags
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+  const tags = [...new Set(blogs.flatMap((post) => post.data.tags || []))];
 
   // Create paths for each tag
   return tags.map((tag) => ({
     params: { id: tag },
     props: {
-      posts: posts.filter((post) => post.data.tags?.includes(tag)),
+      blogs: blogs.filter((post) => post.data.tags?.includes(tag)),
     },
   }));
 }
 
 const { id } = Astro.params;
-const { posts } = Astro.props;
+const { blogs } = Astro.props;
 
-// Sort posts by date, most recent first
-const sortedPosts = posts.sort(
+// Sort blogs by date, most recent first
+const sortedBlogs = blogs.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
 ---
 
-<Layout title={`Tag: ${id}`} description={`Posts with the tag: ${id}`}>
+<Layout title={`Tag: ${id}`} description={`Blogs with the tag: ${id}`}>
   <Container>
     <div class="space-y-10" data-pagefind-ignore>
       <BackToPrevious href="/tags"> All tags </BackToPrevious>
       <h1 class="animate font-semibold text-black dark:text-white">
-        Posts tagged with "{id}"
+        Blogs tagged with "{id}"
       </h1>
       <ul class="animate flex flex-col gap-4">
-        {sortedPosts.map((post) => <BlogCard entry={post} />)}
+        {sortedBlogs.map((post) => <BlogCard entry={post} />)}
       </ul>
     </div>
   </Container>

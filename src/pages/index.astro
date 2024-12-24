@@ -11,7 +11,7 @@ import WorkCard from "../components/WorkCard.astro";
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+  .slice(0, SITE.NUM_BLOGS_ON_HOMEPAGE);
 
 const work = (await getCollection("work"))
   .filter((post) => !post.data.draft)
@@ -38,9 +38,9 @@ const work = (await getCollection("work"))
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Latest posts
+              Latest blogs
             </h2>
-            <Link href="/blog"> See all posts </Link>
+            <Link href="/blog"> See all blogs </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {

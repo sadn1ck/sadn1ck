@@ -10,36 +10,36 @@ import { readingTime } from "@lib/utils";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog"))
+  const blogs = (await getCollection("blog"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-  return posts.map((post) => ({
+  return blogs.map((post) => ({
     params: { id: post.id },
     props: post,
   }));
 }
 type Props = CollectionEntry<"blog">;
 
-const posts = (await getCollection("blog"))
+const blogs = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 function getNextPost() {
   let postIndex;
-  for (const post of posts) {
+  for (const post of blogs) {
     if (post.id === Astro.params.id) {
-      postIndex = posts.indexOf(post);
-      return posts[postIndex + 1];
+      postIndex = blogs.indexOf(post);
+      return blogs[postIndex + 1];
     }
   }
 }
 
 function getPrevPost() {
   let postIndex;
-  for (const post of posts) {
+  for (const post of blogs) {
     if (post.id === Astro.params.id) {
-      postIndex = posts.indexOf(post);
-      return posts[postIndex - 1];
+      postIndex = blogs.indexOf(post);
+      return blogs[postIndex - 1];
     }
   }
 }

@@ -9,9 +9,10 @@ import CustomImage from "@components/CustomImage.astro";
 import CustomVideo from "@components/CustomVideo.astro";
 import updatesInIDB from "./updates-idb.png";
 import encodeComparison from "./encodeStateAsUpdateComparison.png";
+import benchAndResults from "./bench-and-results.png";
 import switching from "./switching.webm";
 
-## You spin my head right round...
+## You spin my head right round... 😵‍💫
 
 Seeing a spinner after every click isn't fun. We began seeing this at Chronicle a while after our private beta launch. Every time you switched documents from the sidebar, it would take upwards of 4-5 seconds to get into editing. It sucked big time.
 
@@ -23,9 +24,14 @@ Why was the document (`Y.Doc`) so large?
 
 Our initial hunch was our extensive use of `Y.Map`s, which does not make use of Yjs' optimizations if key value writes are in an alternating order.
 
-I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a Yjs document with a `Y.Map`. The results were pretty terrible and it confirmed our suspicions.
+I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a Yjs document with a `Y.Map`. The results were pretty terrible (8MB lol damn) and it confirmed our suspicions.
 
-Now we have identified the culprit - but _what_ could we do about it?
+<CustomImage
+  src={benchAndResults}
+  alt="Benchmark results of random updates to a Y.Map"
+/>
+
+Now we have identified the culprit - but _what_ could we do to fix it?
 
 ### Some Yjs jargon
 
@@ -53,7 +59,7 @@ Although we do not go into depth about Yjs here, only its surrounding ecosystem 
 
 ### Potential solutions to our problem
 
-One promising avenue was Yjs' `encodeStateAsUpdateV2` method for creating the initial state vector. This was a sureshot way of reducing the document size itself as it compressed larger documents much better than the v1 implementation, trading off the efficiency in smaller `Y.Doc`s
+One promising avenue was Yjs' `encodeStateAsUpdateV2` method for creating the initial state vector. This was a confirmed way of reducing the document size (evident from the benchmark) as it compresses larger documents much better than the v1 implementation, trading off the efficiency in smaller `Y.Doc`s.
 
 <CustomImage
   src={encodeComparison}
@@ -68,11 +74,11 @@ To understand why this initial payload (aka the state vector) was so large, we n
 
 The Yjs synchronization process relies on the standards and implementation defined by the `y-protocols` library. It has the following major steps:
 
-### WebSocket connection initiate ↔
+### 0. WebSocket connection initiate ↔
 
 This is the setup phase where a WebSocket connection between the client and server is established.
 
-### Client initiates sync with `SyncStep1` request ↗
+### 1. Client initiates sync with `SyncStep1` request ↗
 
 ```js
 // y-protocols/sync.js
@@ -94,7 +100,7 @@ export const writeSyncStep1 = (encoder, doc) => {
 
 The client is telling the server, "Here's what I know about the document till this point in time. Send me only what's missing"
 
-### `SyncStep1` processed by server, `SyncStep2` response ↙
+### 2. `SyncStep1` processed by server, `SyncStep2` response ↙
 
 ```js
 // y-protocols/sync.js
@@ -137,7 +143,7 @@ export const writeSyncStep2 = (encoder, doc, encodedStateVector) => {
 
 In a client-server model (like with y-websocket), the server will also send its own `SyncStep1` message immediately after sending the `SyncStep2` message (not demonstrated in the code above), to ensure that it's up-to-date with all operations made by the client.
 
-### Client processes received `SyncStep2` and finishes sync ↻
+### 3. Client processes received `SyncStep2` and finishes sync ↻
 
 ```js
 // y-protocols/sync.js
@@ -166,7 +172,7 @@ export const readSyncStep2 = (decoder, doc, txOrigin) => {
 
 The client is now in sync with the server, having received every update that it was missing.
 
-### Subsequent updates (peer edits)
+### 4. Subsequent updates (peer edits)
 
 ```js
 // y-protocols/sync.js
@@ -237,7 +243,7 @@ This tremendously reduced our load times and switch times, of course with the tr
 
 It also brought in some inherent complexity regarding managing mismatches in document versions when we underwent a schema upgrade, but we handle that by forcing a full sync when we detect it.
 
-We released it initially under a feature flag in order to limit the blast radius to just ourselves at Chronicle, but now it has been released to everyone 😁
+We released it initially under a feature flag in order to limit the blast radius to just ourselves at Chronicle, but now it has been released to all users 😁
 
 ## Finishing up
 

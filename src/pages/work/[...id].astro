@@ -7,11 +7,11 @@ import { readingTime } from "@lib/utils";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("work"))
+  const blogs = (await getCollection("work"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => a.data.order - b.data.order);
 
-  return posts.map((post) => ({
+  return blogs.map((post) => ({
     params: { id: post.id },
     props: post,
   }));

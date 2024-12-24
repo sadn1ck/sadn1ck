@@ -14,3 +14,9 @@ export type Socials = {
   NAME: string;
   HREF: string;
 }[];
+
+export type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};

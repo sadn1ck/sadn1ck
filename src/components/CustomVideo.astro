@@ -1,0 +1,27 @@
+---
+import { Fragment } from "astro/jsx-runtime";
+import { cn } from "../lib/utils";
+
+type Props = astroHTML.JSX.VideoHTMLAttributes & {
+  info?: string;
+  type?: string;
+  src: ImageMetadata;
+};
+
+const { src, type, info, ...props } = Astro.props;
+---
+
+<video
+  {...props}
+  autoplay
+  playsinline
+  muted
+  controls
+  width="100%"
+  class={cn(props.class, "mb-0")}
+>
+  <source src={src} type={type} />
+</video>
+<figcaption>
+  {info}
+</figcaption>

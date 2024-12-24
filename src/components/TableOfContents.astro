@@ -1,31 +1,15 @@
 ---
-import { Image } from "astro:assets";
+import type { Heading } from "../types";
 import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+
+interface Props {
+  headings: Heading[];
+}
 
 // https://kld.dev/building-table-of-contents/
 const { headings } = Astro.props;
-const toc = buildToc(headings);
 
-export interface Heading {
-  depth: number;
-  slug: string;
-  text: string;
-}
-
-function buildToc(headings: Heading[]) {
-  const toc: Heading[] = [];
-  const parentHeadings = new Map();
-  headings.forEach((h) => {
-    const heading = { ...h, subheadings: [] };
-    parentHeadings.set(heading.depth, heading);
-    if (heading.depth === 2) {
-      toc.push(heading);
-    } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
-    }
-  });
-  return toc;
-}
+const  minDepth  = headings.map(h => h.depth).sort((a, b) => a-b)[0];
 ---
 
 <details
@@ -39,7 +23,7 @@ function buildToc(headings: Heading[]) {
   </summary>
   <nav class="">
     <ul class="py-3">
-      {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
+      {headings.map((heading) => <TableOfContentsHeading heading={heading} minDepth={minDepth} />)}
     </ul>
   </nav>
 </details>

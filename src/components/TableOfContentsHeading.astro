@@ -1,23 +1,23 @@
 ---
-import type { Heading } from "./TableOfContents.astro";
+import type { Heading } from "../types";
 import Link from "./Link.astro";
 
 // https://kld.dev/building-table-of-contents/
 
-const { heading } = Astro.props;
+interface Props {
+  heading: Heading;
+  minDepth: number;
+}
+
+const { heading, minDepth } = Astro.props;
+const shift = (heading.depth - minDepth) * 16;
 ---
 
-<li class="list-inside list-disc px-6 py-1.5 text-sm">
-  <Link href={"#" + heading.slug} underline>
+<li
+  class:list={["list-inside list-disc py-1.5 pl-6 pr-2 text-sm"]}
+  style=`margin-left: ${shift}px;`
+>
+  <Link href={"#" + heading.slug} underline extraClass={`inline`}>
     {heading.text}
   </Link>
-  {
-    heading.subheadings.length > 0 && (
-      <ul class="translate-x-3">
-        {heading.subheadings.map((subheading: Heading) => (
-          <Astro.self heading={subheading} />
-        ))}
-      </ul>
-    )
-  }
 </li>

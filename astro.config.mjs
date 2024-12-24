@@ -15,7 +15,6 @@ export default defineConfig({
     },
   },
   image: {
-    domains: ["cdn.7tv.app"],
     remotePatterns: [
       {
         protocol: "https",

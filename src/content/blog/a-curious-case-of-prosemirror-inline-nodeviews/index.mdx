@@ -5,7 +5,7 @@ date: "2024-10-15"
 tags: ["prosemirror", "rich-text", "debugging"]
 ---
 
-import { Image } from "astro:assets";
+import CustomImage from "@components/CustomImage.astro";
 import linearIssueMention from "./linear-issue-mention.png";
 import spanOfHope from "./span-of-hope.png";
 import theBug from "./the-bug.gif";
@@ -88,11 +88,11 @@ At first I just mention myself (user mention), and it _didn't_ have the issue. M
 
 Oh I can also mention issues, might as well try that.
 
-<Image src={linearIssueMention} alt="An issue mention in Linear" />
+<CustomImage src={linearIssueMention} alt="An issue mention in Linear" />
 
 I inspect the DOM.
 
-<Image
+<CustomImage
   src={spanOfHope}
   alt="Spans added by Linear before and after nodeViews"
 />
@@ -115,11 +115,11 @@ On comparing the DOM, I realised that the user mention did _not_ have any `flex`
 
 So, as any person would, I googled an insane query.
 
-<Image src={search} alt="Hmm I wonder what I'll get" />
+<CustomImage src={search} alt="Hmm I wonder what I'll get" />
 
 [Forum post ↗](https://discuss.prosemirror.net/t/after-setting-it-to-display-flex-the-cursor-is-mispositioned/4484/2)
 
-<Image
+<CustomImage
   src={theFinalResult}
   alt="Marijn Haverbeke, ProseMirror author says having flex inside inline nodes is a bad idea"
 />

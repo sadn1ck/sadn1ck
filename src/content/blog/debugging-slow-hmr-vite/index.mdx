@@ -5,7 +5,7 @@ date: "2024-04-29"
 tags: ["debugging", "vite"]
 ---
 
-import { Image } from "astro:assets";
+import CustomImage from "@components/CustomImage.astro";
 import diff from "./diff.png";
 import beforeVAfter from "./before-v-after.png";
 
@@ -35,8 +35,8 @@ F.
 
 The fix? Changed the `content` glob to not scan `node_modules` (and `.js?(x)` files, which are basically 90% of the files inside) and instead scan the `packages` directory via relative paths, which will only scan source files.
 
-<Image src={diff} alt="fix for the slow HMR perf" />
+<CustomImage src={diff} alt="fix for the slow HMR perf" />
 
 The result? (before vs after)
 
-<Image src={beforeVAfter} alt="before vs. after of applying fix" />
+<CustomImage src={beforeVAfter} alt="before vs. after of applying fix" />

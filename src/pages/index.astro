@@ -37,21 +37,6 @@ const work = (await getCollection("work"))
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">Work</h2>
-          </div>
-          <ul class="not-prose flex flex-col gap-4">
-            {
-              work.map((post) => (
-                <li>
-                  <WorkCard entry={post} />
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
               Latest posts
             </h2>
@@ -62,6 +47,21 @@ const work = (await getCollection("work"))
               blog.map((post) => (
                 <li>
                   <BlogCard entry={post} />
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black dark:text-white">Work</h2>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            {
+              work.map((post) => (
+                <li>
+                  <WorkCard entry={post} />
                 </li>
               ))
             }

@@ -10,7 +10,7 @@ startDate: "2022-06-15"
 endDate: "now"
 ---
 
-import { Image } from "astro:assets";
+import CustomImage from "@components/CustomImage.astro";
 import mention from "./mention.png";
 import titleMention from "./mention-intro.png";
 import allMentions from "./all.png";
@@ -32,7 +32,7 @@ From then on, I've been involved in a wide-ranging set of projects, ranging from
 
 Mentions was (is?) easily one of the most impactful and product-spanning projects I've delivered at Chronicle till date.
 
-<Image src={mention} alt="Mention" />
+<CustomImage src={mention} alt="Mention" />
 
 It enables tasteful visualization via linked entities, making information discovery more intuitive. As of now, you can mention people, companies, and any custom mention you create - with the infra setup to also enable other Chronicle specific entities to be "mentioned" (documents/chapters).
 
@@ -40,13 +40,13 @@ After various design discussions spanning over a year, it finally entered our ro
 
 With the help of [@Pavan](https://www.linkedin.com/in/pavan-tirumani-312b8844/), I designed the schema for mentions, along with figuring out the right API pattern to support both public and private documents.
 
-<Image src={allMentions} alt="Mentions on various rich text widgets" />
+<CustomImage src={allMentions} alt="Mentions on various rich text widgets" />
 
 While building the UI, the bigger challenge was figuring out how to integrate it into our rich text editor components, widgets, and anything else - in a way that felt intuitive and customizable without being boilerplate-y.
 
 I was able to achieve this by utilizing ProseMirror `nodeViews` ([I have a blog on that!](/blog/a-curious-case-of-prosemirror-inline-nodeviews)) and well defined UI tokens which allowed enough customization for the mention to fit into any size and manner of text widget.
 
-<Image src={titleMention} alt="Mention on title screen" />
+<CustomImage src={titleMention} alt="Mention on title screen" />
 
 This also gave me enough flexibility to slot the mentions into our intro screens (pictured above) as well with relative ease.
 
@@ -86,29 +86,27 @@ Storyline is our entry point into Chronicle. The first version of it was a singu
 
 {/* image */}
 
-<Image src={storylinev1} alt="Storyline v1" />
+<CustomImage src={storylinev1} alt="Storyline v1" />
 
 It received a facelift later (by
 [@Pavan](https://www.linkedin.com/in/pavan-tirumani-312b8844/) and yours truly) -
 transforming into a more hierarchical structure, with chapters and individual
 sections to organize your story.
 
-<Image src={storylinev2} alt="Storyline v2" />
+<CustomImage src={storylinev2} alt="Storyline v2" />
 
 Once we moved to a discrete hierarchical structure, one trade-off we had to make was letting go of contiguous selection and arrow navigation. [@Harris](https://harrisjose.dev/) and I were able to overcome the arrow navigation issue by implementing our own on top of primitives provided by the web platform and ProseMirror.
 
 ## Widgets - headings, number card
 
-<Image src={madeWidgets} alt="Made widgets" />
+<CustomImage src={madeWidgets} alt="Made widgets" />
 
 We initially started off with widgets having a single text field - like a paragraph. Eventually, we arrived at a need for more complex widgets - with multiple text fields. I led this effort - and created these 2 widgets as the first of their kind.
 
 All such future widgets use the same architecture that I set up for these 2.
 
-{/* ## YJS schema migrations
+## YJS schema migrations
 
 We use YJS to store our documents - as we needed the realtime aspects to work seamlessly across both rich text editing AND freeform canvas movements. YJS gave us a good middle ground without having to implement everything from the ground up.
 
 The trade off was that YJS is essentially an unstructured document store - so data validation was a bit of a pain. We had to write custom transformers to interconvert `YTypes` and primitives when writing our code. The win was we basically got free realtime updates across the entire app - rich text editing and all.
- */}
-

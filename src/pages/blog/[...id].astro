@@ -2,6 +2,7 @@
 import BackToPrevious from "@components/BackToPrevious.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
+import Giscus from "@components/Giscus.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Layout from "@layouts/Layout.astro";
@@ -70,6 +71,9 @@ const { Content, headings } = await render(post);
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
       </h1>
+      <p class="animate text-base text-black/70 dark:text-white/50">
+        {post.data.description}
+      </p>
       {
         post.data.tags && post.data.tags?.length > 0 ? (
           <div class="animate flex gap-2 pt-1">
@@ -91,9 +95,9 @@ const { Content, headings } = await render(post);
       <div class="mt-24">
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
       </div>
-      <!-- <div class="mt-24">
-        <Giscus client:visible />
-      </div> -->
+      <div class="mt-24">
+        <Giscus />
+      </div>
     </article>
   </Container>
 </Layout>

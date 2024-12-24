@@ -6,9 +6,11 @@
 	id="lightbox"
 	data-lightbox-state="closed"
 	class:list={[
-		"fixed inset-0 z-50 hidden items-center justify-center bg-black p-4",
-		"transition-opacity duration-100",
-		"backdrop-blur-sm data-[lightbox-state=closed]:bg-opacity-0 data-[lightbox-state=open]:bg-opacity-70",
+		"fixed inset-0 z-50 items-center justify-center bg-black p-4",
+		"transition-opacity duration-200",
+		"backdrop-blur-sm bg-opacity-70",
+		"data-[lightbox-state=closed]:opacity-0 data-[lightbox-state=open]:opacity-100",
+		"data-[lightbox-state=closed]:pointer-events-none",
 	]}
 >
 </div>
@@ -63,15 +65,16 @@
 		const inserted = lightbox.appendChild(imageClone);
 		inserted.classList.add("max-h-full");
 		inserted.classList.add("w-auto");
+		inserted.classList.add("rounded-md");
 
 		inserted.animate(
 			[
-				{ transform: "scale(0.9)", opacity: 0.5 },
+				{ transform: "scale(0.9)", opacity: 0 },
 				{ transform: "scale(1)", opacity: 1 },
 			],
 			{
 				duration: 200,
-				easing: "ease-in-out",
+				easing: "ease-in",
 			}
 		);
 
@@ -79,11 +82,11 @@
 			const closeAnimation = inserted.animate(
 				[
 					{ transform: "scale(1)", opacity: 1 },
-					{ transform: "scale(0.9)", opacity: 0.5 },
+					{ transform: "scale(0.9)", opacity: 0 },
 				],
 				{
 					duration: 200,
-					easing: "ease-in-out",
+					easing: "ease-out",
 				}
 			);
 			closeAnimation.finished.then(() => {
@@ -92,12 +95,6 @@
 		};
 
 		lightbox.addEventListener("click", (e) => {
-			/** @type {HTMLElement} */
-			const target = e.target;
-			if (target.nodeName === "IMG" || target.nodeName === "VIDEO") {
-				e.preventDefault();
-				return;
-			}
 			close(e);
 		});
 	}
@@ -118,7 +115,7 @@
 	 * @param {MouseEvent | PointerEvent} event
 	 */
 	function imageClickHandler(event) {
-		const image = /** @type {HTMLImageElement | HTMLVideoElement} */ (
+		const image = /** @type {HTMLImageElement} */ (
 			event.target
 		);
 		// prevent body scroll
@@ -129,9 +126,7 @@
 
 	function setupLightbox() {
 		const allImages = document.querySelectorAll("img");
-		const allVideos = document.querySelectorAll("video");
-		console.debug(`[debug] window.isMobile:`, window.isMobile);
-		[...allImages, ...allVideos].forEach((image) => {
+		[...allImages].forEach((image) => {
 			// dont lightbox on mobile
 			if (!window.isMobile) {
 				image.addEventListener("click", imageClickHandler);

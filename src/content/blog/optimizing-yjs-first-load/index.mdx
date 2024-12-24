@@ -1,0 +1,256 @@
+---
+title: Optimizing Yjs first load at Chronicle
+description: "Deep dive into the Yjs sync protocol - reducing large initial sync payloads"
+date: "2024-12-25"
+tags: ["yjs", "performance", "crdt", "sync protocol"]
+---
+
+import CustomImage from "@components/CustomImage.astro";
+import CustomVideo from "@components/CustomVideo.astro";
+import updatesInIDB from "./updates-idb.png";
+import encodeComparison from "./encodeStateAsUpdateComparison.png";
+import switching from "./switching.webm";
+
+## You spin my head right round...
+
+Seeing a spinner after every click isn't fun. We began seeing this at Chronicle a while after our private beta launch. Every time you switched documents from the sidebar, it would take upwards of 4-5 seconds to get into editing. It sucked big time.
+
+Initial investigation led us to identifying Yjs, which we used as our primary document store, was sending a massive initial websocket message (>2MB) via websockets when we connected to the server.
+
+### Culprit ⁉️
+
+Why was the document (`Y.Doc`) so large?
+
+Our initial hunch was our extensive use of `Y.Map`s, which does not make use of Yjs' optimizations if key value writes are in an alternating order.
+
+I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a Yjs document with a `Y.Map`. The results were pretty terrible and it confirmed our suspicions.
+
+Now we have identified the culprit - but _what_ could we do about it?
+
+### Some Yjs jargon
+
+Although we do not go into depth about Yjs here, only its surrounding ecosystem and sync protocols - some of the terms and phrases will likely not make sense. Here's a small primer:
+
+- **Yjs:** A Conflict-free Replicated Data Types (CRDTs) implementation. CRDTs are special data structures that can be modified concurrently by multiple users, and when the changes are combined together, they will _always_ merge together in a consistent state.
+
+- **y-protocols:** Synchronization and encoding protocols used by Yjs. It defines how different peers communicate with each other to exchange and apply document updates. What we will look at is the message formats and the exchange of `SyncStep1` and `SyncStep2` messages during document synchronization.
+
+- **Yjs providers**: A "provider" is what connects a Yjs document to other clients (through a network) or that synchronizes a document with a database. `y-websocket` is one such provider, and Liveblocks gives us their Yjs provider, `LiveblocksYjsProvider` to sync with their storage.
+
+- **y-websocket:** This is one implementation of `y-protocols`. It uses WebSockets as the transport layer for sending synchronization messages between multiple clients.
+
+- **Y.Doc:** Represents a shared document, tracks all changes, and manages the state of shared types (like `Y.Array`, `Y.Map`, `Y.Text`). Each user who collaborates on the same document will have their own `Y.Doc` instance.
+
+- **State Vector:** Compact representation of the state of a local document. It's essentially a map of `clientId`s to `clock` values, which is used to generate efficient updates when syncing clients.
+
+- **Updates:** Changes on the shared document are encoded into binary encoded (highly compressed) document updates. Document updates are commutative, associative, and idempotent. This means that you can apply them in any order and multiple times. All clients will sync up when they receive all document updates.
+
+- **encodeStateAsUpdate:** This method encodes the document state as a single update message that can be applied on other documents (aka other clients). Optionally, specifying the target state vector returns only the missing differences to the update message.
+
+- **applyUpdate:** Once a peer receives an update (for example via `SyncStep2`), this is the method used to apply a document update on the shared document.
+
+- **clientID and clock**: Every operation in Yjs has a unique identifier `ID(clientId, clock)`, where the `clientId` represents the client that made the change, and the `clock` is an ever increasing counter for that specific client.
+
+### Potential solutions to our problem
+
+One promising avenue was Yjs' `encodeStateAsUpdateV2` method for creating the initial state vector. This was a sureshot way of reducing the document size itself as it compressed larger documents much better than the v1 implementation, trading off the efficiency in smaller `Y.Doc`s
+
+<CustomImage
+  src={encodeComparison}
+  alt="Comparison of a large Chronicle document in both encoding methods"
+/>
+
+Unfortunately, our chosen Yjs provider, Liveblocks, didn't support this method at the time. It was also not mentioned in the Yjs docs, meaning it could very well be experimental. After some back-and-forth with the fantastic people at Liveblocks, it became apparent that we needed to look for alternative strategies.
+
+To understand why this initial payload (aka the state vector) was so large, we need to understand Yjs' sync behavior.
+
+## Yjs sync flow - `y-protocols`
+
+The Yjs synchronization process relies on the standards and implementation defined by the `y-protocols` library. It has the following major steps:
+
+### WebSocket connection initiate ↔
+
+This is the setup phase where a WebSocket connection between the client and server is established.
+
+### Client initiates sync with `SyncStep1` request ↗
+
+```js
+// y-protocols/sync.js
+//
+export const messageYjsSyncStep1 = 0;
+// ...
+export const writeSyncStep1 = (encoder, doc) => {
+  encoding.writeVarUint(encoder, messageYjsSyncStep1);
+  // on the client which initiated connection
+  // encode the current state of the doc and send it to server
+  const sv = Y.encodeStateVector(doc);
+  encoding.writeVarUint8Array(encoder, sv);
+};
+```
+
+- `writeSyncStep1(encoder, doc)`: This function is called by the client to initiate the sync.
+- `Y.encodeStateVector(doc)`: This creates a state vector from the current `Y.Doc` instance, mapping `clientId` to their `clock`.
+- The state vector is then written to the `encoder` and sent to the server.
+
+The client is telling the server, "Here's what I know about the document till this point in time. Send me only what's missing"
+
+### `SyncStep1` processed by server, `SyncStep2` response ↙
+
+```js
+// y-protocols/sync.js
+
+export const messageYjsSyncStep2 = 1;
+
+/**
+ * Read SyncStep1 message and reply with SyncStep2.
+ *
+ * @param {decoding.Decoder} decoder The reply to the received message
+ * @param {encoding.Encoder} encoder The received message
+ * @param {Y.Doc} doc
+ */
+export const readSyncStep1 = (decoder, encoder, doc) =>
+  writeSyncStep2(encoder, doc, decoding.readVarUint8Array(decoder));
+
+// ...
+
+/**
+ * @param {encoding.Encoder} encoder
+ * @param {Y.Doc} doc
+ * @param {Uint8Array} [encodedStateVector]
+ */
+export const writeSyncStep2 = (encoder, doc, encodedStateVector) => {
+  encoding.writeVarUint(encoder, messageYjsSyncStep2);
+  // State vector received from request + remote doc on server
+  // used to compute all document updates missing on the client
+  const update = Y.encodeStateAsUpdate(doc, encodedStateVector);
+  encoding.writeVarUint8Array(encoder, update);
+};
+```
+
+- `readSyncStep1(decoder, encoder, doc)`: This function is called on the server when a `SyncStep1` message is received. It reads the state vector sent by the client.
+
+- `writeSyncStep2(encoder, doc, encodedStateVector)`: This function prepares the `SyncStep2` response, calling `Y.encodeStateAsUpdate(doc, encodedStateVector)`.
+
+  - `Y.encodeStateAsUpdate(doc, encodedStateVector)`: This is where the server's `Y.Doc` uses the client's state vector to compute the difference between the server's document and the client's document. It identifies the specific updates that the client is missing, and packages just that into an efficient response state vector.
+
+- The response will be sent back to the client, containing the `SyncStep2` message.
+
+In a client-server model (like with y-websocket), the server will also send its own `SyncStep1` message immediately after sending the `SyncStep2` message (not demonstrated in the code above), to ensure that it's up-to-date with all operations made by the client.
+
+### Client processes received `SyncStep2` and finishes sync ↻
+
+```js
+// y-protocols/sync.js
+
+/**
+ * Read and apply Structs and then DeleteStore to a y instance.
+ *
+ * @param {decoding.Decoder} decoder
+ * @param {Y.Doc} doc
+ * @param {any} transactionOrigin
+ */
+export const readSyncStep2 = (decoder, doc, txOrigin) => {
+  try {
+    // Apply all the received document updates
+    // up-to-date with respect to server
+    Y.applyUpdate(doc, decoding.readVarUint8Array(decoder), txOrigin);
+  } catch (error) {
+    console.error("Caught error while handling a Yjs update", error);
+  }
+};
+```
+
+- `readSyncStep2(decoder, doc, transactionOrigin)`: This function, called on the client, processes the received `SyncStep2` message.
+- `decoding.readVarUint8Array(decoder)` is used to extract the update message
+- `Y.applyUpdate(doc, update, transactionOrigin)`: This takes the update message and applies all missing operations on the client's `Y.Doc`, thus bringing the local `Y.Doc` up to date with the server's state.
+
+The client is now in sync with the server, having received every update that it was missing.
+
+### Subsequent updates (peer edits)
+
+```js
+// y-protocols/sync.js
+
+export const messageYjsUpdate = 2;
+
+/**
+ * @param {encoding.Encoder} encoder
+ * @param {Uint8Array} update
+ */
+export const writeUpdate = (encoder, update) => {
+  encoding.writeVarUint(encoder, messageYjsUpdate);
+  encoding.writeVarUint8Array(encoder, update);
+};
+
+// y-protocols/sync.js
+/**
+ * Read and apply Structs and then DeleteStore to a y instance.
+ *
+ * @param {decoding.Decoder} decoder
+ * @param {Y.Doc} doc
+ * @param {any} transactionOrigin
+ */
+export const readUpdate = readSyncStep2;
+
+// method which handles all types of sync messages
+export const readSyncMessage = (decoder, encoder, doc, txOrigin) => {
+  const messageType = decoding.readVarUint(decoder);
+  switch (messageType) {
+    // ...
+    case messageYjsUpdate:
+      readUpdate(decoder, doc, txOrigin);
+      break;
+    default:
+      throw new Error("Unknown message type");
+  }
+  return messageType;
+};
+```
+
+When a client makes a local change:
+
+- The client uses `writeUpdate(encoder, update)` to send the created `update` to the server.
+- The `y-websocket` server receives the `messageYjsUpdate`, routes the message to `readUpdate`, which in turns applies the updates using `Y.applyUpdate`
+- The server then broadcasts the new update to every other connected peer, so they can also apply the changes.
+
+## The solution™
+
+Going back to our problem with the sync flow in mind, what we need to do is reduce our `SyncStep1` response size from the server. To achieve that, we used `y-indexeddb` to store the updating `Y.Doc` in IndexedDB, and then the `LiveblocksYjsProvider` would use that as an initial state to start the sync process.
+
+The flow would look like this:
+
+1. On first load, a large state vector would be sent if it is a big document, which would be synced to IndexedDB by the IndexedDB plugin.
+2. On subsequent loads, we would first populate our `Y.Doc` from IndexedDB, and then start the sync process to y-websocket
+   - This means, that we would have some amount of updates already - hence, reducing the amount of updates that need to be sent back in the response
+   - As Yjs supports composing multiple Yjs providers, we can safely use both `y-websocket` and `y-indexeddb` together
+3. Any peer updates received during a session would also be synced to IndexedDB, thus never needing to receive massive updates (unless you return after a year and your collaborator has worked a lot on the document)
+
+<CustomImage src={updatesInIDB} alt="Updates and state vector in IndexedDB" />
+
+This tremendously reduced our load times and switch times, of course with the trade off that we'd be using some of the users' browser storage.
+
+<CustomVideo
+  info="Switching documents in Chronicle"
+  src={switching}
+  type="video/webm"
+/>
+
+It also brought in some inherent complexity regarding managing mismatches in document versions when we underwent a schema upgrade, but we handle that by forcing a full sync when we detect it.
+
+We released it initially under a feature flag in order to limit the blast radius to just ourselves at Chronicle, but now it has been released to everyone 😁
+
+## Finishing up
+
+This was a massive needle mover in terms of user experience improvement on Chronicle. The solution was not flashy at all, nor did it need any divine intervention (thankfully 🙏).
+
+A lot of it came down to identifying the bottleneck properly and figuring out how to use existing things to reach a solution which didn't require rewriting half the codebase or a month of work.
+
+Very satisfying.
+
+## References
+
+1. [Yjs Fundamentals — Part 2: Sync & Awareness](https://medium.com/dovetail-engineering/yjs-fundamentals-part-2-sync-awareness-73b8fabc2233) by [Peter Wooden](https://www.linkedin.com/in/peter-wooden/)
+2. [yjs: crdt library](https://github.com/yjs/yjs) by [Kevin Jahns](https://github.com/dmonad)
+3. [y-protocols: yjs encoding protocols for syncing](https://github.com/yjs/y-protocols)
+4. [y-websocket: y-protocols implementation with websockets](https://github.com/yjs/y-websocket)
+5. [y-indexeddb: sync yjs to browser indexeddb](https://github.com/yjs/y-indexeddb)

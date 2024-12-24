@@ -91,6 +91,8 @@
 			);
 			closeAnimation.finished.then(() => {
 				closeLightbox(lightbox);
+			}).then(() => {
+				image.scrollIntoView({ behavior: "smooth", block: "center" });
 			});
 		};
 
@@ -108,7 +110,7 @@
 		if (lightbox.lastElementChild)
 			lightbox.removeChild(lightbox.lastElementChild);
 		// enable body scroll
-		document.body.style.overflow = "auto";
+		document.documentElement.style.overflow = "auto";
 	}
 
 	/**
@@ -119,8 +121,7 @@
 			event.target
 		);
 		// prevent body scroll
-		document.body.style.overflow = "hidden";
-		image.scrollIntoView({ behavior: "instant", block: "center" });
+		document.documentElement.style.overflow = "hidden";
 		openLightbox(image);
 	}
 

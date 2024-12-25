@@ -10,6 +10,7 @@ import CustomVideo from "@components/CustomVideo.astro";
 import updatesInIDB from "./updates-idb.png";
 import encodeComparison from "./encodeStateAsUpdateComparison.png";
 import benchAndResults from "./bench-and-results.png";
+import syncFlow from "./sync-flow.webp";
 import switching from "./switching.webm";
 
 ## You spin my head right round... 😵‍💫
@@ -24,7 +25,7 @@ Why was the document (`Y.Doc`) so large?
 
 Our initial hunch was our extensive use of `Y.Map`s, which does not make use of Yjs' optimizations if key value writes are in an alternating order.
 
-I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a Yjs document with a `Y.Map`. The results were pretty terrible (8MB lol damn) and it confirmed our suspicions.
+I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a `Y.Doc` with a `Y.Map`. The results were pretty terrible (8MB lol damn) and it confirmed our suspicions.
 
 <CustomImage
   src={benchAndResults}
@@ -73,6 +74,11 @@ To understand why this initial payload (aka the state vector) was so large, we n
 ## Yjs sync flow - `y-protocols`
 
 The Yjs synchronization process relies on the standards and implementation defined by the `y-protocols` library. It has the following major steps:
+
+<CustomImage
+  src={syncFlow}
+  alt="The Yjs sync flow diagram, from Peter Wooden's article about Yjs sync and awareness"
+/>
 
 ### 0. WebSocket connection initiate ↔
 
@@ -137,11 +143,11 @@ export const writeSyncStep2 = (encoder, doc, encodedStateVector) => {
 
 - `writeSyncStep2(encoder, doc, encodedStateVector)`: This function prepares the `SyncStep2` response, calling `Y.encodeStateAsUpdate(doc, encodedStateVector)`.
 
-  - `Y.encodeStateAsUpdate(doc, encodedStateVector)`: This is where the server's `Y.Doc` uses the client's state vector to compute the difference between the server's document and the client's document. It identifies the specific updates that the client is missing, and packages just that into an efficient response state vector.
+- `Y.encodeStateAsUpdate(doc, encodedStateVector)`: This is where the server's `Y.Doc` uses the client's state vector to compute the difference between the server's document and the client's document. It identifies the specific updates that the client is missing, and packages just that into an efficient response state vector.
 
-- The response will be sent back to the client, containing the `SyncStep2` message.
+The response will be sent back to the client, containing the `SyncStep2` message, informing the client of updates that it is missing.
 
-In a client-server model (like with y-websocket), the server will also send its own `SyncStep1` message immediately after sending the `SyncStep2` message (not demonstrated in the code above), to ensure that it's up-to-date with all operations made by the client.
+In a client-server model (like with y-websocket), the server will also send its own `SyncStep1` message immediately after sending the `SyncStep2` message (see diagram), to ensure that it's up-to-date with all operations made by the client.
 
 ### 3. Client processes received `SyncStep2` and finishes sync ↻
 
@@ -221,13 +227,13 @@ When a client makes a local change:
 
 ## The solution™
 
-Going back to our problem with the sync flow in mind, what we need to do is reduce our `SyncStep1` response size from the server. To achieve that, we used `y-indexeddb` to store the updating `Y.Doc` in IndexedDB, and then the `LiveblocksYjsProvider` would use that as an initial state to start the sync process.
+Going back to our problem with the sync flow in mind, what we need to do is reduce the `SyncStep2` message the server sends. To achieve that, we used `y-indexeddb` to store the updating `Y.Doc` in IndexedDB, and then the `LiveblocksYjsProvider` would use that as an initial state to start the sync process.
 
 The flow would look like this:
 
 1. On first load, a large state vector would be sent if it is a big document, which would be synced to IndexedDB by the IndexedDB plugin.
 2. On subsequent loads, we would first populate our `Y.Doc` from IndexedDB, and then start the sync process to y-websocket
-   - This means, that we would have some amount of updates already - hence, reducing the amount of updates that need to be sent back in the response
+   - This means, that we would have some amount of updates already (when client sends `SyncStep1`) - hence, reducing the amount of updates that need to be sent back (`SyncStep2`) in the response
    - As Yjs supports composing multiple Yjs providers, we can safely use both `y-websocket` and `y-indexeddb` together
 3. Any peer updates received during a session would also be synced to IndexedDB, thus never needing to receive massive updates (unless you return after a year and your collaborator has worked a lot on the document)
 
@@ -243,7 +249,7 @@ This tremendously reduced our load times and switch times, of course with the tr
 
 It also brought in some inherent complexity regarding managing mismatches in document versions when we underwent a schema upgrade, but we handle that by forcing a full sync when we detect it.
 
-We released it initially under a feature flag in order to limit the blast radius to just ourselves at Chronicle, but now it has been released to all users 😁
+We initially released it under a feature flag in order to limit the blast radius to just us at Chronicle, but now it has been released to all users 🏎️💨
 
 ## Finishing up
 

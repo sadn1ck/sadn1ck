@@ -69,7 +69,7 @@ One promising avenue was Yjs' `encodeStateAsUpdateV2` method for creating the in
 
 Unfortunately, our chosen Yjs provider, Liveblocks, didn't support this method at the time. It was also not mentioned in the Yjs docs, meaning it could very well be experimental. After some back-and-forth with the fantastic people at Liveblocks, it became apparent that we needed to look for alternative strategies.
 
-To understand why this initial payload (aka the state vector) was so large, we need to understand Yjs' sync behavior.
+> To properly come up with other useful strategies, we need to understand Yjs' sync behavior, and why the initial payload can grow so large.
 
 ## Yjs sync flow - `y-protocols`
 

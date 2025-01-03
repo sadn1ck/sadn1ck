@@ -103,10 +103,30 @@ Once we moved to a discrete hierarchical structure, one trade-off we had to make
 
 We initially started off with widgets having a single text field - like a paragraph. Eventually, we arrived at a need for more complex widgets - with multiple text fields. I led this effort - and created these 2 widgets as the first of their kind.
 
-All such future widgets use the same architecture that I set up for these 2.
+All future widgets with multiple text fields use the same architecture that I set up for these 2.
 
-## YJS schema migrations
 
-We use YJS to store our documents - as we needed the realtime aspects to work seamlessly across both rich text editing AND freeform canvas movements. YJS gave us a good middle ground without having to implement everything from the ground up.
+## Performance improvements
 
-The trade off was that YJS is essentially an unstructured document store - so data validation was a bit of a pain. We had to write custom transformers to interconvert `YTypes` and primitives when writing our code. The win was we basically got free realtime updates across the entire app - rich text editing and all.
+After every sprint I would ask "Hey can I work on fixing the lag there pls thx". Seniors gave in after I asked a few times lol.
+
+I managed to fix slowness in the critical path of Chronicle - the repeated first load. 
+
+The first major headache was the terribly slow first load of any document. You could sit and stare at the loader for over 5 seconds, which is absolutely unacceptable.
+
+Fixing it required a deep dive in how YJS sync initiates, how updates are send, and how to work around that. SURPRISE SURPRISE - [I have a blog on it!](/blog/optimizing-yjs-first-load).
+
+The second issue was large bundle sizes which crops up in most major apps. While compression helps most of it, the idea is that the first load bundle should be as small as possible to make the app feel snappy.
+
+Poring over bundle outputs and dependency graphs for over a day, removing unneeded dependencies and switching to more tree-shakable libraries, I managed to reduce the bundle size by almost 30%.
+
+
+### And more...
+
+- Wrote multiple reusable ProseMirror text editors, and multiple plugins to support them
+- Setup the pnpm monorepo which we still use
+  - multiple internal packages (aren't built, so we export TS directly)
+  - clean build in under a minute (can be faster but not enough RoI for now)
+- 2024's 2nd highest committer (overall top committer, sorry Pavan) and 2nd highest bug fixer hehe
+
+🫡

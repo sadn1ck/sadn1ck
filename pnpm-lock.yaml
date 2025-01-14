@@ -29,6 +29,9 @@ importers:
       '@fontsource/ibm-plex-sans':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource/lato':
+        specifier: ^5.1.1
+        version: 5.1.1
       astro:
         specifier: ^5.0.3
         version: 5.0.5(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)
@@ -457,6 +460,9 @@ packages:
 
   '@fontsource/ibm-plex-sans@5.1.0':
     resolution: {integrity: sha512-v2aFHGh33ogG+At6dVNUCX6vWlNAhQ6STWj5WrBKPxVWX1SsAnHNq8sXQBa7WHEt29Irmozuk7GTp6GzFlpwdQ==}
+
+  '@fontsource/lato@5.1.1':
+    resolution: {integrity: sha512-sHnUKhfLcCxa2DTfXlpFntXJAFJ/s4kmmRFRf29Dp7dBcdFdlvWjCbXPZf1rhkzdE1vqTwBVlOGSX/kFgIOkhg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2777,6 +2783,8 @@ snapshots:
   '@fontsource/ibm-plex-mono@5.1.0': {}
 
   '@fontsource/ibm-plex-sans@5.1.0': {}
+
+  '@fontsource/lato@5.1.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

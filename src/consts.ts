@@ -32,15 +32,15 @@ export const SOCIALS: Socials = [
     HREF: "mailto:anikdas0811@gmail.com",
   },
   {
-    NAME: "Twitter",
-    HREF: "https://twitter.com/__sadn1ck__",
-  },
-  {
     NAME: "LinkedIn",
     HREF: "https://www.linkedin.com/in/sadn1ck",
   },
   {
     NAME: "BlueSky",
     HREF: "https://bsky.app/profile/anikd.com",
+  },
+  {
+    NAME: "Twitter",
+    HREF: "https://twitter.com/__sadn1ck__",
   },
 ];

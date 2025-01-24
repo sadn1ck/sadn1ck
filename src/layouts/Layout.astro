@@ -17,10 +17,11 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en" style="overflow: auto;">
   <head>
-    <Head title={`${title} ✦ ${SITE.TITLE}`} description={description} />
+    <Head title={`${title} / ${SITE.TITLE}`} description={description} />
   </head>
+  <Header transition:persist />
+
   <body>
-    <Header />
     <main>
       <slot />
     </main>

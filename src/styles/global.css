@@ -145,7 +145,47 @@ pre {
   @apply scale-90 transition-transform;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 100ms;
+body {
+  view-transition-name: body-vt;
+}
+header {
+  view-transition-name: header-vt;
+}
+
+::view-transition-old(header-vt),
+::view-transition-new(header-vt) {
+  animation-duration: 0ms;
+}
+
+::view-transition-old(body-vt),
+::view-transition-new(body-vt) {
+  animation-duration: 150ms;
+}
+
+::view-transition-old(body-vt) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(body-vt) {
+  animation-name: slide-in;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

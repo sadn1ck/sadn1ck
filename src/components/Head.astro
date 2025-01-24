@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import "@fontsource-variable/public-sans";
+import "@fontsource-variable/jetbrains-mono";
 
 interface Props {
   title: string;
@@ -161,8 +163,8 @@ const { title, description, image = "" } = Astro.props;
              -ms-transition: none !important;
              transition: none !important;
           }
-        `,
-      ),
+        `
+      )
     );
 
     document.head.appendChild(css);

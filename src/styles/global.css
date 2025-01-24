@@ -147,5 +147,5 @@ pre {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 50ms;
+  animation-duration: 100ms;
 }

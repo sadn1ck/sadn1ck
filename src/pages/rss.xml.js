@@ -3,13 +3,9 @@ import { SITE } from "@consts";
 import { getCollection } from "astro:content";
 
 export async function GET(context) {
-  const blog = (await getCollection("blog")).filter((post) => !post.data.draft);
+  const blogs = (await getCollection("blog")).filter((post) => !post.data.draft);
 
-  const work = (await getCollection("work")).filter(
-    (project) => !project.data.draft,
-  );
-
-  const items = [...blog, ...work].sort(
+  const items = [...blogs].sort(
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
   );
 

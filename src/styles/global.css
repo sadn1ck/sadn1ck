@@ -28,9 +28,9 @@ body {
 }
 
 header {
-  @apply fixed left-0 right-0 top-0 z-50 py-6;
-  @apply bg-neutral-100/75 dark:bg-neutral-900/75;
-  @apply backdrop-blur-sm;
+  @apply fixed left-0 right-0 top-0 z-50 py-3;
+  /* TODO: Add blur later */
+  @apply bg-neutral-100 dark:bg-neutral-900;
 }
 
 main {
@@ -187,5 +187,18 @@ header {
   }
   to {
     opacity: 0;
+  }
+}
+
+ul:has(.BlogCard:hover) {
+  .BlogCard {
+    transition-property: opacity, transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    opacity: 0.6;
+  }
+  .BlogCard:hover {
+    opacity: 1;
+    transform: translateX(theme(spacing.1));
   }
 }

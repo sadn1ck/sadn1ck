@@ -14,12 +14,12 @@ export const HOME: Metadata = {
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION: "Blogs on various things I work on.",
 };
 
 export const WORK: Metadata = {
   TITLE: "Work",
-  DESCRIPTION: "Writings about my work experience.",
+  DESCRIPTION: "Commentary on things I have worked on professionally.",
 };
 
 export const SOCIALS: Socials = [

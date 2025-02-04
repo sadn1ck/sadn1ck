@@ -34,7 +34,7 @@ const sortedBlogs = blogs.sort(
     <div class="space-y-10" data-pagefind-ignore>
       <BackToPrevious href="/tags"> All tags </BackToPrevious>
       <h1 class="animate font-semibold text-black dark:text-white">
-        Blogs tagged with "{id}"
+        Blogs tagged with <code>{id}</code>
       </h1>
       <ul class="animate flex flex-col gap-4">
         {sortedBlogs.map((post) => <BlogCard entry={post} />)}

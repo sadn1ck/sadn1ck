@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { dirname, join } from "node:path";
-import { getImage } from "astro:assets";
 import { readFile } from "node:fs/promises";
 import { prettyDate } from "@lib/utils";
 
@@ -41,8 +40,8 @@ try {
     <div class="truncate font-semibold">
       {entry.data.role}, {entry.data.company}
     </div>
-    <div class="truncate text-sm tabular-nums">
-      {prettyDate(entry.data.startDate)} - {prettyDate(entry.data.endDate)}
+    <div class="truncate text-sm">
+      {prettyDate(entry.data.startDate)} &nbsp; – &nbsp; {prettyDate(entry.data.endDate)}
     </div>
   </div>
   <svg

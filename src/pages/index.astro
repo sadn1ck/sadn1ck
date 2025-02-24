@@ -23,7 +23,6 @@ const work = (await getCollection("work"))
   <Container>
     <aside data-pagefind-ignore>
       <Signature />
-      <!-- <h1 class="font-semibold text-black dark:text-white">Anik Das</h1> -->
       <div class="space-y-16">
         <section>
           <article class="space-y-4">
@@ -59,7 +58,7 @@ const work = (await getCollection("work"))
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">Work</h2>
           </div>
-          <ul class="not-prose flex flex-col gap-4">
+          <ul class="not-prose flex flex-col">
             {
               work.map((post) => (
                 <li>

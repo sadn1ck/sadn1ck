@@ -202,3 +202,22 @@ ul:has(.BlogCard:hover) {
     transform: translateX(theme(spacing.1));
   }
 }
+
+.SiteName::before {
+  position: absolute;
+  top: 0%;
+  right: 100%;
+  opacity: 0;
+  content: "https://";
+  transition-property: opacity, transform;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  font-weight: normal;
+  font-family: theme(fontFamily.mono);
+  font-size: theme(fontSize.xs);
+}
+
+.SiteName:hover::before {
+  opacity: 0.6;
+  transform: translateY(calc(1em - 50%));
+}

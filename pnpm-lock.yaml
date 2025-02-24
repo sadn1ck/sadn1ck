@@ -13,7 +13,7 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.2)
       '@astrojs/mdx':
         specifier: ^4.0.8
-        version: 4.0.8(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))
+        version: 4.0.8(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))
       '@astrojs/rss':
         specifier: ^4.0.11
         version: 4.0.11
@@ -22,7 +22,7 @@ importers:
         version: 3.2.1
       '@astrojs/tailwind':
         specifier: ^6.0.0
-        version: 6.0.0(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.16)
+        version: 6.0.0(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.16)
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.1.2
         version: 5.1.2
@@ -30,11 +30,11 @@ importers:
         specifier: ^5.1.2
         version: 5.1.2
       astro:
-        specifier: ^5.2.6
-        version: 5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
+        specifier: ^5.3.0
+        version: 5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
       astro-pagefind:
         specifier: ^1.7.0
-        version: 1.7.0(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))
+        version: 1.7.0(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -774,8 +774,8 @@ packages:
     peerDependencies:
       astro: ^2.0.4 || ^3 || ^4 || ^5
 
-  astro@5.2.6:
-    resolution: {integrity: sha512-CrTuJMwpWF9kmOhX+cl6uPqNbTRrHO7eXggFP9SK7+Bsen/7FpJtA6k1p/ALleuV5ndJLqn/9tpmP3qACHPjYA==}
+  astro@5.3.0:
+    resolution: {integrity: sha512-e88l/Yk/6enR/ZDddLbqtM+oblBFk5mneNSmNesyVYGL/6Dj4UA67GPAZOk79VxT5dbLlclZSyyw/wlxN1aj3A==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2517,12 +2517,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.0.8(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))':
+  '@astrojs/mdx@4.0.8(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.1.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
+      astro: 5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.4
@@ -2551,9 +2551,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.1
 
-  '@astrojs/tailwind@6.0.0(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.16)':
+  '@astrojs/tailwind@6.0.0(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.16)':
     dependencies:
-      astro: 5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
+      astro: 5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
       autoprefixer: 10.4.20(postcss@8.5.2)
       postcss: 8.5.2
       postcss-load-config: 4.0.2(postcss@8.5.2)
@@ -3119,14 +3119,14 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-pagefind@1.7.0(astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)):
+  astro-pagefind@1.7.0(astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)):
     dependencies:
       '@pagefind/default-ui': 1.2.0
-      astro: 5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
+      astro: 5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1)
       pagefind: 1.2.0
       sirv: 3.0.0
 
-  astro@5.2.6(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1):
+  astro@5.3.0(@types/node@18.19.68)(jiti@1.21.6)(rollup@4.34.6)(typescript@5.7.2)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.5.1

@@ -1,5 +1,6 @@
 ---
 import { prettyDate } from "@lib/utils";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -11,15 +12,27 @@ type Props = {
 const { entry } = Astro.props;
 
 const fileDir = dirname(entry.filePath ?? "");
-const logoPath = join(process.cwd(), fileDir, "logo.svg");
-let logoSvgText = null;
+const logoSvgPath = join(process.cwd(), fileDir, "logo.svg");
+const logoPngPath = join(process.cwd(), fileDir, "logo.png");
 
+let logoSvgText = null;
+let logoPngBase64 = null;
+
+// Try to read SVG first
 try {
-  logoSvgText = await readFile(logoPath, {
+  logoSvgText = await readFile(logoSvgPath, {
     encoding: "utf-8",
   });
 } catch (e) {
   logoSvgText = null;
+
+  // If SVG doesn't exist, check if PNG exists and read as base64
+  try {
+    const pngBuffer = await readFile(logoPngPath);
+    logoPngBase64 = `data:image/png;base64,${pngBuffer.toString("base64")}`;
+  } catch (e) {
+    logoPngBase64 = null;
+  }
 }
 
 const dur = `${prettyDate(entry.data.startDate)} — ${prettyDate(entry.data.endDate)}`;
@@ -27,10 +40,24 @@ const dur = `${prettyDate(entry.data.startDate)} — ${prettyDate(entry.data.end
 
 <a
   href={`/${entry.collection}/${entry.id}`}
-  class="BlogCard group relative flex flex-wrap items-start gap-3 rounded-xl py-3 pl-1 no-underline transition-all duration-300"
+  class="BlogCard group relative flex flex-wrap items-start items-center gap-3 rounded-xl py-3 pl-1 no-underline transition-all duration-300"
 >
-  {logoSvgText && <span set:html={logoSvgText} class="aspect-square h-8 self-start pt-1" />}
-  <div class="flex flex-col truncate flex-1">
+  {
+    logoSvgText && (
+      <span set:html={logoSvgText} class="aspect-square h-8 self-start pt-1" />
+    )
+  }
+  {
+    logoPngBase64 && (
+      <Image
+        src={logoPngBase64}
+        alt={`${entry.data.company} logo`}
+        width={32}
+        height={32}
+      />
+    )
+  }
+  <div class="flex flex-1 flex-col truncate">
     <span class="truncate font-bold">
       {entry.data.role}
     </span>
@@ -38,5 +65,8 @@ const dur = `${prettyDate(entry.data.startDate)} — ${prettyDate(entry.data.end
       <span class="font-semibold">{entry.data.company}</span>
     </span>
   </div>
-  <span class="font-mono text-xs tabular-nums w-full ml-11 md:w-auto md:self-start md:pt-1 md:ml-0">{dur}</span>
+  <span
+    class="ml-11 w-full font-mono text-xs tabular-nums md:ml-0 md:w-auto md:self-start md:pt-1"
+    >{dur}</span
+  >
 </a>

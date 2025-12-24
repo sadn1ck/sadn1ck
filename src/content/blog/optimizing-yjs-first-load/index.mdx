@@ -5,8 +5,6 @@ date: "2024-12-25"
 tags: ["yjs", "performance", "crdt", "sync protocol"]
 ---
 
-import CustomImage from "@components/CustomImage.astro";
-import CustomVideo from "@components/CustomVideo.astro";
 import updatesInIDB from "./updates-idb.png";
 import encodeComparison from "./encodeStateAsUpdateComparison.png";
 import benchAndResults from "./bench-and-results.png";
@@ -28,10 +26,7 @@ Our initial hunch was our extensive use of `Y.Map`s, which does not make use of 
 
 I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a `Y.Doc` with a `Y.Map`. The results were pretty terrible (8MB lol damn) and it confirmed our suspicions.
 
-<CustomImage
-  src={benchAndResults}
-  alt="Benchmark results of random updates to a Y.Map"
-/>
+![Benchmark results of random updates to a Y.Map](bench-and-results.png)
 
 Now we have identified the culprit - but _what_ could we do to fix it?
 
@@ -63,10 +58,7 @@ Although we do not go into depth about Yjs here, only its surrounding ecosystem 
 
 One promising avenue was Yjs' `encodeStateAsUpdateV2` method for creating the initial state vector. This was a confirmed way of reducing the document size (evident from the benchmark) as it compresses larger documents much better than the v1 implementation, trading off the efficiency in smaller `Y.Doc`s.
 
-<CustomImage
-  src={encodeComparison}
-  alt="Comparison of a large Chronicle document in both encoding methods"
-/>
+![Comparison of a large Chronicle document in both encoding methods](encodeStateAsUpdateComparison.png)
 
 Unfortunately, our chosen Yjs provider, Liveblocks, didn't support this method at the time. It was also not mentioned in the Yjs docs, meaning it could very well be experimental. After some back-and-forth with the fantastic people at Liveblocks, it became apparent that we needed to look for alternative strategies.
 
@@ -76,10 +68,7 @@ Unfortunately, our chosen Yjs provider, Liveblocks, didn't support this method a
 
 The Yjs synchronization process relies on the standards and implementation defined by the `y-protocols` library. It has the following major steps:
 
-<CustomImage
-  src={syncFlow}
-  alt="The Yjs sync flow diagram, from Peter Wooden's article about Yjs sync and awareness"
-/>
+![The Yjs sync flow diagram, from Peter Wooden's article about Yjs sync and awareness](sync-flow.webp)
 
 ### 0. WebSocket connection initiate ↔
 
@@ -238,15 +227,11 @@ The flow would look like this:
    - As Yjs supports composing multiple Yjs providers, we can safely use both `y-websocket` and `y-indexeddb` together
 3. Any peer updates received during a session would also be synced to IndexedDB, thus never needing to receive massive updates (unless you return after a year and your collaborator has worked a lot on the document)
 
-<CustomImage src={updatesInIDB} alt="Updates and state vector in IndexedDB" />
+![Updates and state vector in IndexedDB](updates-idb.png)
 
 This tremendously reduced our load times and switch times, of course with the trade off that we'd be using some of the users' browser storage.
 
-<CustomVideo
-  info="Switching documents in Chronicle"
-  src={switching}
-  type="video/webm"
-/>
+<video controls src={switching} title="Switching documents in Chronicle"></video>
 
 It also brought in some inherent complexity regarding managing mismatches in document versions when we underwent a schema upgrade, but we handle that by forcing a full sync when we detect it.
 
@@ -254,11 +239,7 @@ We initially released it under a feature flag in order to limit the blast radius
 
 ## Finishing up
 
-<CustomVideo
-  info="Post optimization of loading Chronicle"
-  src={yjsLoad}
-  type="video/webm"
-/>
+<video controls src={yjsLoad} title="Post optimization of loading Chronicle"></video>
 
 This was a massive needle mover in terms of user experience improvement on Chronicle. The solution was not flashy at all, nor did it need any divine intervention (thankfully 🙏).
 

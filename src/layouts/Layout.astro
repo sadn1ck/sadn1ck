@@ -1,10 +1,8 @@
 ---
-import Footer from "@components/Footer.astro";
-import Head from "@components/Head.astro";
-import Header from "@components/Header.astro";
-import PageFind from "@components/PageFind.astro";
 import { SITE } from "@consts";
-import Lightbox from "../components/Lightbox.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import '../styles/global.css';
 
 type Props = {
   title: string;
@@ -15,18 +13,21 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" style="overflow: auto;">
+<html lang="en">
   <head>
-    <Head title={`${title} / ${SITE.TITLE}`} description={description} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} / {SITE.TITLE}</title>
+    <meta name="description" content={description} />
   </head>
-  <Header transition:persist />
 
   <body>
+    <Header />
     <main>
       <slot />
     </main>
     <Footer />
-    <PageFind />
-    <Lightbox />
   </body>
 </html>

@@ -10,7 +10,6 @@ startDate: "2022-06-15"
 endDate: "2025-02-07"
 ---
 
-import CustomImage from "@components/CustomImage.astro";
 import mention from "./mention.png";
 import titleMention from "./mention-intro.png";
 import allMentions from "./all.png";
@@ -32,7 +31,7 @@ From then on, I've been involved in a wide-ranging set of projects, ranging from
 
 Mentions was (is?) easily one of the most impactful and product-spanning projects I've delivered at Chronicle till date.
 
-<CustomImage src={mention} alt="Mention" />
+![Mention](mention.png)
 
 It enables tasteful visualization via linked entities, making information discovery more intuitive. As of now, you can mention people, companies, and any custom mention you create - with the infra setup to also enable other Chronicle specific entities to be "mentioned" (documents/chapters).
 
@@ -40,13 +39,13 @@ After various design discussions spanning over a year, it finally entered our ro
 
 With the help of [@Pavan](https://www.linkedin.com/in/pavan-tirumani-312b8844/), I designed the schema for mentions, along with figuring out the right API pattern to support both public and private documents.
 
-<CustomImage src={allMentions} alt="Mentions on various rich text widgets" />
+![Mentions on various rich text widgets](all.png)
 
 While building the UI, the bigger challenge was figuring out how to integrate it into our rich text editor components, widgets, and anything else - in a way that felt intuitive and customizable without being boilerplate-y.
 
 I was able to achieve this by utilizing ProseMirror `nodeViews` ([I have a blog on that!](/blog/a-curious-case-of-prosemirror-inline-nodeviews)) and well defined UI tokens which allowed enough customization for the mention to fit into any size and manner of text widget.
 
-<CustomImage src={titleMention} alt="Mention on title screen" />
+![Mention on title screen](mention-intro.png)
 
 This also gave me enough flexibility to slot the mentions into our intro screens (pictured above) as well with relative ease.
 
@@ -86,20 +85,20 @@ Storyline is our entry point into Chronicle. The first version of it was a singu
 
 {/* image */}
 
-<CustomImage src={storylinev1} alt="Storyline v1" />
+![Storyline v1](storyline-v1.png)
 
 It received a facelift later (by
 [@Pavan](https://www.linkedin.com/in/pavan-tirumani-312b8844/) and yours truly) -
 transforming into a more hierarchical structure, with chapters and individual
 sections to organize your story.
 
-<CustomImage src={storylinev2} alt="Storyline v2" />
+![Storyline v2](storyline-v2.png)
 
 Once we moved to a discrete hierarchical structure, one trade-off we had to make was letting go of contiguous selection and arrow navigation. [@Harris](https://harrisjose.dev/) and I were able to overcome the arrow navigation issue by implementing our own on top of primitives provided by the web platform and ProseMirror.
 
 ## Widgets - headings, number card
 
-<CustomImage src={madeWidgets} alt="Made widgets" />
+![Made widgets](made-widgets.png)
 
 We initially started off with widgets having a single text field - like a paragraph. Eventually, we arrived at a need for more complex widgets - with multiple text fields. I led this effort - and created these 2 widgets as the first of their kind.
 

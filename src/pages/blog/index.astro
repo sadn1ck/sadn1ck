@@ -1,51 +1,24 @@
 ---
-import BlogCard from "@components/BlogCard.astro";
-import Container from "@components/Container.astro";
-import { BLOG } from "@consts";
+export const prerender = true;
 import Layout from "@layouts/Layout.astro";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
-const data = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-type Acc = {
-  [year: string]: CollectionEntry<"blog">[];
-};
-
-const blogs = data.reduce((acc: Acc, post) => {
-  const year = post.data.date.getFullYear().toString();
-  if (!acc[year]) {
-    acc[year] = [];
-  }
-  acc[year].push(post);
-  return acc;
-}, {});
-
-const years = Object.keys(blogs).sort((a, b) => parseInt(b) - parseInt(a));
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 
-<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-  <Container>
-    <aside data-pagefind-ignore>
-      <div class="space-y-4">
-        {
-          years.map((year) => (
-            <section class="animate space-y-4">
-              <div class="font-semibold text-black dark:text-white">{year}</div>
-              <div>
-                <ul class="not-prose flex flex-col">
-                  {blogs[year].map((post) => (
-                    <li>
-                      <BlogCard entry={post} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          ))
-        }
-      </div>
-    </aside>
-  </Container>
+<Layout title="Blog" description="All blog posts">
+  <h1>Blog</h1>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <time>{post.data.date.toLocaleDateString('en-GB')}</time>
+          -
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>

@@ -1,26 +1,20 @@
-import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import pagefind from "astro-pagefind";
+
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://anikd.com",
+  output: "server",
+
   integrations: [
-    tailwind({
-      nesting: true,
-    }),
-    sitemap(),
     mdx(),
-    pagefind(),
+    sitemap(),
   ],
-  markdown: {
-    shikiConfig: {
-      theme: "css-variables",
-    },
-  },
+
   image: {
     remotePatterns: [
       {
@@ -29,4 +23,8 @@ export default defineConfig({
       },
     ],
   },
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });

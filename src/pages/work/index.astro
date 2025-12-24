@@ -1,0 +1,24 @@
+---
+export const prerender = true;
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { SITE } from "@consts";
+
+const projects = (await getCollection("work")).sort(
+  (a, b) => b.data.order - a.data.order
+);
+---
+
+<Layout title="Work" description="My professional work history">
+  <h1>Work</h1>
+  <ul>
+    {
+      projects.map((project) => (
+        <li>
+          <a href={`/work/${project.id}`}>{project.data.company}</a>
+           - {project.data.role}
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const { DB } = Astro.locals.runtime.env;
+
+let thoughts: { content: string; created_at: number }[] = [];
+let error = null;
+
+try {
+  if (DB) {
+    const { results } = await DB.prepare(
+      "SELECT * FROM thoughts ORDER BY created_at DESC"
+    ).all();
+    thoughts = results as { content: string; created_at: number }[];
+  } else {
+    error =
+      "Database binding not found. Ensure you are running in Cloudflare or have local D1 set up.";
+  }
+} catch (e) {
+  if (e instanceof Error) {
+    error = e.message;
+  }
+}
+---
+
+<Layout title="Braindump" description="A collection of thoughts and updates.">
+  <h2>Braindump</h2>
+
+  {error && <p style="color: red;">{error}</p>}
+
+  {thoughts.length === 0 && !error && <p>Nothing here yet...</p>}
+
+  <div class="thoughts-list">
+    {
+      thoughts.map((thought) => (
+        <div class="thought-item" style="margin-bottom: 2rem;">
+          <time style="font-size: 0.85em; color: #888;">
+            {new Date(thought.created_at * 1000).toLocaleString("en-GB", {
+              timeZone: "Asia/Kolkata",
+            })}
+          </time>
+          <p style="margin-top: 0.5rem;">{thought.content.trim()}</p>
+          <hr style="border: 0; border-top: 1px dashed #eee;" />
+        </div>
+      ))
+    }
+  </div>
+</Layout>

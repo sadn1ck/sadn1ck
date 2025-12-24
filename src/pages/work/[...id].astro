@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
-import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const projects = await getCollection("work");
@@ -17,11 +17,7 @@ const { Content } = await render(project);
 
 <Layout title={project.data.company} description={project.data.role}>
   <article>
-    <header>
-      <h1>{project.data.company}</h1>
-      <p>{project.data.role}</p>
-      {project.data.url && <p><a href={project.data.url} target="_blank">Visit Website</a></p>}
-    </header>
+    <h3>Work @ {project.data.company}</h3>
     <Content />
   </article>
 </Layout>

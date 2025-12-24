@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
-import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -17,14 +17,18 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title} description={post.data.description}>
   <article>
-    <header>
-      <h1>{post.data.title}</h1>
-      <p>
-        <time datetime={post.data.date.toISOString()}>
-          {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-      </p>
-    </header>
+    <h2>{post.data.title}</h2>
+    <p>
+      <time datetime={post.data.date.toISOString()}>
+        {
+          post.data.date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </time>
+    </p>
     <Content />
   </article>
 </Layout>

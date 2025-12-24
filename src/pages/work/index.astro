@@ -1,8 +1,7 @@
 ---
 export const prerender = true;
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { SITE } from "@consts";
+import { getCollection } from "astro:content";
 
 const projects = (await getCollection("work")).sort(
   (a, b) => b.data.order - a.data.order
@@ -10,7 +9,7 @@ const projects = (await getCollection("work")).sort(
 ---
 
 <Layout title="Work" description="My professional work history">
-  <h1>Work</h1>
+  <h2>Work</h2>
   <ul>
     {
       projects.map((project) => (

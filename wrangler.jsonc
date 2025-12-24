@@ -1,0 +1,22 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+	"main": "dist/_worker.js/index.js",
+  "compatibility_date": "2025-12-24",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cms"
+    }
+  ]
+}

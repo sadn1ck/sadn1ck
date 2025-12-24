@@ -6,16 +6,16 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+const title = "Blogs";
 ---
 
-<Layout title="Blog" description="All blog posts">
-  <h1>Blog</h1>
+<Layout title={title} description="All blog posts">
+  <h2>{title}</h2>
   <ul>
     {
       posts.map((post) => (
         <li>
-          <time>{post.data.date.toLocaleDateString('en-GB')}</time>
-          -
+          <time>{post.data.date.toLocaleDateString("en-GB")}</time>-
           <a href={`/blog/${post.id}`}>{post.data.title}</a>
         </li>
       ))

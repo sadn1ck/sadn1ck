@@ -1,7 +1,8 @@
 :root {
   --width: 720px;
   --font-main: Verdana, sans-serif;
-  --font-secondary: 'Courier New', Courier, monospace;
+  --font-secondary: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
   --font-scale: 1em;
   --background-color: #fff;
   --heading-color: #222;
@@ -41,13 +42,19 @@ body {
   color: var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-main);
   color: var(--heading-color);
   line-height: 1.2;
 }
 
-strong, b {
+strong,
+b {
   color: var(--heading-color);
 }
 
@@ -65,7 +72,8 @@ nav a {
   margin-right: 10px;
 }
 
-strong, b {
+strong,
+b {
   font-weight: bold;
 }
 
@@ -87,10 +95,15 @@ hr {
   border-top: 1px dashed;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+pre {
+  font-family: var(--font-secondary);
 }
 
 code {

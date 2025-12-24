@@ -1,8 +1,8 @@
 ---
 export const prerender = true;
-import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
 import { SITE } from "@consts";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -16,13 +16,11 @@ const posts = (await getCollection("blog")).sort(
     write about things I'm working on or interested in.
   </p>
 
-  <h2>Blog</h2>
+  <h2>Blogs</h2>
   <ul>
     {
       posts.map((post) => (
         <li>
-          <time>{post.data.date.toLocaleDateString('en-GB')}</time>
-          -
           <a href={`/blog/${post.id}`}>{post.data.title}</a>
         </li>
       ))

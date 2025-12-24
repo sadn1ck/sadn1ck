@@ -1,7 +1,6 @@
 ---
 import { SITE } from "@consts";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import '../styles/global.css';
 
 type Props = {
@@ -28,6 +27,5 @@ const { title, description } = Astro.props;
     <main>
       <slot />
     </main>
-    <Footer />
   </body>
 </html>

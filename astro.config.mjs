@@ -3,17 +3,14 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://anikd.com",
   output: "server",
 
-  integrations: [
-    mdx(),
-    sitemap(),
-  ],
+  integrations: [mdx(), sitemap()],
 
   image: {
     remotePatterns: [
@@ -24,7 +21,12 @@ export default defineConfig({
     ],
   },
 
-  adapter: node({
-    mode: "standalone",
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+      configPath: "wrangler.jsonc",
+      persist: true,
+      imageService: "compile",
+    },
   }),
 });

@@ -5,6 +5,10 @@ export const SITE: Site = {
   DESCRIPTION: "Software Engineer",
   EMAIL: "anikdas0811@gmail.com",
   NUM_BLOGS_ON_HOMEPAGE: 4,
+  INTRO: `Software Engineer who enjoys working at the intersection of product and
+    infrastructure. Experience with modernizing frontend build pipelines and
+    profiling runtime performance. Like solving systemic technical problems that
+    improve both user experience and developer workflows. Also love dad jokes.`,
 };
 
 export const HOME: Metadata = {

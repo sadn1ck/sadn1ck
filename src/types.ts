@@ -3,6 +3,7 @@ export type Site = {
   DESCRIPTION: string;
   EMAIL: string;
   NUM_BLOGS_ON_HOMEPAGE: number;
+  INTRO: string;
 };
 
 export type Metadata = {

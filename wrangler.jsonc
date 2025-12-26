@@ -16,7 +16,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "cms"
+      "database_name": "cms",
+      "database_id": "644a709e-9fea-4a19-806b-a0e059f443d3"
     }
   ]
 }

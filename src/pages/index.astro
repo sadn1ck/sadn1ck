@@ -12,8 +12,7 @@ const posts = (await getCollection("blog")).sort(
 <Layout title="Home" description={SITE.DESCRIPTION}>
   <h2>About</h2>
   <p>
-    Hi, I'm Anik. I'm a software engineer. This is my personal website where I
-    write about things I'm working on or interested in.
+    {SITE.INTRO}
   </p>
 
   <h2>Blogs</h2>

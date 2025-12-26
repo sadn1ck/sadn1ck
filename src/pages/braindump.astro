@@ -21,6 +21,10 @@ try {
     error = e.message;
   }
 }
+Astro.response.headers.set(
+  "Cache-Control",
+  "s-maxage=600, stale-while-revalidate=60"
+);
 ---
 
 <Layout title="Braindump" description="A collection of thoughts and updates.">

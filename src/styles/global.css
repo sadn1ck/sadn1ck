@@ -104,19 +104,17 @@ video {
 
 pre {
   font-family: var(--font-secondary);
+  border-radius: 6px;
 }
 
 code {
   font-family: var(--font-secondary);
   font-size: 0.9em;
-  background-color: var(--code-background-color);
-  color: var(--code-color);
   padding: 2px 4px;
   border-radius: 2px;
 }
 
 pre code {
-  color: var(--code-color);
   display: block;
   padding: 15px;
   overflow: auto;

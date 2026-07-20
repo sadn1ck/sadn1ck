@@ -11,6 +11,7 @@ endDate: "2025-02-07"
 ---
 
 import CustomImage from "@components/CustomImage.astro";
+import CustomVideo from "@components/CustomVideo.astro";
 import mention from "./mention.png";
 import titleMention from "./mention-intro.png";
 import allMentions from "./all.png";
@@ -56,28 +57,24 @@ Another one of my most impactful projects - the foundation of our (glorious, IMO
 
 I, along with [@Ahielan](https://www.linkedin.com/in/ahielan-ravichandran-628921145/), built this prototype from scratch in a week. We ran multiple experiments regarding snapping logic, movement, drag-to-pan and distance heuristics for snapping.
 
-<video
+<CustomVideo
   src={canvasBefore}
-  autoplay
-  muted
+  type="video/webm"
+  caption="Freeform canvas prototype"
   loop
-  playsinline
-  controls
   loading="lazy"
-  alt="Freeform canvas prototype we built at Chronicle"
+  aria-label="Freeform canvas prototype we built at Chronicle"
 />
 
 This is the current state of it (as of December 2024) - it underwent tremendous amount of polishing since then. Large parts of the logic we wrote for the prototype was reused for this. I'll let the video speak for itself.
 
-<video
+<CustomVideo
   src={canvasAfter}
-  autoplay
-  muted
+  type="video/webm"
+  caption="Freeform canvas in production, December 2024"
   loop
-  playsinline
-  controls
   loading="lazy"
-  alt="Freeform canvas in production as of December 2024"
+  aria-label="Freeform canvas in production as of December 2024"
 />
 
 ## Storyline
@@ -105,7 +102,6 @@ We initially started off with widgets having a single text field - like a paragr
 
 All future widgets with multiple text fields use the same architecture that I set up for these 2.
 
-
 ## Performance improvements
 
 After every sprint I would ask "Hey can I work on fixing the lag there pls thx". Seniors gave in after I asked a few times lol.
@@ -119,7 +115,6 @@ Fixing it required a deep dive in how YJS sync initiates, how updates are send, 
 The second issue was large bundle sizes which crops up in most major apps. While compression helps most of it, the idea is that the first load bundle should be as small as possible to make the app feel snappy.
 
 Poring over bundle outputs and dependency graphs for over a day, removing unneeded dependencies and switching to more tree-shakable libraries, I managed to reduce the bundle size by almost 30%.
-
 
 ### And more...
 

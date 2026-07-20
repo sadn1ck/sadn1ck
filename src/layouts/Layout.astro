@@ -1,32 +1,30 @@
 ---
-import Footer from "@components/Footer.astro";
-import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
-import PageFind from "@components/PageFind.astro";
 import { SITE } from "@consts";
-import Lightbox from "../components/Lightbox.astro";
+import "../styles/global.css";
 
-type Props = {
-  title: string;
-  description: string;
-};
-
+type Props = { title: string; description: string };
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" style="overflow: auto;">
+<html lang="en">
   <head>
-    <Head title={`${title} / ${SITE.TITLE}`} description={description} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Google+Sans+Code:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <title>{title} / {SITE.TITLE}</title>
+    <meta name="description" content={description} />
   </head>
-  <Header transition:persist />
-
   <body>
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <PageFind />
-    <Lightbox />
+    <Header />
+    <main><slot /></main>
   </body>
 </html>

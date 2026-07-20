@@ -7,7 +7,7 @@ type Props = ComponentProps<typeof Image>;
 const props = Astro.props;
 ---
 
-<Image {...props} data-state="article" />
-<figcaption>
-    {props.alt}
-</figcaption>
+<figure>
+  <Image {...props} />
+  <figcaption>{props.alt}</figcaption>
+</figure>

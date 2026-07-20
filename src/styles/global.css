@@ -1,223 +1,212 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  overflow-y: auto;
-  color-scheme: light;
-  scroll-padding-top: 100px;
-  scroll-behavior: smooth;
+:root {
+  color: #444;
+  background: #fff;
+  font-family: "Google Sans Text", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+* {
+  box-sizing: border-box;
 }
-
-html,
 body {
-  @apply size-full;
+  margin: 0;
+}
+a {
+  color: #3f6fc0;
+  text-decoration: none;
 }
 
-body {
-  @apply font-sans antialiased;
-  @apply flex flex-col;
-  @apply bg-neutral-100 dark:bg-neutral-900;
-  @apply text-black/75 dark:text-white/75;
-}
-
-header {
-  @apply fixed left-0 right-0 top-0 z-50 py-3;
-  /* TODO: Add blur later */
-  @apply bg-neutral-100 dark:bg-neutral-900;
-}
-
+body > header,
 main {
-  @apply flex-1 py-32;
+  width: min(calc(100% - 2rem), 42rem);
+  margin-inline: auto;
 }
 
-footer {
-  @apply py-6 text-sm;
+body > header {
+  padding: 1.5rem 0 2.5rem;
+  font-family: "Google Sans", sans-serif;
+}
+body > header > a {
+  color: #222;
+  font-weight: 700;
+}
+nav {
+  margin-top: 0.75rem;
+}
+nav a + a {
+  margin-left: 1rem;
+}
+main {
+  padding-bottom: 5rem;
 }
 
-kbd {
-  @apply font-mono text-xs;
-  @apply text-black dark:text-white;
-  @apply bg-neutral-100 dark:bg-neutral-900;
-  @apply border border-black/15 dark:border-white/20;
-  @apply mx-1 size-full rounded-sm;
+h1,
+h2,
+h3 {
+  color: #222;
+  font-family: "Google Sans", sans-serif;
+  line-height: 1.25;
+}
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+}
+h2 {
+  font-size: 1.25rem;
+  margin: 2.5rem 0 1rem;
+}
+h3 {
+  font-size: 1.05rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 1rem;
+}
+p {
+  margin: 0 0 1rem;
+}
+li + li {
+  margin-top: 1rem;
+}
+li > p {
+  margin: 0.5rem 0 0;
+}
+
+.blog-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.work-list,
+.writing-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-list li + li {
+  margin-top: 1.25rem;
+}
+
+.work-entry {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.work-logo {
+  align-self: start;
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
+.work-logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.work-role,
+.work-company,
+.work-period {
+  display: block;
+}
+
+.work-details {
+  line-height: 1.25;
+}
+
+.work-role {
+  color: #222;
+}
+
+.work-company {
+  margin-top: 0.15rem;
+}
+
+.work-period {
+  margin-top: 0.35rem;
+  color: #777;
+  font-size: 0.85rem;
 }
 
 article {
-  @apply prose prose-neutral max-w-full dark:prose-invert prose-img:my-auto;
-  @apply prose-p:text-pretty;
-  @apply prose-headings:text-balance prose-headings:font-semibold;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
-  @apply prose-img:rounded-md prose-video:rounded-md;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+article > header {
+  padding: 1.5rem 0 2rem;
+}
+article h2 {
+  margin-top: 3rem;
+}
+article h3 {
+  margin-top: 2.5rem;
+}
+article ul,
+article ol {
+  padding-left: 1.25rem;
+}
+article blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #ddd;
 }
 
-@layer utilities {
-  article a {
-    @apply font-sans text-current underline underline-offset-[3px];
-    @apply decoration-black/30 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
+article figure {
+  margin: 2rem 0;
+}
+article img,
+article video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+article video {
+  width: 100%;
+}
+article figcaption {
+  margin-top: 0.6rem;
+  color: #777;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+code {
+  font-family: "Google Sans Code", monospace;
+}
+article pre {
+  overflow-x: auto;
+  padding: 1rem;
+  background: #f5f5f5;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 48rem) {
+  body > header {
+    padding-top: 2.5rem;
   }
-  article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/50 dark:decoration-white/50;
+  main {
+    padding-bottom: 7rem;
   }
-}
-
-summary {
-  @apply select-none;
-  span {
-    margin-left: 4px;
+  h1 {
+    font-size: 2rem;
   }
-  &::-webkit-details-marker {
-    font-size: smaller;
+  article {
+    font-size: 1.1rem;
   }
-  &::marker {
-    font-size: smaller;
-  }
-}
-
-/* .animate {
-  @apply -translate-y-3 opacity-0;
-  @apply transition-all duration-300 ease-out;
-}
-
-.animate.show {
-  @apply translate-y-0 opacity-100;
-} */
-
-html #back-to-top {
-  @apply pointer-events-none opacity-0;
-}
-
-html.scrolled #back-to-top {
-  @apply pointer-events-auto opacity-100;
-}
-
-/* shiki config */
-pre {
-  @apply border border-black/15 py-5 dark:border-white/20;
-}
-
-:root {
-  --astro-code-foreground: #09090b;
-  --astro-code-background: #fafafa;
-  --astro-code-token-comment: #a19595;
-  --astro-code-token-keyword: #f47067;
-  --astro-code-token-string: #00a99a;
-  --astro-code-token-function: #429996;
-  --astro-code-token-constant: #2b70c5;
-  --astro-code-token-parameter: #4e8fdf;
-  --astro-code-token-string-expression: #ae42a0;
-  --astro-code-token-punctuation: #8996a3;
-  --astro-code-token-link: #8d85ff;
-}
-
-.dark {
-  --astro-code-foreground: #fafafa;
-  --astro-code-background: #09090b;
-  --astro-code-token-comment: #a19595;
-  --astro-code-token-keyword: #f47067;
-  --astro-code-token-string: #00a99a;
-  --astro-code-token-function: #6eafad;
-  --astro-code-token-constant: #b3cceb;
-  --astro-code-token-parameter: #4e8fdf;
-  --astro-code-token-string-expression: #bf7db6;
-  --astro-code-token-punctuation: #8996a3;
-  --astro-code-token-link: #8d85ff;
-}
-
-/* copy code button on codeblocks */
-.copy-code {
-  @apply absolute right-3 top-3 grid size-9 place-content-center rounded border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
-}
-
-.copy-code:hover {
-  @apply bg-[#E9E9E9] transition-colors dark:bg-[#232323];
-}
-
-.copy-code:active {
-  @apply scale-90 transition-transform;
-}
-
-body {
-  view-transition-name: body-vt;
-}
-header {
-  view-transition-name: header-vt;
-}
-
-::view-transition-old(header-vt),
-::view-transition-new(header-vt) {
-  animation-duration: 0ms;
-}
-
-::view-transition-old(body-vt),
-::view-transition-new(body-vt) {
-  animation-duration: 150ms;
-}
-
-::view-transition-old(body-vt) {
-  animation-name: fade-out;
-}
-
-::view-transition-new(body-vt) {
-  animation-name: slide-in;
-}
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-ul:has(.BlogCard:hover) {
-  .BlogCard {
-    transition-property: opacity, transform;
-    transition-duration: 150ms;
-    transition-timing-function: ease-in-out;
-    opacity: 0.6;
-  }
-  .BlogCard:hover {
-    opacity: 1;
-    transform: translateX(theme(spacing.1));
-  }
-}
-
-.SiteName::before {
-  position: absolute;
-  top: 0%;
-  right: 100%;
-  opacity: 0;
-  content: "https://";
-  transition-property: opacity, transform;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-  font-weight: normal;
-  font-family: theme(fontFamily.mono);
-  font-size: theme(fontSize.xs);
-}
-
-.SiteName:hover::before {
-  opacity: 0.6;
-  transform: translateY(calc(1em - 50%));
 }

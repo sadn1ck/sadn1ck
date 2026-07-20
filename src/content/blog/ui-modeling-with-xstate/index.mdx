@@ -6,6 +6,7 @@ tags: ["xstate", "ui", "state modeling"]
 ---
 
 import xstateVideo from "./xstate.mp4";
+import CustomVideo from "@components/CustomVideo.astro";
 
 We've recently started using [XState](https://stately.ai/docs) at work for separating business logic from the UI.
 
@@ -18,9 +19,11 @@ Consider a simple interaction for an element with the following spec:
 - Any time after that, if the element is hovered by the user, we show the element
   - When hover ends, we again delay hiding it for 3 seconds, similar to initial load
 
-<video autoplay playsinline muted controls width="100%">
-  <source src={xstateVideo} type="video/mp4" />
-</video>
+<CustomVideo
+  src={xstateVideo}
+  type="video/mp4"
+  caption="The modeled interaction"
+/>
 
 ## Breakdown
 
@@ -177,7 +180,12 @@ You don't need to worry about your UI logic leaking into your business logic. Yo
 
 ### Sandbox
 
-<iframe src="https://stackblitz.com/edit/vitejs-vite-tqbjy7?ctl=1&embed=1&file=src%2Fmachine.ts&hideNavigation=1" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="Modeling Interactions w/ XState" loading="lazy"></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-tqbjy7?ctl=1&embed=1&file=src%2Fmachine.ts&hideNavigation=1"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Modeling Interactions w/ XState"
+  loading="lazy"
+></iframe>
 
 References:
 

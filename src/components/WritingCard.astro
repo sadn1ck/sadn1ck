@@ -1,0 +1,24 @@
+---
+import FormattedDate from "@components/FormattedDate.astro";
+
+type Props = {
+  entry: {
+    date: Date;
+    description: string;
+    href: string;
+    title: string;
+    type: "Post" | "Work";
+  };
+};
+
+const { entry } = Astro.props as Props;
+---
+
+<div class="blog-card">
+  <div class="blog-meta">
+    <time class="blog-date"><FormattedDate date={entry.date} /></time>
+    {entry.type === "Work" && <span class="entry-type">Work</span>}
+  </div>
+  <a class="blog-title" href={entry.href}>{entry.title}</a>
+  <p class="blog-description">{entry.description}</p>
+</div>

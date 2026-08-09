@@ -1,5 +1,6 @@
 ---
 import FormattedDate from "@components/FormattedDate.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 import Layout from "@layouts/Layout.astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 export async function getStaticPaths() {
@@ -8,7 +9,7 @@ export async function getStaticPaths() {
     .map((post) => ({ params: { id: post.id }, props: post }));
 }
 const post = Astro.props as CollectionEntry<"blog">;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
@@ -19,4 +20,5 @@ const { Content } = await render(post);
     <p>{post.data.description}</p>
   </header>
   <article><Content /></article>
+  <TableOfContents headings={headings} />
 </Layout>

@@ -1,7 +1,0 @@
----
-import type { CollectionEntry } from "astro:content";
-const { entry } = Astro.props as { entry: CollectionEntry<"blog"> };
----
-
-<a href={`/blog/${entry.id}`}>{entry.data.title}</a>
-<p class="blog-description">{entry.data.description}</p>

@@ -1,20 +1,30 @@
 ---
-import BlogCard from "@components/BlogCard.astro";
+import WritingCard from "@components/WritingCard.astro";
 import { BLOG } from "@consts";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import {
+  blogToWritingEntry,
+  hasFinishedWork,
+  sortWritingEntries,
+  workToWritingEntry,
+} from "../../writing";
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .map(blogToWritingEntry);
+const work = (await getCollection("work"))
+  .filter((entry) => !entry.data.draft && hasFinishedWork(entry))
+  .map(workToWritingEntry);
+const entries = [...posts, ...work].sort(sortWritingEntries);
 ---
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
   <h1>Writing</h1>
   <ul class="writing-list">
     {
-      posts.map((post) => (
+      entries.map((entry) => (
         <li>
-          <BlogCard entry={post} />
+          <WritingCard entry={entry} />
         </li>
       ))
     }

@@ -17,11 +17,6 @@ export const BLOG: Metadata = {
   DESCRIPTION: "Blogs on various things I work on.",
 };
 
-export const WORK: Metadata = {
-  TITLE: "Work",
-  DESCRIPTION: "Commentary on things I have worked on professionally.",
-};
-
 export const SOCIALS: Socials = [
   {
     NAME: "GitHub",

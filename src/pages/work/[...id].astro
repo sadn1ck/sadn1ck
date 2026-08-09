@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 export async function getStaticPaths() {
   return (await getCollection("work"))
@@ -7,14 +8,16 @@ export async function getStaticPaths() {
     .map((post) => ({ params: { id: post.id }, props: post }));
 }
 const post = Astro.props as CollectionEntry<"work">;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const currentRole = post.data.roles.at(-1)!;
 ---
 
 <Layout
-  title={post.data.company}
-  description={`Things I did as a ${post.data.role} at ${post.data.company}`}
+  title={`${currentRole.title} at ${post.data.company}`}
+  description={`Things I did at ${post.data.company}`}
 >
-  <a href="/work">← Work</a>
-  <header><h1>{post.data.role} at {post.data.company}</h1></header>
+  <a href="/blog">← Writing</a>
+  <header><h1>{currentRole.title} at {post.data.company}</h1></header>
   <article><Content /></article>
+  <TableOfContents headings={headings} />
 </Layout>

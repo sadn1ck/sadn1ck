@@ -21,18 +21,24 @@ const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(
     date,
   );
-const endDate =
-  entry.data.endDate > new Date() ? "Present" : formatDate(entry.data.endDate);
+const lastRole = entry.data.roles.at(-1)!;
+const hasPublicWriteUp = !entry.data.draft && lastRole.endDate !== undefined;
 ---
 
-<a class="work-entry" href={`/work/${entry.id}`}>
+<a class="work-entry" href={hasPublicWriteUp ? `/work/${entry.id}` : undefined}>
   {svgLogo && <span class="work-logo" aria-hidden="true" set:html={svgLogo} />}
   {pngLogo && <img class="work-logo" src={pngLogo} alt="" />}
   <span class="work-details">
-    <strong class="work-role">{entry.data.role}</strong>
-    <span class="work-company">{entry.data.company}</span>
-    <time class="work-period"
-      >{formatDate(entry.data.startDate)} — {endDate}</time
-    >
+    <strong class="work-company">{entry.data.company}</strong>
+    {
+      entry.data.roles.map((role) => (
+        <span class="work-role">
+          <span>{role.title}</span>
+          <time class="work-period">
+            {formatDate(role.startDate)} — {role.endDate ? formatDate(role.endDate) : "Present"}
+          </time>
+        </span>
+      ))
+    }
   </span>
 </a>

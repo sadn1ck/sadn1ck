@@ -15,15 +15,19 @@ const blog = defineCollection({
 const work = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/work" }),
   schema: z.object({
-    role: z.string(),
     company: z.string(),
+    description: z.string(),
     draft: z.boolean().optional(),
     url: z.string().url(),
-    order: z.number(),
-    startDate: z.coerce.date(),
-    endDate: z.coerce
-      .date()
-      .catch(new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 2000)),
+    roles: z
+      .array(
+        z.object({
+          title: z.string(),
+          startDate: z.coerce.date(),
+          endDate: z.coerce.date().optional(),
+        }),
+      )
+      .min(1),
   }),
 });
 

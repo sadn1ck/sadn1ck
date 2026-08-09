@@ -1,23 +1,35 @@
 ---
-import BlogCard from "@components/BlogCard.astro";
+import WritingCard from "@components/WritingCard.astro";
 import WorkCard from "@components/WorkCard.astro";
 import { HOME, SITE, SOCIALS } from "@consts";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import {
+  blogToWritingEntry,
+  hasFinishedWork,
+  sortWorkEntries,
+  sortWritingEntries,
+  workToWritingEntry,
+} from "../writing";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map(blogToWritingEntry);
+const work = (await getCollection("work")).sort(sortWorkEntries);
+const writing = [
+  ...blog,
+  ...work
+    .filter((entry) => !entry.data.draft && hasFinishedWork(entry))
+    .map(workToWritingEntry),
+]
+  .sort(sortWritingEntries)
   .slice(0, SITE.NUM_BLOGS_ON_HOMEPAGE);
-const work = (await getCollection("work"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.order - a.data.order);
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <p>
-    Software engineer working on rich text editors, CRDTs, TypeScript, state
-    machines, and developer tools.
+  <p class="intro">
+    Software developer at udaan. Building reliable systems with intuitive
+    interfaces.
   </p>
   <section>
     <header class="section-heading">
@@ -26,9 +38,9 @@ const work = (await getCollection("work"))
     </header>
     <ul class="writing-list">
       {
-        blog.map((post) => (
+        writing.map((entry) => (
           <li>
-            <BlogCard entry={post} />
+            <WritingCard entry={entry} />
           </li>
         ))
       }

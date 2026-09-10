@@ -20,5 +20,5 @@ const { entry } = Astro.props as Props;
     {entry.type === "Work" && <span class="entry-type">Work</span>}
   </div>
   <a class="blog-title" href={entry.href}>{entry.title}</a>
-  <p class="blog-description">{entry.description}</p>
+  {entry.description && <p class="blog-description">{entry.description}</p>}
 </div>

@@ -1,10 +1,13 @@
 :root {
   color: #292720;
   background: #f5f1e9;
-  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: InterVariable, ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.55;
   font-synthesis: none;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -62,7 +65,7 @@ nav a {
 }
 
 main {
-  padding: 3.25rem 0 5.5rem;
+  padding: 1.5rem 0 5.5rem;
 }
 
 h1,
@@ -74,10 +77,11 @@ h3 {
 
 h1 {
   margin: 0 0 1.25rem;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: InterVariable, ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(2.6rem, 7vw, 3.65rem);
-  font-weight: 400;
-  letter-spacing: -0.045em;
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  font-variation-settings: "opsz" 32;
 }
 
 h2 {
@@ -127,23 +131,11 @@ p {
   text-decoration: none;
 }
 
-li + li {
-  margin-top: 1rem;
-}
-
-li > p {
-  margin: 0.5rem 0 0;
-}
-
 .work-list,
 .writing-list {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.writing-list > li + li {
-  margin-top: 0;
 }
 
 .blog-card {
@@ -197,10 +189,6 @@ li > p {
   padding: 1.25rem 0;
 }
 
-.work-list li + li {
-  margin-top: 0;
-}
-
 .work-entry {
   display: grid;
   grid-template-columns: 1.9rem 1fr;
@@ -222,12 +210,6 @@ li > p {
   height: 100%;
 }
 
-.work-role,
-.work-company,
-.work-period {
-  display: block;
-}
-
 .work-details {
   line-height: 1.25;
 }
@@ -241,6 +223,7 @@ li > p {
 }
 
 .work-company {
+  display: block;
   color: #25231f;
   font-size: 0.96rem;
 }
@@ -257,13 +240,20 @@ main > a:first-child {
 }
 
 main > header {
-  padding: 1.5rem 0 2.8rem;
-  border-bottom: 1px solid #dfd9d0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem 0 1rem;
 }
 
 main > header p {
+  margin: 0;
   color: #706a62;
   font-size: 0.88rem;
+}
+
+main > header h1 {
+  margin: 0;
 }
 
 main > header h1 + p {
@@ -272,17 +262,13 @@ main > header h1 + p {
   line-height: 1.5;
 }
 
-main > header p:first-child {
-  margin-bottom: 1.25rem;
-}
-
 article {
   font-size: 1.075rem;
   line-height: 1.78;
 }
 
 article h2 {
-  margin-top: 4rem;
+  margin: 2.5rem 0 1.25rem;
   font-size: 1.5rem;
   letter-spacing: -0.03em;
   line-height: 1.2;
@@ -290,7 +276,7 @@ article h2 {
 }
 
 article h3 {
-  margin-top: 2.75rem;
+  margin: 2.5rem 0 0.85rem;
 }
 
 article h2,
@@ -298,8 +284,10 @@ article h3 {
   scroll-margin-top: 6rem;
 }
 
-article > :first-child {
-  margin-top: 2.25rem;
+article hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid #b8b1a8;
 }
 
 article ul,
@@ -337,7 +325,7 @@ article figcaption {
 }
 
 code {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Berkeley Mono", "SF Mono", Menlo, monospace;
   font-size: 0.86em;
 }
 
@@ -369,7 +357,6 @@ article pre {
   }
 
   main {
-    padding-top: 2rem;
     padding-bottom: 8rem;
   }
 

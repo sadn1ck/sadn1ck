@@ -17,7 +17,7 @@ const { Content, headings } = await render(post);
   <header>
     <p><FormattedDate date={post.data.date} /></p>
     <h1>{post.data.title}</h1>
-    <p>{post.data.description}</p>
+    {post.data.description && <p>{post.data.description}</p>}
   </header>
   <article><Content /></article>
   <TableOfContents headings={headings} />

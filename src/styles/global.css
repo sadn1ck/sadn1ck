@@ -195,12 +195,18 @@ section + section {
 }
 .back {
   display: inline-block;
-  margin-bottom: 1.5rem;
   color: #6b6e66;
   font-size: 0.85rem;
 }
 .article-header {
   margin-bottom: 2.5rem;
+}
+.article-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 .article-header .lede {
   max-width: 38rem;
@@ -209,7 +215,6 @@ section + section {
 }
 .article-header time {
   display: block;
-  margin-bottom: 1rem;
   color: #6b6e66;
   font-size: 0.85rem;
 }

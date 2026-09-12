@@ -11,4 +11,4 @@ const description = post.data.description;
 const published = post.data.date;
 const date = new Intl.DateTimeFormat("en", { day: "numeric", month: "long", year: "numeric" });
 ---
-<Layout title={headline} description={description}><a class="back" href="/blog">← All writing</a><header class="article-header"><time datetime={published.toISOString()}>{date.format(published)}</time><h1>{headline}</h1>{description && <p class="lede">{description}</p>}</header><article><Content /></article></Layout>
+<Layout title={headline} description={description}><header class="article-header"><h1>{headline}</h1><div class="article-meta"><a class="back" href="/blog">← All writing</a><time datetime={published.toISOString()}>{date.format(published)}</time></div>{description && <p class="lede">{description}</p>}</header><article><Content /></article></Layout>

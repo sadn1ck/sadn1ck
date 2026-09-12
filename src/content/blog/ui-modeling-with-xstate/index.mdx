@@ -19,11 +19,7 @@ Consider a simple interaction for an element with the following spec:
 - Any time after that, if the element is hovered by the user, we show the element
   - When hover ends, we again delay hiding it for 3 seconds, similar to initial load
 
-<CustomVideo
-  src={xstateVideo}
-  type="video/mp4"
-  caption="The modeled interaction"
-/>
+<CustomVideo src={xstateVideo} type="video/mp4" caption="The modeled interaction" />
 
 ## Breakdown
 
@@ -163,9 +159,7 @@ function App() {
         }}
       >
         <div className="...">
-          <h1 className="...">
-            Should show element: {shouldShow ? "yes" : "no"}
-          </h1>
+          <h1 className="...">Should show element: {shouldShow ? "yes" : "no"}</h1>
           <span>State machine state: {state.value}</span>
         </div>
       </main>

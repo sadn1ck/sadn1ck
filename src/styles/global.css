@@ -6,7 +6,7 @@
   --line: #e6e7e2;
   --muted: #6b6e66;
   --muted-strong: #555850;
-  --faint: #85877f;
+  --faint: #6b6e66;
   --link-line: #b9bab4;
   --code-bg: #f1f1ee;
   --code-text: #20211d;
@@ -358,15 +358,18 @@ button:hover {
   color: var(--muted);
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transform: translateY(0.4rem);
   transition:
     opacity 180ms ease,
+    visibility 180ms ease,
     transform 180ms ease,
     color 180ms ease;
 }
 .back-to-top.is-visible {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
   transform: translateY(0);
 }
 .back-to-top svg {

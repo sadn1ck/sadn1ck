@@ -27,6 +27,7 @@
 }
 body {
   margin: 0;
+  background: var(--page-bg);
 }
 a {
   color: inherit;
@@ -344,6 +345,37 @@ button {
 button:hover {
   color: var(--text);
 }
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--shell-bg);
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.4rem);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    color 180ms ease;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top svg {
+  width: 1rem;
+  height: 1rem;
+}
+.back-to-top:hover {
+  color: var(--text);
+}
 .theme-icon,
 .theme-icon svg {
   display: block;
@@ -378,6 +410,9 @@ button:hover {
   display: block !important;
 }
 @media (max-width: 560px) {
+  body {
+    background: var(--shell-bg);
+  }
   .shell {
     width: 100%;
     min-height: 100vh;
@@ -386,6 +421,9 @@ button:hover {
     border: 0;
     border-radius: 0;
     box-shadow: none;
+  }
+  .back-to-top {
+    right: 1rem;
   }
   .writing-list a {
     grid-template-columns: 4.4rem 1fr;

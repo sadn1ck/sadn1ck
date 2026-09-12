@@ -15,8 +15,10 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
       document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
     </script>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffffe" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#20211e" />
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://rsms.me" />
@@ -46,8 +48,12 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
         </div>
       </footer>
     </div>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5" /></svg>
+    </button>
     <script>
       const toggle = document.querySelector("#theme-toggle");
+      const backToTop = document.querySelector("#back-to-top");
 
       const applyTheme = (dark) => {
         document.documentElement.dataset.theme = dark ? "dark" : "light";
@@ -60,6 +66,16 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
         const dark = document.documentElement.dataset.theme !== "dark";
         localStorage.setItem("theme", dark ? "dark" : "light");
         applyTheme(dark);
+      });
+
+      const updateBackToTop = () => {
+        backToTop?.classList.toggle("is-visible", window.scrollY > window.innerHeight);
+      };
+
+      updateBackToTop();
+      window.addEventListener("scroll", updateBackToTop, { passive: true });
+      backToTop?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       });
     </script>
   </body>

@@ -9,6 +9,11 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
@@ -31,21 +36,18 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
       <main><slot /></main>
       <footer>
         <div class="footer-actions">
+          <a href="https://x.com/__sadn1ck__">say hello</a>
           <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-icon" aria-hidden="true">
               <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55" /></svg>
               <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" /></svg>
             </span>
           </button>
-          <a href="https://x.com/__sadn1ck__">say hello</a>
         </div>
       </footer>
     </div>
     <script>
       const toggle = document.querySelector("#theme-toggle");
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-      const stored = localStorage.getItem("theme");
-      const initialDark = stored ? stored === "dark" : systemDark.matches;
 
       const applyTheme = (dark) => {
         document.documentElement.dataset.theme = dark ? "dark" : "light";
@@ -53,7 +55,7 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
         toggle?.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
       };
 
-      applyTheme(initialDark);
+      applyTheme(document.documentElement.dataset.theme === "dark");
       toggle?.addEventListener("click", () => {
         const dark = document.documentElement.dataset.theme !== "dark";
         localStorage.setItem("theme", dark ? "dark" : "light");

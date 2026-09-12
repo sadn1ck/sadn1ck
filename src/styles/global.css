@@ -311,8 +311,9 @@ footer a {
 .footer-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  margin-left: auto;
+  width: 100%;
 }
 button {
   display: inline-flex;

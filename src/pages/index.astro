@@ -1,74 +1,12 @@
 ---
-import WritingCard from "@components/WritingCard.astro";
-import WorkCard from "@components/WorkCard.astro";
-import { HOME, SITE, SOCIALS } from "@consts";
-import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import {
-  blogToWritingEntry,
-  hasFinishedWork,
-  sortWorkEntries,
-  sortWritingEntries,
-  workToWritingEntry,
-} from "../writing";
-
-const blog = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
-  .map(blogToWritingEntry);
-const work = (await getCollection("work")).sort(sortWorkEntries);
-const writing = [
-  ...blog,
-  ...work
-    .filter((entry) => !entry.data.draft && hasFinishedWork(entry))
-    .map(workToWritingEntry),
-]
-  .sort(sortWritingEntries)
-  .slice(0, SITE.NUM_BLOGS_ON_HOMEPAGE);
+import Layout from "../layouts/Layout.astro";
+const posts = (await getCollection("blog")).filter((post) => !post.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
+const date = new Intl.DateTimeFormat("en", { month: "short", year: "numeric" });
 ---
-
-<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <p class="intro">
-    Software developer at udaan. Building reliable systems with intuitive
-    interfaces.
-  </p>
-  <section>
-    <header class="section-heading">
-      <h2>Writing</h2>
-      <a href="/blog">View all <span aria-hidden="true">→</span></a>
-    </header>
-    <ul class="writing-list">
-      {
-        writing.map((entry) => (
-          <li>
-            <WritingCard entry={entry} />
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-  <section>
-    <h2>Work</h2>
-    <ul class="work-list">
-      {
-        work.map((post) => (
-          <li>
-            <WorkCard entry={post} />
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-  <section>
-    <h2>Elsewhere</h2>
-    <p>
-      {
-        SOCIALS.map((social, index) => (
-          <>
-            <a href={social.HREF}>{social.NAME}</a>
-            {index < SOCIALS.length - 1 && " · "}
-          </>
-        ))
-      }
-    </p>
-  </section>
+<Layout description="Software engineer working on reliable systems and intuitive interfaces.">
+  <p class="lede home-intro">Software engineer, currently building dependable systems and intuitive interfaces at udaan.com. I care about developer tools, rich text editors, and making the web feel fast.</p>
+  <section><div class="section-heading"><h2>Recent writing</h2><a href="/blog">All writing →</a></div><ul class="writing-list">{posts.map((post) => <li><a href={`/blog/${post.id}`}><time class="entry-date" datetime={post.data.date.toISOString()}>{date.format(post.data.date)}</time><span><span class="entry-title">{post.data.title}</span>{post.data.description && <span class="entry-description">{post.data.description}</span>}</span></a></li>)}</ul></section>
+  <section><h2>Work</h2><ul class="work-list"><li><strong class="work-company">udaan.com</strong><div class="work-roles"><div><span>Software Development Engineer 3</span><time>Aug 2026 - present</time></div><div><span>Software Development Engineer 2</span><time>Mar 2025 - Jul 2026</time></div></div></li><li><strong class="work-company"><a href="/blog/work-at-chronicle">Chronicle</a></strong><div class="work-roles"><div><span>Founding Software Engineer</span><time>Jun 2022 - Feb 2025</time></div></div></li><li><strong class="work-company"><a href="/blog/work-at-gsoc">Sugar Labs</a></strong><div class="work-roles"><div><span>Developer, Google Summer of Code</span><time>May 2022 - Sep 2022</time></div></div></li></ul></section>
+  <section><h2>Elsewhere</h2><p><a href="https://github.com/sadn1ck">GitHub</a> · <a href="https://www.linkedin.com/in/sadn1ck">LinkedIn</a> · <a href="https://bsky.app/profile/anikd.com">Bluesky</a> · <a href="https://x.com/__sadn1ck__">Twitter</a> · <a href="mailto:anikdas0811@gmail.com">Email</a></p></section>
 </Layout>

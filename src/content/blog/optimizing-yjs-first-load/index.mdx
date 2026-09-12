@@ -28,10 +28,7 @@ Our initial hunch was our extensive use of `Y.Map`s, which does not make use of 
 
 I created a synthetic benchmark where I simulated repeated random writes that we do (movement/content changes/etc) to a `Y.Doc` with a `Y.Map`. The results were pretty terrible (8MB lol damn) and it confirmed our suspicions.
 
-<CustomImage
-  src={benchAndResults}
-  alt="Benchmark results of random updates to a Y.Map"
-/>
+<CustomImage src={benchAndResults} alt="Benchmark results of random updates to a Y.Map" />
 
 Now we have identified the culprit - but _what_ could we do to fix it?
 
@@ -242,11 +239,7 @@ The flow would look like this:
 
 This tremendously reduced our load times and switch times, of course with the trade off that we'd be using some of the users' browser storage.
 
-<CustomVideo
-  caption="Switching documents in Chronicle"
-  src={switching}
-  type="video/webm"
-/>
+<CustomVideo caption="Switching documents in Chronicle" src={switching} type="video/webm" />
 
 It also brought in some inherent complexity regarding managing mismatches in document versions when we underwent a schema upgrade, but we handle that by forcing a full sync when we detect it.
 
@@ -254,11 +247,7 @@ We initially released it under a feature flag in order to limit the blast radius
 
 ## Finishing up
 
-<CustomVideo
-  caption="Post-optimization loading in Chronicle"
-  src={yjsLoad}
-  type="video/webm"
-/>
+<CustomVideo caption="Post-optimization loading in Chronicle" src={yjsLoad} type="video/webm" />
 
 This was a massive needle mover in terms of user experience improvement on Chronicle. The solution was not flashy at all, nor did it need any divine intervention (thankfully 🙏).
 
@@ -268,7 +257,7 @@ Very satisfying.
 
 ## References
 
-1. [Yjs Fundamentals — Part 2: Sync & Awareness](https://medium.com/dovetail-engineering/yjs-fundamentals-part-2-sync-awareness-73b8fabc2233) by [Peter Wooden](https://www.linkedin.com/in/peter-wooden/)
+1. [Yjs Fundamentals - Part 2: Sync & Awareness](https://medium.com/dovetail-engineering/yjs-fundamentals-part-2-sync-awareness-73b8fabc2233) by [Peter Wooden](https://www.linkedin.com/in/peter-wooden/)
 2. [yjs: crdt library](https://github.com/yjs/yjs) by [Kevin Jahns](https://github.com/dmonad)
 3. [y-protocols: yjs encoding protocols for syncing](https://github.com/yjs/y-protocols)
 4. [y-websocket: y-protocols implementation with websockets](https://github.com/yjs/y-websocket)

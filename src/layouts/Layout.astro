@@ -1,26 +1,65 @@
 ---
-import Header from "@components/Header.astro";
-import { SITE } from "@consts";
 import "../styles/global.css";
 
-type Props = { title: string; description: string };
+type Props = { title?: string; description: string };
 const { title, description } = Astro.props;
+const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://rsms.me" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <title>{title} / {SITE.TITLE}</title>
-    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <Header />
-    <main><slot /></main>
+    <div class="shell">
+      <header class="site-header">
+        <a class="wordmark" href="/">anik das</a>
+        <nav aria-label="Primary navigation">
+          <a href="/blog">writings</a>
+          <a href="https://anikd.com/resume">résumé</a>
+        </nav>
+      </header>
+      <main><slot /></main>
+      <footer>
+        <span>© {new Date().getFullYear()} Anik Das</span>
+        <div class="footer-actions">
+          <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55" /></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" /></svg>
+            </span>
+          </button>
+          <a href="mailto:anikdas0811@gmail.com">say hello</a>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const toggle = document.querySelector("#theme-toggle");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+      const stored = localStorage.getItem("theme");
+      const initialDark = stored ? stored === "dark" : systemDark.matches;
+
+      const applyTheme = (dark) => {
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        toggle?.setAttribute("aria-pressed", String(dark));
+        toggle?.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      };
+
+      applyTheme(initialDark);
+      toggle?.addEventListener("click", () => {
+        const dark = document.documentElement.dataset.theme !== "dark";
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        applyTheme(dark);
+      });
+    </script>
   </body>
 </html>

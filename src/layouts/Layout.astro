@@ -12,7 +12,9 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+      const themeMode = ["light", "dark", "system"].includes(storedTheme) ? storedTheme : "system";
+      document.documentElement.dataset.themeMode = themeMode;
+      document.documentElement.dataset.theme = themeMode === "dark" || (themeMode === "system" && prefersDark) ? "dark" : "light";
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -38,11 +40,12 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
       <main><slot /></main>
       <footer>
         <div class="footer-actions">
-          <a href="https://x.com/__sadn1ck__">say hello</a>
-          <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <a href="https://x.com/__sadn1ck__" target="_blank" rel="noopener noreferrer">say hello</a>
+          <button id="theme-toggle" type="button" aria-label="Theme: system. Switch to light mode">
             <span class="theme-icon" aria-hidden="true">
               <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55" /></svg>
               <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" /></svg>
+              <svg class="system-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="4" width="17" height="12" rx="1.8" /><path d="M8 20h8M12 16v4" /></svg>
             </span>
           </button>
         </div>
@@ -55,17 +58,25 @@ const pageTitle = title ? `${title} - Anik Das` : "Anik Das";
       const toggle = document.querySelector("#theme-toggle");
       const backToTop = document.querySelector("#back-to-top");
 
-      const applyTheme = (dark) => {
-        document.documentElement.dataset.theme = dark ? "dark" : "light";
-        toggle?.setAttribute("aria-pressed", String(dark));
-        toggle?.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      const themeModes = ["light", "dark", "system"];
+      const systemTheme = () => matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const applyTheme = (mode) => {
+        document.documentElement.dataset.themeMode = mode;
+        document.documentElement.dataset.theme = mode === "system" ? systemTheme() : mode;
+        const nextMode = themeModes[(themeModes.indexOf(mode) + 1) % themeModes.length];
+        toggle?.setAttribute("aria-label", `Theme: ${mode}. Switch to ${nextMode} mode`);
       };
 
-      applyTheme(document.documentElement.dataset.theme === "dark");
+      const initialMode = document.documentElement.dataset.themeMode;
+      applyTheme(themeModes.includes(initialMode) ? initialMode : "system");
       toggle?.addEventListener("click", () => {
-        const dark = document.documentElement.dataset.theme !== "dark";
-        localStorage.setItem("theme", dark ? "dark" : "light");
-        applyTheme(dark);
+        const currentMode = document.documentElement.dataset.themeMode;
+        const nextMode = themeModes[(themeModes.indexOf(currentMode) + 1) % themeModes.length];
+        localStorage.setItem("theme", nextMode);
+        applyTheme(nextMode);
+      });
+      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        if (document.documentElement.dataset.themeMode === "system") applyTheme("system");
       });
 
       const updateBackToTop = () => {

@@ -9,9 +9,14 @@
   --faint: #6b6e66;
   --link-line: #b9bab4;
   --code-bg: #f1f1ee;
-  --code-text: #20211d;
-  --pre-bg: #252622;
-  --pre-text: #f4f4ed;
+  --pre-bg: #f1f1ee;
+  --pre-text: #20211d;
+  --syntax-comment: #6b6e66;
+  --syntax-keyword: #7b3f8c;
+  --syntax-constant: #1f5f8b;
+  --syntax-function: #98601f;
+  --syntax-string: #2f6f4e;
+  --syntax-punctuation: #20211d;
   --quote-line: #cfd0ca;
   --quote-text: #5a5d55;
   --shell-shadow: 0 1px 2px rgb(24 29 24 / 4%), 0 12px 36px rgb(24 29 24 / 5%);
@@ -216,6 +221,12 @@ section + section {
 .article-header {
   margin-bottom: 2.5rem;
 }
+.article-header h1 {
+  max-width: 24ch;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
 .article-meta {
   display: flex;
   align-items: baseline;
@@ -261,22 +272,43 @@ article code {
   font-size: 0.9em;
 }
 article pre {
+  --astro-code-background: var(--pre-bg);
+  --astro-code-foreground: var(--pre-text);
+  --astro-code-token-comment: var(--syntax-comment);
+  --astro-code-token-keyword: var(--syntax-keyword);
+  --astro-code-token-constant: var(--syntax-constant);
+  --astro-code-token-function: var(--syntax-function);
+  --astro-code-token-string-expression: var(--syntax-string);
+  --astro-code-token-punctuation: var(--syntax-punctuation);
+  margin: 1.75rem 0 2rem;
   overflow-x: auto;
-  padding: 1rem;
+  padding: 1rem 1.1rem;
   background: var(--pre-bg);
+  border: 1px solid var(--line);
   border-radius: 0.75rem;
   color: var(--pre-text);
-  font-size: 0.86rem;
-  line-height: 1.5;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  tab-size: 2;
 }
 article pre code {
   padding: 0;
   background: transparent !important;
   display: block;
+  color: inherit;
+  font: inherit;
+  font-size: 0;
+  line-height: inherit;
+  white-space: pre;
 }
 article pre .line {
   display: block;
-  min-height: 1.5em;
+  font-size: 0.8rem;
+  min-height: 0;
+}
+article pre .line:empty {
+  display: none;
 }
 article blockquote {
   margin: 1.5rem 0;
@@ -348,7 +380,7 @@ button:hover {
 .back-to-top {
   position: fixed;
   right: 1.25rem;
-  bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  bottom: calc(4rem + env(safe-area-inset-bottom));
   z-index: 10;
   width: 2rem;
   height: 2rem;
@@ -385,8 +417,17 @@ button:hover {
   width: 1rem;
   height: 1rem;
 }
-.moon-icon {
-  display: none !important;
+.theme-icon svg {
+  display: none;
+}
+:root[data-theme-mode="light"] .sun-icon {
+  display: block;
+}
+:root[data-theme-mode="dark"] .moon-icon {
+  display: block;
+}
+:root[data-theme-mode="system"] .system-icon {
+  display: block;
 }
 :root[data-theme="dark"] {
   --page-bg: #151614;
@@ -399,18 +440,17 @@ button:hover {
   --faint: #a8aba0;
   --link-line: #666a60;
   --code-bg: #30322d;
-  --code-text: #eeeee8;
   --pre-bg: #2a2c27;
   --pre-text: #eeeee8;
+  --syntax-comment: #a8aba0;
+  --syntax-keyword: #e0a7e8;
+  --syntax-constant: #8fc7ee;
+  --syntax-function: #f0c27d;
+  --syntax-string: #9bd3ad;
+  --syntax-punctuation: #eeeee8;
   --quote-line: #55594f;
   --quote-text: #b9bcb2;
   --shell-shadow: 0 1px 2px rgb(0 0 0 / 20%), 0 12px 36px rgb(0 0 0 / 18%);
-}
-:root[data-theme="dark"] .sun-icon {
-  display: none;
-}
-:root[data-theme="dark"] .moon-icon {
-  display: block !important;
 }
 @media (max-width: 560px) {
   body {

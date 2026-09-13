@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Resume workspace - Anik Das</title>
+    <link rel="stylesheet" href="/__resume?asset=editor.css" />
+    <script type="module" src="/__resume?asset=editor.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>resume/resume.typ</h1>
+      <div class="actions">
+        <span id="status" role="status">Loading source…</span
+        ><button id="save" disabled>Save & compile <kbd>⌘ S</kbd></button>
+      </div>
+    </header>
+    <main>
+      <section class="source-pane" aria-label="Typst source editor">
+        <div class="pane-heading">
+          <label for="source">Source</label><span>Auto-save after 800 ms</span>
+        </div>
+        <textarea
+          id="source"
+          aria-describedby="editor-help"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          disabled
+        ></textarea>
+        <div id="conflict" hidden>
+          <p>
+            The file changed on disk. Your edits are still here. Copy anything you want to keep
+            before loading the disk version.
+          </p>
+          <button id="load-disk">Load disk version</button>
+        </div>
+        <pre id="diagnostics" role="alert" hidden></pre>
+        <footer id="editor-help">Tab to indent · Cmd/Ctrl+S to compile now</footer>
+      </section>
+      <section class="preview-pane" aria-label="Rendered PDF">
+        <div class="pane-heading">
+          <strong>PDF preview</strong
+          ><a id="download" href="/__resume?asset=pdf" download="Anik-Das-Resume.pdf" hidden
+            >Download PDF ↗</a
+          >
+        </div>
+        <div class="preview">
+          <p id="empty-preview">Compiling your resume…</p>
+          <iframe id="pdf" title="Compiled resume PDF" hidden></iframe>
+        </div>
+        <footer id="preview-status">Waiting for first compilation</footer>
+      </section>
+    </main>
+  </body>
+</html>
